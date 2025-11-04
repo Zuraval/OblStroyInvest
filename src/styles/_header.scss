@@ -1,0 +1,151 @@
+.site-header {
+  background: #2c3e50;
+  padding: 1rem 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .header-content {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .header-logo {
+    display: block;
+    img {
+      height: 40px;
+      width: auto;
+    }
+  }
+
+  .header-nav {
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 1.5rem;
+
+      li {
+        position: relative;
+
+        &.dropdown:hover .dropdown-menu {
+          display: block;
+        }
+
+        a {
+          color: white;
+          text-decoration: none;
+          font-weight: 500;
+          font-size: 14px;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+          transition: color 0.2s ease;
+
+          &:hover {
+            color: #3498db;
+          }
+        }
+
+        .dropdown-menu {
+          display: none;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          background: #1a252f;
+          min-width: 160px;
+          box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+          z-index: 1000;
+
+          li {
+            a {
+              display: block;
+              padding: 0.75rem 1.5rem;
+              color: #ecf0f1;
+
+              &:hover {
+                background: #34495e;
+                color: white;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    .search-btn {
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+
+      svg {
+        fill: white;
+        transition: transform 0.2s ease;
+      }
+
+      &:hover svg {
+        transform: scale(1.1);
+      }
+    }
+
+    .lang-switch {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 14px;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: #3498db;
+      }
+    }
+
+    .btn-primary {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: #e67e22;
+      color: white;
+      padding: 0.6rem 1.2rem;
+      border-radius: 20px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      transition: background 0.2s ease, transform 0.1s ease;
+
+      &:hover {
+        background: #d35400;
+        transform: translateY(-1px);
+      }
+
+      svg {
+        fill: white;
+        width: 16px;
+        height: 16px;
+        transition: transform 0.2s ease;
+      }
+
+      &:hover svg {
+        transform: translateX(3px);
+      }
+    }
+  }
+}
