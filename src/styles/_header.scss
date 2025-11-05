@@ -1,7 +1,6 @@
 .site-header {
-  background: #2c3e50;
-  padding: 1rem 0;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  background: var(--footerheader);
+  padding: 0px 48px;
 
   .container {
     display: flex;
