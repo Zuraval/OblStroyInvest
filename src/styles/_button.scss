@@ -1,0 +1,80 @@
+.btn {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: var(--primary);
+  color: var(--light-text);
+  padding: 8px 16px 8px 20px;
+  border-radius: 32px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.6rem;
+  line-height: 120%;
+  text-transform: uppercase;
+  transition: all 0.2s ease;
+
+  .icon_arrow-right {
+    border: 1px solid var(--white);
+    border-radius: 50%;
+    padding: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    transition: all 0.2s ease;
+  }
+
+  svg g path {
+    transition: all 0.2s ease;
+  }
+
+  &:hover {
+    background: #e85900;
+
+    .icon_arrow-right {
+      background: var(--white);
+    }
+
+    svg g path {
+      stroke: #e85900;
+    }
+  }
+
+  &--outline {
+    background: transparent;
+    color: var(--primary);
+    border: 2px solid var(--primary);
+    
+    .icon_arrow-right {
+      border-color: var(--primary);
+      background: transparent;
+    }
+    
+    svg g path {
+      stroke: var(--primary);
+    }
+    
+    &:hover {
+      background: var(--primary);
+      color: var(--light-text);
+      
+      .icon_arrow-right {
+        background: var(--light-text);
+      }
+      
+      svg g path {
+        stroke: var(--light-text);
+      }
+    }
+  }
+  
+  &--disabled {
+    background: #cccccc;
+    color: #666666;
+    cursor: not-allowed;
+    
+    &:hover {
+      background: #cccccc;
+    }
+  }
+}

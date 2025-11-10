@@ -1,26 +1,17 @@
+include ../includes/mixins/input.pug
+
 footer.site-footer.container
+  .footer-logo
+    img(src=require("../assets/images/logo.png"), alt="Облстройинвест")
   .footer-content
     .footer-column.footer-form
-      .footer-logo
-        img(src="../assets/logo.svg", alt="Облстройинвест")
-  
       h3 Остались вопросы?
       p Оставьте свои данные — мы свяжемся с вами
       form.footer-contact-form(action="#" method="POST")
-        .form-group
-          label(for="name") Имя
-          input#name(type="text" name="name" placeholder="Сергей" required)
-        .form-group
-          label(for="phone") Телефон
-          input#phone(type="tel" name="phone" placeholder="+7 999 123-45-67" required)
-        .form-group
-          label(for="comment") Комментарий
-          textarea#comment(name="comment" rows="3" placeholder="Ваш комментарий...")
-        .form-legal
-          small Отправляя свои данные вы соглашаетесь с Пользовательским соглашением и Политикой в отношении персональных данных
-        button.btn-primary(type="submit") ОТПРАВИТЬ
-          svg(width="16", height="16", viewBox="0 0 24 24")
-            path(d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z")
+        +inputField('Имя', '', 'firstName', 'Сергей')
+        +inputField('Телефон', '', 'phone', '+7(999)999-99-99')
+        +inputField('Коментарий', '', 'comment', '')
+        p Отправляя свои данные вы соглашаетесь с Пользовательским соглашением и Политикой в отношении персональных данных
     .footer-column.footer-menu
       h3 МЕНЮ
       ul

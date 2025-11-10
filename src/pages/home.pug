@@ -1,9 +1,24 @@
 extends ../layouts/main
 
 block content
-  h2 Главная страница
-  .swiper
-    .swiper-wrapper
-      .swiper-slide Слайд 1
-      .swiper-slide Слайд 2
-    .swiper-pagination
+  
+  include ../includes/mixins/hero.pug
+  
+  - var heroData = {
+  -   tagline: 'Наша миссия',
+  -   title: 'Заголовок героя',
+  -   subtitle: 'Подзаголовок героя',
+  -   buttonText: 'Подробнее',
+  -   stats: [
+  -     { number: '1000+', label: 'Клиентов' },
+  -     { number: '5', label: 'Лет опыта' },
+  -     { number: '50+', label: 'Специалистов' }
+  -   ],
+  -   location: {
+  -     title: 'Москва',
+  -     images: ['/img1.jpg', '/img2.jpg', '/img2.jpg', '/img2.jpg', '/img2.jpg', '/img2.jpg'],
+  -     caption: 'Центральный офис'
+  -   }
+  - }
+
+  +hero(heroData.tagline, heroData.title, heroData.subtitle, heroData.buttonText, heroData.stats, heroData.location)

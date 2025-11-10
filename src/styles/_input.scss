@@ -1,0 +1,36 @@
+.input-field {
+  margin-bottom: 16px;
+}
+
+.input-label {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 1.4rem;
+  line-height: 120%;
+  color: var(--line-light);
+  display: block;
+  margin-left: 24px;
+  margin-bottom: 12px;
+}
+
+.input-control {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 120%;
+  color: var(--light-text);
+
+  width: 100%;
+  padding: 16.5px 24px;
+  border: 1px solid var(--line-light);
+  border-radius: 24px;
+  background-color: transparent;
+
+  &::placeholder {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 1.6rem;
+    line-height: 120%;
+    color: var(--light-text);
+  }
+}

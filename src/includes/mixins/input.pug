@@ -1,0 +1,9 @@
+mixin inputField(labelText, value, name, placeholder)
+  .input-field
+    label.input-label= labelText
+    input.input-control(
+      type="text"
+      name=name
+      value=value
+      placeholder=placeholder || ''
+    )

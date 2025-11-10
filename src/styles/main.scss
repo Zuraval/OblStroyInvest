@@ -1,6 +1,10 @@
 @use './fonts';
 @use './header';
 @use './footer';
+@use './home';
+@use './hero';
+@use './input';
+@use './button';
 
 :root {
 	--bg: #f5f5f5;
@@ -28,7 +32,7 @@
 }
 
 html {
-  font-family: "Manrope", sans-serif; // шрифт по умолчанию по сайту
+  font-family: var(--font-family);
   font-size: 0.520835vw; // на разрешении 1920 0.520835vw === 10px, 1rem = 10px
   font-style: normal;
   font-weight: normal;
@@ -39,15 +43,15 @@ html {
 }
 
 body {
-  font-family: "Manrope", sans-serif; // шрифт по умолчанию по сайту
+  font-family: var(--font-family);
   font-style: normal;
   font-weight: normal;
   -webkit-animation: bugfix infinite 1s;
   line-height: 1.2;
   margin: 0;
   padding: 0;
-  color: #282828; // цвет по умолчанию текста по сайту
-  background-color: #F8F8F8;
+  color: var(--text);
+  background-color: var(--white);
 }
 
 input,

@@ -1,23 +1,23 @@
 .site-header {
   background: var(--footerheader);
-  padding: 0px 48px;
-
-  .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
+  padding: 16px 48px !important;
 
   .header-content {
     display: flex;
     align-items: center;
-    gap: 2rem;
+    justify-content: space-between;
+  }
+
+  .start-section {
+    display: flex;
+    align-items: center;
+    gap: 50px;
   }
 
   .header-logo {
     display: block;
     img {
-      height: 40px;
+      height: 85px;
       width: auto;
     }
   }
@@ -28,49 +28,79 @@
       margin: 0;
       padding: 0;
       display: flex;
-      gap: 1.5rem;
+      gap: 32px;
 
       li {
+        display: flex;
         position: relative;
+        align-items: center;
+        justify-content: center;
+
+        &.dropdown {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 8px;
+        }
+
+        &.dropdown svg g path {
+          transition: stroke 0.2s ease;
+        }
+
+        &.dropdown:hover svg g path {
+          stroke: var(--primary);
+        }
 
         &.dropdown:hover .dropdown-menu {
-          display: block;
+          display: flex;
+          flex-direction: column;
+        }
+
+        &.dropdown:hover ul a {
+          color: var(--white);
+        }
+
+        &.dropdown .dropdown-menu li:hover a {
+          color: var(--primary);
         }
 
         a {
           color: white;
-          text-decoration: none;
-          font-weight: 500;
-          font-size: 14px;
           text-transform: uppercase;
-          letter-spacing: 0.5px;
+          font-weight: normal;
+          line-height: 120%;
           transition: color 0.2s ease;
+          font-size: 1.8rem;
 
           &:hover {
-            color: #3498db;
+            color: var(--primary);
+          }
+        }
+
+        &.dropdown:hover {
+          cursor: pointer;
+
+          a {
+            color: var(--primary);
           }
         }
 
         .dropdown-menu {
           display: none;
           position: absolute;
+          padding: 8px 12px;
+          gap: 16px;
           top: 100%;
           left: 0;
-          background: #1a252f;
-          min-width: 160px;
-          box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+          background: var(--footerheader);
+          min-width: 114px;
           z-index: 1000;
 
           li {
             a {
+              font-size: 1.6rem;
               display: block;
-              padding: 0.75rem 1.5rem;
-              color: #ecf0f1;
-
-              &:hover {
-                background: #34495e;
-                color: white;
-              }
+              color: var(--white);
             }
           }
         }
@@ -81,69 +111,36 @@
   .header-actions {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 20px;
 
     .search-btn {
       background: transparent;
       border: none;
       cursor: pointer;
-      padding: 0.5rem;
       display: flex;
       align-items: center;
       justify-content: center;
       color: white;
 
-      svg {
-        fill: white;
-        transition: transform 0.2s ease;
+      svg g path {
+        transition: all 0.2s ease;
       }
 
-      &:hover svg {
-        transform: scale(1.1);
+      &:hover svg g path {
+        stroke: var(--primary);
       }
     }
 
     .lang-switch {
       color: white;
       text-decoration: none;
-      font-weight: 500;
-      font-size: 14px;
       transition: color 0.2s ease;
+      font-size: 1.8rem;
+      font-weight: normal;
+      line-height: 120%;
 
       &:hover {
-        color: #3498db;
-      }
-    }
-
-    .btn-primary {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: #e67e22;
-      color: white;
-      padding: 0.6rem 1.2rem;
-      border-radius: 20px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 14px;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      transition: background 0.2s ease, transform 0.1s ease;
-
-      &:hover {
-        background: #d35400;
-        transform: translateY(-1px);
-      }
-
-      svg {
-        fill: white;
-        width: 16px;
-        height: 16px;
-        transition: transform 0.2s ease;
-      }
-
-      &:hover svg {
-        transform: translateX(3px);
+        color: var(--primary);
       }
     }
   }
