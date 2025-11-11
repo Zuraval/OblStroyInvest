@@ -1,87 +1,86 @@
 .site-footer {
   background: var(--footerheader);
-  color: white;
-  padding: 3rem 0 1rem;
-  font-size: 14px;
+  color: var(--light-text);
+
+  .footer-logo {  
+    padding: 30px 0px 40px 0px;
+  }
 
   .footer-content {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 2rem;
-    margin-bottom: 2rem;
+    grid-template-columns: 41.6rem 11.3rem 21.9rem 26.9rem;
+    gap: 19.8rem;
+    margin-bottom: 4rem;
+    position: relative;
 
     .footer-column {
-      &.footer-form {
-        .footer-logo {
-          margin-bottom: 1rem;
-          img {
-            height: 30px;
-            width: auto;
-          }
-        }
+      p:first-child {
+        font-family: var(--second-family);
+        font-weight: 600;
+        font-size: 1.8rem;
+        line-height: 120%;
+        text-transform: uppercase;
+        color: var(--white);
+        margin-bottom: 24px;
+      }
 
-        h3 {
-          font-size: 16px;
-          margin-top: 1rem;
-          margin-bottom: 0.5rem;
+      p:nth-last-child(2) {
+        font-family: var(--second-family);
+        font-weight: 600;
+        font-size: 1.8rem;
+        line-height: 120%;
+        text-transform: uppercase;
+        color: var(--white);
+        margin-top: 15px;
+        margin-bottom: 32px;
+      }
+
+      p:last-child {
+        font-family: var(--font-family);
+        font-weight: 400;
+        font-size: 1.8rem;
+        line-height: 120%;
+      }
+
+      &.footer-form {
+
+        p:first-child {
+          font-family: var(--font-family);
+          font-weight: 500;
+          font-size: 1.4rem;
+          line-height: 120%;
+          margin-bottom: 8px;
         }
 
         p {
-          margin-bottom: 1rem;
-          opacity: 0.8;
+          font-family: var(--second-family);
+          font-weight: 600;
+          font-size: 1.8rem;
+          line-height: 120%;
+          margin-bottom: 24px;
         }
 
-        .form-group {
-          margin-bottom: 1rem;
+        form p {
+          font-family: var(--font-family);
+          font-weight: 400 !important;
+          font-size: 1.2rem !important;
+          text-transform: none !important;
+          line-height: 120%;
+        }
 
-          label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-size: 12px;
-            opacity: 0.8;
-          }
+        form p a {
+          color: var(--white);
+          transition: all 0.2s ease;
 
-          input,
-          textarea {
-            width: 100%;
-            padding: 0.75rem;
-            border: 1px solid rgba(255,255,255,0.2);
-            background: rgba(255,255,255,0.05);
-            color: white;
-            border-radius: 6px;
-            font-size: 14px;
-
-            &:focus {
-              outline: none;
-              border-color: #3498db;
-              box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
-            }
+          &:hover {
+            color: var(--primary);
           }
         }
 
-        .form-legal {
-          margin: 0.5rem 0 1rem;
-          font-size: 11px;
-          opacity: 0.7;
-        }
-
-        .btn-primary {
+        form .btn {
           width: 100%;
           justify-content: center;
-          padding: 0.75rem;
-          font-size: 14px;
-          text-transform: uppercase;
-
-          svg {
-            margin-left: 0.5rem;
-          }
         }
-      }
-
-      h3 {
-        font-size: 16px;
-        margin-bottom: 1rem;
-        text-transform: uppercase;
       }
 
       ul {
@@ -90,16 +89,17 @@
         margin: 0;
 
         li {
-          margin-bottom: 0.5rem;
+          margin-bottom: 2.4rem;
 
           a {
-            color: white;
-            text-decoration: none;
-            opacity: 0.8;
-            transition: opacity 0.2s ease;
+            font-family: var(--font-family);
+            font-weight: 500;
+            font-size: 1.6rem;
+            line-height: 120%;
+            transition: all 0.2s ease;
 
             &:hover {
-              opacity: 1;
+              color: var(--primary);
             }
           }
         }
@@ -108,87 +108,105 @@
       .contact-item {
         display: flex;
         align-items: center;
-        gap: 0.5rem;
-        margin-bottom: 0.75rem;
-
-        svg {
-          fill: white;
-          width: 20px;
-          height: 20px;
-        }
+        gap: 1.6rem;
+        margin-bottom: 2.5rem;
 
         span {
-          font-size: 14px;
-        }
-      }
-
-      .pdf-link {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-
-        a {
-          color: white;
-          text-decoration: none;
-          font-weight: 500;
-          transition: color 0.2s ease;
-
-          &:hover {
-            color: #3498db;
-          }
-        }
-
-        .pdf-badge {
-          background: #e67e22;
-          color: white;
-          padding: 0.25rem 0.5rem;
-          border-radius: 4px;
-          font-size: 12px;
-          font-weight: bold;
-          text-transform: uppercase;
+          font-family: var(--font-family);
+          font-weight: 400;
+          font-size: 1.8rem;
+          line-height: 120%;
         }
       }
     }
   }
 
+  .footer-links {
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;
+    cursor: pointer;
+    width: fit-content;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+    &:hover a {
+      color: var(--primary);
+    }
+
+    a {
+      display: flex;
+      font-family: var(--font-family);
+      font-weight: 500;
+      font-size: 1.6rem;
+      line-height: 120%;
+      text-align: right;
+      transition: color 0.2s ease;
+    }
+
+    .pdf-badge {
+      background: #e2231a;
+      width: fit-content;
+      padding: 22.5px 17.5px;
+      border-radius: 4px;
+
+      font-family: var(--font-family);
+      font-weight: 500;
+      font-size: 1.6rem;
+      line-height: 120%;
+      text-decoration: underline;
+      text-decoration-skip-ink: none;
+      color: var(--white);
+    }
+  }
+
   .footer-bottom {
-    border-top: 1px solid rgba(255,255,255,0.1);
-    padding-top: 1rem;
-    font-size: 11px;
-    opacity: 0.7;
+    border-top: 1px solid var(--line-light);
+    padding-top: 2.4rem;
+    padding-bottom: 2.6rem;
+    font-size: 1.2rem;
 
     .bottom-content {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
-      gap: 1rem;
 
       .copyright {
-        flex: 1 1 300px;
-        line-height: 1.4;
+        font-weight: 400;
+        font-size: 1.2rem;
+        color: var(--line-light);
+
+        a {
+          text-decoration: underline;
+          text-decoration-skip-ink: none;
+          transition: all 0.2s ease;
+        }
+
+        a:hover {
+          color: var(--primary);
+        }
+
       }
 
       .legal-links {
         display: flex;
-        gap: 1rem;
+        gap: 9.7rem;
+        font-family: var(--second-family);
+        font-weight: 400;
+        font-size: 1.4rem;
+        line-height: 110%;
+        color: var(--line-light);
 
         a {
-          color: white;
           text-decoration: none;
+          transition: all 0.2s ease;
+          height: fit-content;
+
 
           &:hover {
-            text-decoration: underline;
+            color: var(--primary);
           }
-        }
-      }
-
-      .company-info {
-        text-align: right;
-        flex: 1 1 300px;
-
-        p {
-          margin: 0;
-          line-height: 1.4;
         }
       }
     }

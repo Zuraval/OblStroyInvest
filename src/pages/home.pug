@@ -5,14 +5,14 @@ block content
   include ../includes/mixins/hero.pug
   
   - var heroData = {
-  -   tagline: 'Наша миссия',
-  -   title: 'Заголовок героя',
-  -   subtitle: 'Подзаголовок героя',
-  -   buttonText: 'Подробнее',
+  -   tagline: 'От идеи до реализации',
+  -   title: 'Строим будущее вместе',
+  -   subtitle: 'Надёжный партнёр в реализации сложных строительных проектов',
+  -   button: 'Оставить заявку',
   -   stats: [
-  -     { number: '1000+', label: 'Клиентов' },
-  -     { number: '5', label: 'Лет опыта' },
-  -     { number: '50+', label: 'Специалистов' }
+  -     { number: '15+', label: 'Лет на рынке' },
+  -     { number: '50+', label: 'Реализованных проектов' },
+  -     { number: '100%', label: 'Работаем по всей России' }
   -   ],
   -   location: {
   -     title: 'Москва',
@@ -21,4 +21,4 @@ block content
   -   }
   - }
 
-  +hero(heroData.tagline, heroData.title, heroData.subtitle, heroData.buttonText, heroData.stats, heroData.location)
+  +hero(heroData.tagline, heroData.title, heroData.subtitle, heroData.button, heroData.stats, heroData.location)

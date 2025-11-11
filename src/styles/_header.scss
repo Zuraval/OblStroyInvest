@@ -1,6 +1,13 @@
 .site-header {
   background: var(--footerheader);
   padding: 16px 48px !important;
+  position: absolute;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  width: 100%;
+  max-width: 1824px;
 
   .header-content {
     display: flex;
@@ -28,7 +35,7 @@
       margin: 0;
       padding: 0;
       display: flex;
-      gap: 32px;
+      gap: 3.2rem;
 
       li {
         display: flex;

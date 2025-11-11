@@ -1,21 +1,22 @@
-mixin hero(tagline, title, subtitle, buttonText, stats, location)
+include ./button.pug
+
+mixin hero(tagline, title, subtitle, button, stats, location)
   section.hero
-    .hero__overlay
-      .hero__content
-        .hero__tagline= tagline
-        h1.hero__title= title
-        p.hero__subtitle= subtitle
-        a.hero__button(href="#")= buttonText
-
-      .hero__stats
-        each stat in stats
-          .hero__stat
-            .hero__stat-number= stat.number
-            .hero__stat-label= stat.label
-
+    .hero__content
+      .hero__tagline= tagline
+      h1.hero__title= title
+      p.hero__subtitle= subtitle
+      if button
+        +button(button, 'primary')= button
       .hero__location
         .hero__location-title= location.title
         .hero__location-images
           each img in location.images
             img(src=img, alt=location.title)
         .hero__location-caption= location.caption
+
+    .hero__stats
+      each stat in stats
+        .hero__stat
+          .hero__stat-number= stat.number
+          .hero__stat-label= stat.label
