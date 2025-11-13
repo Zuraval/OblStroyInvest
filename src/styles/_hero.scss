@@ -1,7 +1,8 @@
 .hero {
   height: 102.4rem;
   display: flex;
-  align-items: center;
+  align-items: end;
+  margin-bottom: 20rem;
 
   &::before {
     content: '';
@@ -13,11 +14,13 @@
     background: url('../assets/images/hero-img1.png') no-repeat center center;
     background-size: cover;
     z-index: -1;
+    min-height: 102.4rem
   }
 
   &__content {
     color: var(--white);
     text-align: left;
+    margin-bottom: 4.6rem;
   }
 
   &__tagline {
@@ -26,6 +29,7 @@
     font-size: 2.4rem;
     line-height: 110%;
     text-transform: uppercase;
+    margin-bottom: 8.3rem;
   }
 
   &__title {
@@ -33,6 +37,7 @@
     font-weight: 400;
     font-size: 8rem;
     line-height: 110%;
+    margin-bottom: 6.4rem;
   }
 
   &__subtitle {
@@ -40,11 +45,18 @@
     font-weight: 300;
     font-size: 2.4rem;
     line-height: 120%;
+    white-space: pre-line;
+    margin-bottom: 6.4rem;
+  }
+
+  & .btn {
+    margin-bottom: 8.1rem;
   }
 
   &__stats {
     display: flex;
     gap: 7.7rem;
+    margin-bottom: 4.1rem;
   }
 
   &__stat {
@@ -53,6 +65,7 @@
     display: flex;
     flex-direction: column;
     padding-right: 7.7rem;
+    padding-bottom: 2.9rem;
   }
 
   .hero__stat:last-child {
@@ -75,6 +88,10 @@
     color: var(--white);
   }
 
+  &__stat:nth-last-child(2) .hero__stat-label {
+    width: 13.4rem;
+  }
+
   &__stat:first-child {
     white-space: nowrap;
   }
@@ -85,18 +102,34 @@
     font-size: 1.8rem;
     line-height: 110%;
     color: var(--white);
+    margin-bottom: 1.4rem;
   }
 
   &__location-images {
     display: flex;
+    align-items: center;
+    margin-bottom: 0.3rem;
 
     img {
-      width: 40px;
-      height: 40px;
+      width: 68px;
+      height: 68px;
       object-fit: cover;
       border-radius: 50%;
-      border: 2px solid white;
-      transition: transform 0.2s ease;
+      margin-left: -32px;
+
+      &:nth-child(2) { z-index: 50; }
+      &:nth-child(3) { z-index: 40; }
+      &:nth-child(4) { z-index: 30; }
+      &:nth-child(5) { z-index: 20; }
+      &:nth-child(6) { z-index: 10; }
+    }
+
+    img:first-child {
+      width: 80px;
+      height: 80px;
+      border: 1px solid var(--primary);
+      margin-left: 0;
+      z-index: 60;
     }
   }
 

@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CopyPlugin = require("copy-webpack-plugin");
 
 const fs = require('fs');
 const pagesDir = path.resolve(__dirname, 'src/pages');
@@ -62,6 +63,12 @@ module.exports = (env, argv) => {
       }),
 
       ...(isProd ? [new MiniCssExtractPlugin({ filename: 'css/[name].[contenthash].css' })] : []),
+
+      new CopyPlugin({
+        patterns: [
+          { from: "src/assets", to: "assets" },
+        ],
+      }),
     ],
   };
 };

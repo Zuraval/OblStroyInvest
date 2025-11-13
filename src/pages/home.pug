@@ -3,11 +3,12 @@ extends ../layouts/main
 block content
   
   include ../includes/mixins/hero.pug
+  include ../includes/mixins/button.pug
   
   - var heroData = {
   -   tagline: 'От идеи до реализации',
   -   title: 'Строим будущее вместе',
-  -   subtitle: 'Надёжный партнёр в реализации сложных строительных проектов',
+  -   subtitle: 'Надёжный партнёр в реализации сложных\nстроительных проектов',
   -   button: 'Оставить заявку',
   -   stats: [
   -     { number: '15+', label: 'Лет на рынке' },
@@ -16,9 +17,119 @@ block content
   -   ],
   -   location: {
   -     title: 'Москва',
-  -     images: ['/img1.jpg', '/img2.jpg', '/img2.jpg', '/img2.jpg', '/img2.jpg', '/img2.jpg'],
+  -     images: ['/assets/images/Ellipse1.png', '/assets/images/Ellipse2.png', '/assets/images/Ellipse3.png', '/assets/images/Ellipse4.png', '/assets/images/Ellipse5.png', '/assets/images/Ellipse6.png'],
   -     caption: 'Центральный офис'
   -   }
   - }
 
   +hero(heroData.tagline, heroData.title, heroData.subtitle, heroData.button, heroData.stats, heroData.location)
+
+  .about-company
+    .about-company__title
+      p О КОМПАНИИ
+    .about-company__block
+      .about-company__content-text
+        div
+          p ООО «ОблСтройИнвест» выполнит весь комплекс строительно-монтажных работ любой сложности в области строительства.
+          p Мы обеспечим системный подход к решению инженерных задач и строгое соответствие всем действующим нормам и правилам.
+          p Наш многоплановый опыт работ позволяет нам вести широкий спектр объектов разного уровня сложности.
+          p Мобильность Компании ООО «ОблСтройИнвест» позволяет проводить работы не только в Москве и Московской области, но и на территории других субъектов Российской Федерации.
+        +button('узнать больше', 'primary')
+        .about-company__content-text__group 
+          div
+            <svg width="24" height="23" viewBox="0 0 24 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0 22.5L0.55 18.35C1.95 18.45 3 18.1833 3.7 17.55C4.4 16.9167 4.85 16.05 5.05 14.95C5.25 13.85 5.28333 12.6333 5.15 11.3H0V0H9.8V12.8C9.8 16.3 8.93333 18.9333 7.2 20.7C5.5 22.4667 3.1 23.0667 0 22.5ZM14.05 22.5L14.6 18.35C16 18.45 17.05 18.1833 17.75 17.55C18.45 16.9167 18.9 16.05 19.1 14.95C19.3 13.85 19.3333 12.6333 19.2 11.3H14.05V0H23.85V12.8C23.85 16.3 22.9833 18.9333 21.25 20.7C19.55 22.4667 17.15 23.0667 14.05 22.5Z" fill="#D6DAE3"/>
+            </svg>
+          div
+            p МЫ СТРОИМ ВАШИ САМЫЕ СМЕЛЫЕ МЕЧТЫ
+            p Более 15 лет мы успешно реализуем уникальные проекты в области промышленного, жилищного гражданского, транспортного строительства. Благодаря сильной команде профессионалов ООО «Облстройинвест» мы результативно выполняем функции Генерального подрядчика, Технического заказчика и Строительного контроля.
+      .about-company__content-image
+        img(src="/assets/images/section-img1.png", alt="Дом")
+  
+  .services 
+    .services__title
+      p УСЛУГИ
+    .services__subtitle 
+      p Мы предоставляем полный комплекс услуг в сфере строительства и технического сопровождения объектов любой сложности. Работаем на результат — точно, надёжно и с высоким уровнем контроля на каждом этапе.
+    .services__catalog 
+      .services__catalog__item
+        .item-container
+          .image-block 
+            img(src="/assets/images/services-module.png", alt="Услуга")
+            p 01
+          .text-block 
+            p Технический заказчик
+            p Сопровождаем проект от подготовки исходно-разрешительной документации до ввода объекта в эксплуатацию
+          +button('подробнее', 'outline')
+      .services__catalog__item
+        .item-container
+          .image-block 
+            img(src="/assets/images/services-module.png", alt="Услуга")
+            p 02
+          .text-block 
+            p Генеральный подряд
+            p Берём на себя все этапы строительства — от подготовки площадки до ввода и сдачи объекта в эксплуатацию
+          +button('подробнее', 'outline')
+      .services__catalog__item
+        .item-container
+          .image-block 
+            img(src="/assets/images/services-module.png", alt="Услуга")
+            p 03
+          .text-block 
+            p Строительный аудит
+            p Проводим проверку смет, оценку рисков и контроль финансово‑технических показателей.
+          +button('подробнее', 'outline')
+
+  .projects 
+    .projects__title
+      p ПРОЕКТЫ
+    .projects__menu 
+      .projects__menu__item 
+        img(src="/assets/images/Frame1.png", alt="Проект1")
+        p EVOPARK Сокольники
+        p Площадь: 41 187 кв.м
+      .projects__menu__item 
+        img(src="/assets/images/Frame6.png", alt="Проект1")
+        p EVOPARK Измайлово
+        p Площадь: 19 964 кв.м
+      .projects__menu__item 
+        img(src="/assets/images/Frame2.png", alt="Проект1")
+        p Институт ядерной медицины
+        p Площадь: 22 000 кв.м.
+      .projects__menu__item 
+        img(src="/assets/images/Frame3.png", alt="Проект1")
+        p ФИЗТЕХСИТИ
+        p Площадь: 32 823 кв.м.
+      .projects__menu__item 
+        img(src="/assets/images/Frame4.png", alt="Проект1")
+        p ТЕРМОЛЕНД Физтехпарк
+        p Площадь: 6 746,2 кв.м
+      .projects__menu__item 
+        img(src="/assets/images/Frame5.png", alt="Проект1")
+        p ТЕРМОЛЕНД Речной вокзал
+        p Площадь: 7 713,6 кв.м
+    div
+      +button('смотреть все проекты', 'primary')
+  
+  .stages 
+    .stages__title 
+      p этапы проекта
+    .stages__block 
+      .stages__text 
+        p ООО «ОблСтройИнвест» в реализации инвестиционного проекта. Помогаем на всех этапах:
+        p Принятие решения о реализации проекта
+        p Анализ технической реализуемости проекта и обоснования инвестиций
+      .stages__slider
+        .slide_around_sec
+          .slide_around_slider
+            .swiper
+              .swiper-wrapper
+                each i in [1, 2, 3, 4, 5, 6, 7]
+                  .swiper-slide
+                    .slide-content
+                      img(src=`/assets/images/Frame${i}.png`, alt=`Слайд ${i}`)
+                      .slide-number #{'0' + i}
+              .swiper-pagination-wrapper
+                .swiper-button-next.around_next
+                .swiper-pagination
+                .swiper-button-prev.around_prev
