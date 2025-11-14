@@ -493,31 +493,110 @@
 }
 
 .licenses {
+
+  &__title {
+    font-family: var(--second-family);
+    font-weight: 400;
+    font-size: 2.4rem;
+    line-height: 110%;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-bottom: 8rem;
+  }
+
   .main-slider-container {
-    padding: 30px 0;
+
+    margin-bottom: 20rem;
       
     .swiper {
       overflow: hidden;
     }
   
     .main-slide-content {
-      padding: 10px;
       box-sizing: border-box;
-    
-      h3 {
-        margin-top: 0;
-      }
-    }
-  
-    .inner-slider-container {
-      margin-top: 10px;
     }
   
     .inner-slide {
       img {
-        width: 100%;
-        height: auto;
+        width: 41.7rem;
+        height: 60rem;
         display: block;
+      }
+    }
+  }
+}
+
+.news {
+
+  margin-bottom: 20rem;
+
+  &__title {
+    font-family: var(--second-family);
+    font-weight: 400;
+    font-size: 2.4rem;
+    line-height: 110%;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-bottom: 8rem;
+  }
+
+  &__list {
+
+    display: flex;
+    justify-content: space-between;
+
+    .item {
+
+      width: fit-content;
+
+      &__container {
+        padding: 2.4rem;
+        background: var(--white);
+        border-radius: 16px;
+      }
+
+      &__image {
+        width: 51.4rem;
+        height: 40.3rem;
+        margin-bottom: 4rem;
+
+        img {
+          width: 51.4rem;
+          height: 40.3rem;
+        };
+      }
+
+      &__title {
+        font-family: var(--second-family);
+        font-weight: 600;
+        font-size: 2.4rem;
+        line-height: 110%;
+        text-transform: uppercase;
+        color: var(--text);
+        margin-bottom: 6rem;
+      }
+
+      &__subtitle {
+        font-family: var(--font-family);
+        font-weight: 400;
+        font-size: 1.6rem;
+        color: var(--text);
+        margin-bottom: 3.2rem;
+        max-width: 51.4rem;
+      }
+
+      &__date {
+        font-family: var(--second-family);
+        font-weight: 400;
+        font-size: 1.4rem;
+        line-height: 110%;
+        color: var(--grey-text);
+        margin-bottom: 4rem;
+      }
+
+      &__button {
+        display: flex;
+        justify-content: end;
       }
     }
   }
