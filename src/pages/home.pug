@@ -24,6 +24,18 @@ block content
 
   +hero(heroData.tagline, heroData.title, heroData.subtitle, heroData.button, heroData.stats, heroData.location)
 
+  - var items = [
+  -   { title: "Лицензии", docs: ["/assets/images/Frame1.png", "/assets/images/Frame1.png", "/assets/images/Frame1.png"] },
+  -   { title: "Благодарности", docs: ["/assets/images/Frame1.png", "/assets/images/Frame1.png"] }
+  - ]
+
+  - const mainSlides = [
+  -   { id: 1, images: ['/assets/images/Doc1-1.png', '/assets/images/Doc1-2.png', '/assets/images/Doc1-3.png', '/assets/images/Doc1-4.png'] },
+  -   { id: 2, images: ['/assets/images/Frame2-1.png', '/assets/images/Frame2-2.png'] },
+  -   { id: 3, images: ['/assets/images/Doc1-1.png'] },
+  -   { id: 4, images: ['/assets/images/Doc1-1.png'] }
+  - ]
+
   .about-company
     .about-company__title
       p О КОМПАНИИ
@@ -133,3 +145,105 @@ block content
                 .swiper-button-next.around_next
                 .swiper-pagination
                 .swiper-button-prev.around_prev
+  
+  .advantages
+    .advantages__title 
+      p НАШИ ПРЕИМУЩЕСТВА
+    .advantages__subtitle 
+      p ООО «ОблСтройИнвест» — это ваш стратегический союзник, который превращает строительные вызовы в успех.
+    .advantages__list 
+      .item 
+        .item__container 
+          .item__title 
+            p Абсолютная прозрачность
+          .item__subtitle 
+            p Мы держим вас в курсе каждого этапа строительства, предоставляя фото — и видеоотчеты в реальном времени
+          .item__image
+            img(src="/assets/images/Advantages1.png", alt="Преимущество")
+      .item 
+        .item__container 
+          .item__title 
+             p Абсолютная прозрачность
+          .item__subtitle 
+             p Мы держим вас в курсе каждого этапа строительства, предоставляя фото — и видеоотчеты в реальном времени
+          .item__image
+            img(src="/assets/images/Advantages2.png", alt="Преимущество")
+      .item 
+        .item__container 
+          .item__title 
+            p Абсолютная прозрачность
+          .item__subtitle 
+            p Мы держим вас в курсе каждого этапа строительства, предоставляя фото — и видеоотчеты в реальном времени
+          .item__image
+            img(src="/assets/images/Advantages3.png", alt="Преимущество")
+      .item 
+        .item__container 
+          .item__title 
+            p Абсолютная прозрачность
+          .item__subtitle 
+            p Мы держим вас в курсе каждого этапа строительства, предоставляя фото — и видеоотчеты в реальном времени
+          .item__image
+            img(src="/assets/images/Advantages4.png", alt="Преимущество")
+      .item 
+        .item__container 
+          .item__title 
+             p Абсолютная прозрачность
+          .item__subtitle 
+             p Мы держим вас в курсе каждого этапа строительства, предоставляя фото — и видеоотчеты в реальном времени
+          .item__image
+            img(src="/assets/images/Advantages5.png", alt="Преимущество")
+      .item 
+        .item__container 
+          .item__title 
+             p Абсолютная прозрачность
+          .item__subtitle 
+             p Мы держим вас в курсе каждого этапа строительства, предоставляя фото — и видеоотчеты в реальном времени
+          .item__image
+            img(src="/assets/images/Advantages6.png", alt="Преимущество")
+      .item 
+        .item__container 
+          .item__title 
+             p Абсолютная прозрачность
+          .item__subtitle 
+             p Мы держим вас в курсе каждого этапа строительства, предоставляя фото — и видеоотчеты в реальном времени
+          .item__image
+            img(src="/assets/images/Advantages7.png", alt="Преимущество")
+      .item 
+        .item__container 
+          .item__title 
+             p Абсолютная прозрачность
+          .item__subtitle 
+             p Мы держим вас в курсе каждого этапа строительства, предоставляя фото — и видеоотчеты в реальном времени
+          .item__image
+            img(src="/assets/images/Advantages8.png", alt="Преимущество")
+    .advantages__ps 
+      p <span>„</span> С нами вы получаете не просто строительную компанию, а партнёра, который делает ваш проект успешным, комфортным и вдохновляющим. 
+
+  .licenses
+    .licenses__title 
+      p ЛИЦЕНЗИИ И БЛАГОДАРНОСТИ
+    .licenses__slider 
+      .main-slider-container
+        .swiper.main-slider
+          .swiper-wrapper
+            - var items = [
+            -   { id: 1, images: ['/assets/images/Doc1-1.png', '/assets/images/Doc1-2.png', '/assets/images/Doc1-3.png', '/assets/images/Doc1-4.png'] },
+            -   { id: 2, images: ['/assets/images/Doc2-1.png', '/assets/images/Doc2-2.png'] },
+            -   { id: 3, images: ['/assets/images/Doc1-1.png'] },
+            -   { id: 3, images: ['/assets/images/Doc1-1.png'] },
+            -   { id: 3, images: ['/assets/images/Doc1-1.png'] },
+            -   { id: 4, images: ['/assets/images/Doc1-1.png'] }
+            - ]
+            each slide, index in items
+              .swiper-slide.main-slide(data-index=index)
+                .main-slide-content
+                  .swiper.inner-slider
+                    .swiper-wrapper
+                      each img, imgIndex in slide.images
+                        .swiper-slide.inner-slide
+                          img(src=img, alt=`Slide ${slide.id}.${imgIndex + 1}`)
+                    .swiper-pagination.inner-pagination
+          .swiper-pagination.main-pagination
+          .swiper-button-next.main-button-next
+          .swiper-button-prev.main-button-prev
+      

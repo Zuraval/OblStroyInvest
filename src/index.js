@@ -26,3 +26,33 @@ document.addEventListener('DOMContentLoaded', function() {
     grabCursor: true,
   });
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+  const innerSliders = [];
+  document.querySelectorAll('.inner-slider').forEach((sliderEl, index) => {
+    const innerSwiper = new Swiper(sliderEl, {
+      slidesPerView: 1,
+      spaceBetween: 10,
+      loop: false,
+      pagination: {
+        el: sliderEl.querySelector('.inner-pagination'),
+        clickable: true,
+      },
+    });
+    innerSliders.push(innerSwiper);
+  });
+
+  const mainSwiper = new Swiper('.main-slider', {
+    slidesPerView: 4,
+    spaceBetween: 20,
+    loop: false,
+    pagination: {
+      el: '.main-pagination',
+      clickable: true,
+    },
+    navigation: {
+      nextEl: '.main-button-next',
+      prevEl: '.main-button-prev',
+    },
+  });
+});

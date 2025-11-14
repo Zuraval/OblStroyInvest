@@ -215,6 +215,8 @@
 
 .stages {
 
+  margin-bottom: 20rem;
+
   &__title {
     font-family: var(--second-family);
     font-weight: 400;
@@ -267,7 +269,7 @@
     .slide_around_slider {
       position: relative;
       width: 100%;
-      height: 76.2rem;
+      height: 85rem;
       overflow: hidden;
 
       .swiper {
@@ -277,6 +279,15 @@
     
       .swiper-wrapper {
         align-items: center;
+
+        .slide-number {
+          display: flex;
+          font-family: var(--second-family);
+          font-weight: 500;
+          font-size: 4rem;
+          line-height: 120%;
+          color: var(--blue);
+        }
       }
     
       .swiper-slide {
@@ -322,34 +333,23 @@
           background: #f5f5f5;
           transition: transform 0.3s ease;
         }
-      
-        .slide-number {
-          position: absolute;
-          bottom: -30px;
-          left: 50%;
-          transform: translateX(-50%);
-          font-size: 1.5rem;
-          font-weight: 700;
-          color: #bdc3c7;
-          transition: color 0.3s ease;
-        }
       }
     
       .swiper-pagination-wrapper {
-        position: relative; // Важно для абсолютного позиционирования дочерних элементов
+        position: relative;
         display: flex;
         align-items: center;
         justify-content: center;
         gap: 1.5rem;
+        margin-top: -20px;
 
-        // Переопределяем позиционирование стрелок — убираем влияние Swiper
         .swiper-button-next,
         .swiper-button-prev {
-          position: absolute; // Абсолютное позиционирование относительно .swiper-pagination-wrapper
-          top: 50%; // Центрируем по вертикали
+          position: absolute;
+          top: 50%;
           transform: translateY(-50%);
-          width: 50px;
-          height: 50px;
+          width: 8px;
+          height: 14px;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -357,25 +357,12 @@
           background: transparent;
           border: none;
           outline: none;
-          z-index: 300;
           transition: opacity 0.3s ease;
         
           &::after {
             font-size: 1.5rem;
             color: var(--text);
           }
-        
-          &:hover {
-            opacity: 0.7;
-          }
-        }
-      
-        .swiper-button-prev {
-          left: -80px;
-        }
-      
-        .swiper-button-next {
-          right: -80px;
         }
       }
     
@@ -408,6 +395,129 @@
             height: 1.2rem;
           }
         }
+      }
+    }
+  }
+}
+
+.advantages {
+
+  margin-bottom: 20rem;
+
+  &__title {
+    font-family: var(--second-family);
+    font-weight: 400;
+    font-size: 2.4rem;
+    line-height: 110%;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-bottom: 8rem;
+  }
+
+  &__subtitle {
+    font-family: var(--font-family);
+    font-weight: 300;
+    font-size: 2.4rem;
+    line-height: 120%;
+    color: var(--blue);
+    margin-bottom: 5.4rem;
+  }
+
+  &__ps {
+    display: flex;
+    justify-content: end;
+
+    p {
+      font-family: var(--font-family);
+      font-weight: 300;
+      font-size: 2.4rem;
+      line-height: 120%;
+      text-align: right;
+      color: var(--blue);
+      max-width: 86rem;
+
+      span {
+        position: relative;
+        bottom: 1.5rem;
+        font-family: var(--second-family);
+        font-weight: 300;
+        font-size: 6.4rem;
+        line-height: 100%;
+      }
+    }
+  }
+
+  &__list {
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, auto);
+    gap: 2rem;
+    margin-bottom: 6rem;
+
+    .item {
+      &__container {
+        padding: 3rem 2rem;
+        border-radius: 16px;
+        background: var(--white);
+      }
+
+      &__title {
+        font-family: var(--second-family);
+        font-weight: 500;
+        font-size: 3.2rem;
+        line-height: 100%;
+        color: var(--text);
+        margin-bottom: 5.8rem;
+      }
+
+      &__subtitle {
+        font-family: var(--font-family);
+        font-weight: 400;
+        font-size: 1.6rem;
+        color: var(--grey-text);
+        margin-bottom: 4.8rem;
+      }
+
+      &__image {
+        display: flex;
+        justify-content: end;
+
+        img {
+          width: 12rem;
+          height: 12rem;
+        }
+      }
+    }
+  }
+}
+
+.licenses {
+  .main-slider-container {
+    padding: 30px 0;
+      
+    .swiper {
+      overflow: hidden;
+    }
+  
+    .main-slide-content {
+      padding: 10px;
+      box-sizing: border-box;
+    
+      h3 {
+        margin-top: 0;
+      }
+    }
+  
+    .inner-slider-container {
+      margin-top: 10px;
+    }
+  
+    .inner-slide {
+      img {
+        width: 100%;
+        height: auto;
+        display: block;
       }
     }
   }
