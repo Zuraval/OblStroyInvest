@@ -1,0 +1,95 @@
+.policy {
+
+  &__title {
+    font-family: var(--second-family);
+    font-weight: 600;
+    font-size: 4.8rem;
+    line-height: 120%;
+    color: var(--text);
+    margin-top: 24rem;
+    margin-bottom: 10rem;
+  }
+
+  &__list {
+
+    display: flex;
+    flex-direction: column;
+    gap: 6rem;
+    margin-bottom: 10rem;
+    
+    .title {
+      font-family: var(--second-family);
+      font-weight: 600;
+      font-size: 2.4rem;
+      line-height: 110%;
+      text-transform: uppercase;
+      color: var(--text);
+      margin-bottom: 4rem;
+    }
+
+    .description {
+      font-family: var(--font-family);
+      font-weight: 400;
+      font-size: 1.8rem;
+      line-height: 110%;
+      color: var(--text);
+
+      span {
+        font-weight: 700;
+      }
+
+      ul {
+        li {
+          list-style: disc;
+          margin-left: 2.5rem;
+        }
+      }
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    gap: 4rem;
+    margin-bottom: 20rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .policy {
+
+    &__title {
+      margin-top: 20rem;
+      margin-bottom: 6.4rem;
+      font-size: 6rem;
+    }
+
+    &__list {
+
+      gap: 4.8rem;
+
+      .title {
+        font-size: 3.2rem;
+      }
+
+      .description {
+        font-size: 2.8rem;
+
+        ul {
+          li {
+            margin-left: 4rem;
+          }
+        }
+      }
+    }
+
+    &__buttons {
+
+      margin-bottom: 8rem;
+      gap: 2rem;
+
+      .btn {
+        white-space: nowrap;
+      }
+    }
+  }
+}

@@ -1,17 +1,25 @@
-mixin button(text, type)
+mixin button(text, type, href, icon)
   - var btnClass = 'btn';
   - if (type) btnClass += ' btn--' + type;
-  
+  - var link = href || '#';
+  - var iconType = icon || 'arrow-right';
+
   button(class=btnClass)
-    a(href="/callback") #{text}
-    .icon_arrow-right
-      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <g clip-path="url(#clip0_2002_2634)">
-          <path d="M6 4L10 8L6 12" stroke="#E9EDF3" stroke-linecap="round" stroke-linejoin="round"/>
-        </g>
-        <defs>
-          <clipPath id="clip0_2002_2634">
-            <rect width="16" height="16" fill="white"/>
-          </clipPath>
-        </defs>
-      </svg>
+    a(href=link) #{text}
+    .icon(class='icon_' + iconType)
+      if iconType === 'arrow-right'
+        svg(width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg")
+          g(clip-path="url(#clip0_2002_2634)")
+            path(d="M6 4L10 8L6 12" stroke="#E9EDF3" stroke-linecap="round" stroke-linejoin="round")
+          defs
+            clipPath(id="clip0_2002_2634")
+              rect(width="16" height="16" fill="white")
+      else if iconType === 'download'
+        svg(width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg")
+          g(clip-path="url(#clip0_590_21287)")
+            path(d="M2.66797 11.3333V12.6666C2.66797 13.0202 2.80844 13.3593 3.05849 13.6094C3.30854 13.8594 3.64768 13.9999 4.0013 13.9999H12.0013C12.3549 13.9999 12.6941 13.8594 12.9441 13.6094C13.1942 13.3593 13.3346 13.0202 13.3346 12.6666V11.3333" stroke="#D15203" stroke-linecap="round" stroke-linejoin="round")
+            path(d="M4.66797 7.33325L8.0013 10.6666L11.3346 7.33325" stroke="#D15203" stroke-linecap="round" stroke-linejoin="round")
+            path(d="M8 2.66675V10.6667" stroke="#D15203" stroke-linecap="round" stroke-linejoin="round")
+          defs
+            clipPath(id="clip0_590_21287")
+              rect(width="16" height="16" fill="white")

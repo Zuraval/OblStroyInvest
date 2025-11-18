@@ -9,8 +9,8 @@
   line-height: 120%;
   color: var(--line-light);
   display: block;
-  margin-left: 24px;
-  margin-bottom: 12px;
+  margin-left: 2.4rem;
+  margin-bottom: 1.2rem;
 }
 
 .input-control {
@@ -21,7 +21,7 @@
   color: var(--light-text);
 
   width: 100%;
-  padding: 16.5px 24px;
+  padding: 1.6rem 2.2rem;
   border: 1px solid var(--line-light);
   border-radius: 24px;
   background-color: transparent;
@@ -32,5 +32,28 @@
     font-size: 1.6rem;
     line-height: 120%;
     color: var(--light-text);
+  }
+}
+
+
+@media (max-width: 768px) {
+
+  .input-label {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 2.4rem;
+    line-height: 110%;
+    color: var(--line-light);
+    margin-left: 4.8rem;
+    margin-bottom: 2.4rem;
+  }
+
+  .input-control {
+    font-size: 2.8rem;
+    padding: 3.2rem;
+
+    &::placeholder {
+      font-size: 2.8rem;
+    }
   }
 }

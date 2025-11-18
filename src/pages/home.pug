@@ -36,6 +36,51 @@ block content
   -   { id: 4, images: ['/assets/images/Doc1-1.png'] }
   - ]
 
+  - var projectStagesData = [
+  -   {
+  -     title: 'Принятие решения о реализации проекта',
+  -     description: 'Анализ технической состоятельности проекта и обоснование инвестиций',
+  -     image: '/assets/images/Etap1.png',
+  -     number: '01'
+  -   },
+  -   {
+  -     title: 'Предварительные подготовительные работы',
+  -     description: 'Обеспечение технической возможности проектирования на территории проекта...',
+  -     image: '/assets/images/Etap2.png',
+  -     number: '02'
+  -   },
+  -   {
+  -     title: 'Получение разрешительной документации',
+  -     description: 'Разработка проектной документации в соответствии с требованиями...',
+  -     image: '/assets/images/Etap3.png',
+  -     number: '03'
+  -   },
+  -   {
+  -     title: 'Проектирование',
+  -     description: 'Разработка рабочей документации, согласование с надзорными органами.',
+  -     image: '/assets/images/Etap4.png',
+  -     number: '04'
+  -   },
+  -   {
+  -     title: 'Подготовка территории',
+  -     description: 'Очистка, выравнивание, подготовка инженерных сетей.',
+  -     image: '/assets/images/Etap5.png',
+  -     number: '05'
+  -   },
+  -   {
+  -     title: 'Строительство',
+  -     description: 'Ведение строительно-монтажных работ.',
+  -     image: '/assets/images/Etap6.png',
+  -     number: '06'
+  -   },
+  -   {
+  -     title: 'Сдача объекта',
+  -     description: 'Приемка, оформление разрешительных документов, передача заказчику.',
+  -     image: '/assets/images/Etap7.png',
+  -     number: '07'
+  -   }
+  - ]
+
   .about-company
     .about-company__title
       p О КОМПАНИИ
@@ -165,28 +210,34 @@ block content
     .projects__bottom-line
       +button('смотреть все проекты', 'primary')
   
-  .stages 
-    .stages__title 
-      p этапы проекта
-    .stages__block 
-      .stages__text 
-        p ООО «ОблСтройИнвест» в реализации инвестиционного проекта. Помогаем на всех этапах:
-        p Принятие решения о реализации проекта
-        p Анализ технической реализуемости проекта и обоснования инвестиций
-      .stages__slider
-        .slide_around_sec
-          .slide_around_slider
-            .swiper
-              .swiper-wrapper
-                each i in [1, 2, 3, 4, 5, 6, 7]
-                  .swiper-slide
-                    .slide-content
-                      img(src=`/assets/images/Frame${i}.png`, alt=`Слайд ${i}`)
-                      .slide-number #{'0' + i}
-              .swiper-pagination-wrapper
-                .swiper-button-next.around_next
-                .swiper-pagination
-                .swiper-button-prev.around_prev
+  .project-stages-slider(data-slides=JSON.stringify(projectStagesData))
+    .project-stages-slider__header
+      h2.project-stages-slider__title ЭТАПЫ ПРОЕКТА
+      p.project-stages-slider__company ООО «ОблСтройИнвест» в реализации инвестиционного проекта.
+      p.project-stages-slider__subtitle Помогаем на всех этапах:
+    .project-stages-slider__content-wrapper
+      .project-stages-slider__text-content
+        h3.project-stages-slider__stage-title= projectStagesData[0].title
+        p.project-stages-slider__description= projectStagesData[0].description
+      .project-stages-slider__image-container
+        .project-stages-slider__image-prev
+          img(src=projectStagesData[projectStagesData.length - 1].image, alt="Предыдущий этап")
+        .project-stages-slider__image-current
+          img(src=projectStagesData[0].image, alt="Текущий этап")
+        .project-stages-slider__image-next
+          img(src=projectStagesData[1].image, alt="Следующий этап")
+        .project-stages-slider__number= projectStagesData[0].number
+    .project-stages-slider__controls
+      button.project-stages-slider__btn.project-stages-slider__btn--prev <
+      .project-stages-slider__pagination
+        - const total = projectStagesData.length;
+        for i in Array(total)
+          if i === 0
+            .project-stages-slider__dot.is-active
+          else
+            .project-stages-slider__dot
+      button.project-stages-slider__btn.project-stages-slider__btn--next >
+
   
   .advantages
     .advantages__title 
@@ -205,57 +256,57 @@ block content
       .item 
         .item__container 
           .item__title 
-             p Абсолютная прозрачность
+             p Фиксированный <br /> бюджет
           .item__subtitle 
-             p Мы держим вас в курсе каждого этапа строительства, предоставляя фото — и видеоотчеты в реальном времени
+             p С нами вы защищены от непредвиденных затрат. Мы гарантируем чёткую смету и строгое её соблюдение
           .item__image
             img(src="/assets/images/Advantages2.png", alt="Преимущество")
       .item 
         .item__container 
           .item__title 
-            p Абсолютная прозрачность
+            p Точность сроков — наша гордость
           .item__subtitle 
-            p Мы держим вас в курсе каждого этапа строительства, предоставляя фото — и видеоотчеты в реальном времени
+            p Ваши дедлайны — наша ответственность. Каждый проект завершается вовремя, без компромиссов
           .item__image
             img(src="/assets/images/Advantages3.png", alt="Преимущество")
       .item 
         .item__container 
           .item__title 
-            p Абсолютная прозрачность
+            p Команда <br /> экспертов
           .item__subtitle 
-            p Мы держим вас в курсе каждого этапа строительства, предоставляя фото — и видеоотчеты в реальном времени
+            p Наши специалисты — сертифицированные профессионалы, чья квалификация подтверждена годами успешных проектов
           .item__image
             img(src="/assets/images/Advantages4.png", alt="Преимущество")
       .item 
         .item__container 
           .item__title 
-             p Абсолютная прозрачность
+             p Гарантия качества и безопасности
           .item__subtitle 
-             p Мы держим вас в курсе каждого этапа строительства, предоставляя фото — и видеоотчеты в реальном времени
+             p Предоставляем гарантии на качество своих работ и безопасность во время стройки
           .item__image
             img(src="/assets/images/Advantages5.png", alt="Преимущество")
       .item 
         .item__container 
           .item__title 
-             p Абсолютная прозрачность
+             p Индивидуальный подход
           .item__subtitle 
-             p Мы держим вас в курсе каждого этапа строительства, предоставляя фото — и видеоотчеты в реальном времени
+             p Ваши потребности — наш приоритет. Мы адаптируемся к вашим задачам, предлагая оптимальные решения для любой ситуации
           .item__image
             img(src="/assets/images/Advantages6.png", alt="Преимущество")
       .item 
         .item__container 
           .item__title 
-             p Абсолютная прозрачность
+             p Экспертное сопровождение
           .item__subtitle 
-             p Мы держим вас в курсе каждого этапа строительства, предоставляя фото — и видеоотчеты в реальном времени
+             p От консультаций по материалам до согласования документации — мы берём на себя все вопросы, чтобы вы могли сосредоточиться на главном
           .item__image
             img(src="/assets/images/Advantages7.png", alt="Преимущество")
       .item 
         .item__container 
           .item__title 
-             p Абсолютная прозрачность
+             p Экологичность и рациональность
           .item__subtitle 
-             p Мы держим вас в курсе каждого этапа строительства, предоставляя фото — и видеоотчеты в реальном времени
+             p Мы заботимся об окружающей среде и эффективно используем ресурсы, минимизируя воздействие на природу.
           .item__image
             img(src="/assets/images/Advantages8.png", alt="Преимущество")
     .advantages__ps 

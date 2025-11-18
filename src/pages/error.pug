@@ -1,4 +1,14 @@
 extends ../layouts/main
 
 block content
-  div Ошибка
+  .error 
+    .error__img 
+      img(src="/assets/images/404.png", alt="Ошибка")
+      img(src="/assets/images/404mobi.png", alt="Ошибка")
+    .error__text 
+      .error__text__title 
+        p Страница не найдена
+      .error__text__subtitle 
+        p К сожалению, запрашиваемая вами страница не существует или была перемещена. Проверьте корректность адреса или вернитесь на главную страницу.
+      .error__text__button
+        +button('вернуться на главную', 'primary')
