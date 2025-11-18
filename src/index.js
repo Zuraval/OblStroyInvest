@@ -91,8 +91,20 @@ class ProjectStagesSlider {
       this.nextImgEl.src = this.slides[nextIndex].image;
 
       this.titleEl.textContent = current.title;
-      this.descEl.textContent = current.description;
       this.numberEl.textContent = current.number;
+
+      this.descEl.innerHTML = '';
+
+      if (Array.isArray(current.description)) {
+        current.description.forEach(line => {
+          const lineElement = document.createElement('div');
+          lineElement.className = 'description-line';
+          lineElement.textContent = line.trim();
+          this.descEl.appendChild(lineElement);
+        });
+      } else {
+        console.warn('Описание слайда не является массивом:', current.description);
+      }
 
       this.titleEl.classList.remove('project-stages-slider__fade-out');
       this.titleEl.classList.add('project-stages-slider__fade-in');
