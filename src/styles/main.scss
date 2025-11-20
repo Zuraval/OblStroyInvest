@@ -58,6 +58,10 @@ body {
   background-color: #F5F5F5;
 }
 
+body.no-scroll {
+  overflow: hidden;
+}
+
 input,
 textarea {
   -webkit-animation: bugfix infinite 1s;

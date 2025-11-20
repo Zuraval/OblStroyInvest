@@ -70,3 +70,34 @@ header.site-header
         a.lang-switch(href="#" data-lang="en") EN
 
         +button('Заказать звонок', 'primary')
+
+.burger-menu-panel.container
+  .menu-body
+    ul.menu-list
+      li.menu-item
+        a(href="#") О КОМПАНИИ
+      li.menu-item
+        a(href="#" class="menu-item__link")
+          span УСЛУГИ
+          <svg class="menu-item__arrow" data-toggle="submenu" width="9" height="5" viewBox="0 0 9 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0.5 0.5L4.5 4.5L8.5 0.5" stroke="#243984" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+
+        ul.menu-sublist
+          li.menu-subitem
+            a(href="#") ТЕХНИЧЕСКИЙ ЗАКАЗЧИК
+          li.menu-subitem
+            a(href="#") ГЕНЕРАЛЬНЫЙ ПОДРЯД
+          li.menu-subitem
+            a(href="#") СТРОИТЕЛЬНЫЙ АУДИТ
+
+      li.menu-item
+        a(href="#") ПРОЕКТЫ
+      li.menu-item
+        a(href="#") КАРЬЕРА
+      li.menu-item
+        a(href="#") НОВОСТИ
+      li.menu-item
+        a(href="#") КОНТАКТЫ
+  .menu-footer
+    +button('заказать звонок', 'primary')

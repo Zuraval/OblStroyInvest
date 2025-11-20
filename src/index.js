@@ -10,10 +10,43 @@ import 'swiper/css/navigation';
 document.addEventListener('DOMContentLoaded', () => {
   const burgerIcon = document.querySelector('.burger-icon');
   const button = document.querySelector('.burger-menu');
+  const menuPanel = document.querySelector('.burger-menu-panel');
 
-  button.addEventListener('click', () => {
+  function toggleMenu() {
     burgerIcon.classList.toggle('burger-icon--open');
     burgerIcon.classList.toggle('burger-icon--closed');
+    menuPanel.classList.toggle('active');
+    document.body.classList.toggle('no-scroll');
+  }
+
+  button.addEventListener('click', toggleMenu);
+
+  const closeBtn = menuPanel.querySelector('.menu-header__close');
+  if (closeBtn) {
+    closeBtn.addEventListener('click', toggleMenu);
+  }
+
+  const submenuToggle = menuPanel.querySelector('.menu-item__arrow[data-toggle="submenu"]');
+  if (submenuToggle) {
+    submenuToggle.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+
+      const item = this.closest('.menu-item');
+      const sublist = item.querySelector('.menu-sublist');
+      const arrow = this;
+
+      sublist.classList.toggle('active');
+      arrow.classList.toggle('rotated');
+    });
+  }
+
+  const menuItems = menuPanel.querySelectorAll('.menu-item a');
+  menuItems.forEach(item => {
+    item.addEventListener('click', function(e) {
+      e.preventDefault();
+      toggleMenu();
+    });
   });
 });
 
@@ -169,14 +202,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
 document.addEventListener('DOMContentLoaded', () => {
   let zoomSwiper = null;
-  
+
   function openZoomModal(images, startIndex = 0) {
     const modalOverlay = document.querySelector('.modal-overlay');
     const swiperWrapper = document.querySelector('.zoom-slider .swiper-wrapper');
     const zoomSlider = document.querySelector('.zoom-slider');
-  
+
     swiperWrapper.innerHTML = '';
-  
+
     images.forEach(imgSrc => {
       const slide = document.createElement('div');
       slide.className = 'swiper-slide';
@@ -187,9 +220,9 @@ document.addEventListener('DOMContentLoaded', () => {
       slide.appendChild(img);
       swiperWrapper.appendChild(slide);
     });
-  
+
     modalOverlay.classList.add('active');
-  
+
     if (!zoomSwiper) {
       zoomSwiper = new Swiper(zoomSlider, {
         modules: [Pagination, Navigation, Zoom],
@@ -234,7 +267,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
     }
-  
+
     document.querySelector('.modal-close-button').addEventListener('click', closeZoomModal);
     modalOverlay.addEventListener('click', (e) => {
       if (e.target === modalOverlay) {
@@ -242,7 +275,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
-  
+
   function closeZoomModal() {
     const modalOverlay = document.querySelector('.modal-overlay');
     modalOverlay.classList.remove('active');
@@ -251,14 +284,14 @@ document.addEventListener('DOMContentLoaded', () => {
       zoomSwiper = null;
     }
   }
-  
+
   document.querySelectorAll('.inner-slide img').forEach((img, index) => {
     img.addEventListener('click', function () {
       const innerSlider = img.closest('.inner-slider');
       const allImages = Array.from(innerSlider.querySelectorAll('img')).map(img => img.src);
-    
+
       const currentIndex = allImages.indexOf(img.src);
-    
+
       openZoomModal(allImages, currentIndex);
     });
   });
