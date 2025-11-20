@@ -266,6 +266,10 @@
   }
 }
 
+.burger-menu-panel {
+  display: none;
+}
+
 @media (max-width: 768px) {
   .burger-menu-panel {
     position: fixed;
@@ -350,7 +354,7 @@
               a {
                 font-family: var(--font-family);
                 font-weight: 500;
-                font-size: 12px;
+                font-size: 2.4rem;
                 line-height: 120%;
                 color: var(--grey-text);
                 display: block;

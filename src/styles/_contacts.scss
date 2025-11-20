@@ -55,7 +55,7 @@
 
   &__info {
     display: flex;
-    gap: 7rem;
+    justify-content: space-between;
     margin-bottom: 25rem;
 
     .list__card {
@@ -63,6 +63,7 @@
         box-shadow: 2px 2px 20px 0 rgba(0, 0, 0, 0.12);
         width: 114.5rem;
         height: 77.8rem;
+        border-radius: 16px;
       }
     }
   }
