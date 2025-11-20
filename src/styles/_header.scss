@@ -3,11 +3,10 @@
   border-radius: 16px;
   background: var(--footerheader);
   padding: 1.6rem 4.8rem !important;
-  position: absolute;
+  position: fixed;
   top: 16px;
   left: 50%;
   z-index: 100;
-  max-width: 1824px;
 
   width: calc(100% - 32px);
   margin: 0 auto;

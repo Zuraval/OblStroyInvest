@@ -361,33 +361,30 @@ block content
     .advantages__ps 
       p <span>„</span> С нами вы получаете не просто строительную компанию, а партнёра, который делает ваш проект успешным, комфортным и вдохновляющим. 
 
-  .licenses
-    .licenses__title 
-      p ЛИЦЕНЗИИ И БЛАГОДАРНОСТИ
-    .licenses__slider 
-      .main-slider-container
-        .swiper.main-slider
-          .swiper-wrapper
-            - var items = [
-            -   { id: 1, images: ['/assets/images/Doc1-1.png', '/assets/images/Doc1-2.png', '/assets/images/Doc1-3.png', '/assets/images/Doc1-4.png'] },
-            -   { id: 2, images: ['/assets/images/Doc2-1.png', '/assets/images/Doc2-2.png'] },
-            -   { id: 3, images: ['/assets/images/Doc1-1.png'] },
-            -   { id: 4, images: ['/assets/images/Doc1-1.png'] },
-            -   { id: 5, images: ['/assets/images/Doc1-1.png'] },
-            -   { id: 6, images: ['/assets/images/Doc1-1.png'] }
-            - ]
-            each slide, index in items
-              .swiper-slide.main-slide(data-index=index)
-                .main-slide-content
-                  .swiper.inner-slider
-                    .swiper-wrapper
-                      each img, imgIndex in slide.images
-                        .swiper-slide.inner-slide
-                          img(src=img, alt=`Slide ${slide.id}.${imgIndex + 1}`)
-                    .swiper-pagination.inner-pagination
-          .swiper-pagination.main-pagination
-          .swiper-button-next.main-button-next
-          .swiper-button-prev.main-button-prev
+  .licenses__slider 
+    .main-slider-container
+      .swiper.main-slider
+        .swiper-wrapper
+          - var items = [
+          -   { id: 1, images: ['/assets/images/Doc1-1.png', '/assets/images/Doc1-2.png', '/assets/images/Doc1-3.png', '/assets/images/Doc1-4.png'] },
+          -   { id: 2, images: ['/assets/images/Doc2-1.png', '/assets/images/Doc2-2.png'] },
+          -   { id: 3, images: ['/assets/images/Doc1-1.png'] },
+          -   { id: 4, images: ['/assets/images/Doc1-1.png'] },
+          -   { id: 5, images: ['/assets/images/Doc1-1.png'] },
+          -   { id: 6, images: ['/assets/images/Doc1-1.png'] }
+          - ]
+          each slide, index in items
+            .swiper-slide.main-slide(data-index=index)
+              .main-slide-content
+                .swiper.inner-slider
+                  .swiper-wrapper
+                    each img, imgIndex in slide.images
+                      .swiper-slide.inner-slide
+                        img(src=img, alt=`Slide ${slide.id}.${imgIndex + 1}`)
+                  .swiper-pagination.inner-pagination
+        .swiper-pagination.main-pagination
+        .swiper-button-next.main-button-next
+        .swiper-button-prev.main-button-prev
       
   .news 
     .news__title 
@@ -430,3 +427,11 @@ block content
           .item__button
             +button('читать дальше', 'outline')
   
+  .modal-overlay
+    .modal-content
+      .modal-close-button ×
+      .swiper.zoom-slider
+        .swiper-wrapper
+        .swiper-pagination.zoom-pagination
+        .swiper-button-next.zoom-next
+        .swiper-button-prev.zoom-prev
