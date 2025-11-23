@@ -197,6 +197,15 @@ document.addEventListener('DOMContentLoaded', function () {
       nextEl: '.main-button-next',
       prevEl: '.main-button-prev',
     },
+    breakpoints: {
+      320: {
+        slidesPerView: 1.2,
+        spaceBetween: 20
+      },
+      768: {
+        slidesPerView: 4
+      }
+    }
   });
 });
 
@@ -228,12 +237,8 @@ document.addEventListener('DOMContentLoaded', () => {
         modules: [Pagination, Navigation, Zoom],
         slidesPerView: 1,
         spaceBetween: 0,
-        loop: false,
+        loop: true,
         zoom: true,
-        pagination: {
-          el: '.zoom-pagination',
-          clickable: true,
-        },
         navigation: {
           nextEl: '.zoom-next',
           prevEl: '.zoom-prev',
@@ -295,4 +300,137 @@ document.addEventListener('DOMContentLoaded', () => {
       openZoomModal(allImages, currentIndex);
     });
   });
+});
+
+let newsSwiper = null;
+
+function initNewsSlider() {
+  const isMobile = window.matchMedia('(max-width: 768px)').matches;
+  
+  const newsList = document.querySelector('.news__list');
+  
+  if (!newsList) {
+    return;
+  }
+
+  if (isMobile) {
+    if (!newsSwiper) {
+      newsSwiper = new Swiper('.news__list', {
+        slidesPerView: 1,
+        spaceBetween: 20,
+        loop: false,
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        breakpoints: {
+          320: {
+            slidesPerView: 1.2,
+            spaceBetween: 15
+          }
+        }
+      });
+    }
+  } else {
+    if (newsSwiper) {
+      newsSwiper.destroy(true, true);
+      newsSwiper = null;
+    }
+  }
+}
+
+document.addEventListener('DOMContentLoaded', initNewsSlider);
+
+const mediaQuery = window.matchMedia('(max-width: 768px)');
+mediaQuery.addListener(initNewsSlider);
+
+let resizeTimeout;
+window.addEventListener('resize', () => {
+  clearTimeout(resizeTimeout);
+  resizeTimeout = setTimeout(initNewsSlider, 100);
+});
+
+let projectsSwiper = null;
+
+function initProjectsSlider() {
+  const isMobile = window.matchMedia('(max-width: 768px)').matches;
+  
+  const projectsMenu = document.querySelector('.projects__menu');
+  
+  if (!projectsMenu) {
+    return;
+  }
+
+  if (isMobile) {
+    if (!projectsSwiper && !projectsMenu.classList.contains('swiper-initialized')) {
+      projectsSwiper = new Swiper('.projects__menu', {
+        slidesPerView: 1,
+        spaceBetween: 20,
+        loop: false,
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        breakpoints: {
+          320: {
+            slidesPerView: 1,
+            spaceBetween: 15
+          },
+          480: {
+            slidesPerView: 1.2,
+            spaceBetween: 15
+          }
+        }
+      });
+    }
+  } else {
+    if (projectsSwiper) {
+      projectsSwiper.destroy(true, true);
+      projectsSwiper = null;
+    }
+  }
+}
+
+document.addEventListener('DOMContentLoaded', initProjectsSlider);
+
+const projectsMediaQuery = window.matchMedia('(max-width: 768px)');
+projectsMediaQuery.addListener(initProjectsSlider);
+
+let projectsResizeTimeout;
+window.addEventListener('resize', () => {
+  clearTimeout(projectsResizeTimeout);
+  projectsResizeTimeout = setTimeout(initProjectsSlider, 100);
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  const showMoreContainer = document.querySelector('.js-show-more');
+  const hiddenItems = document.querySelector('.projects__hidden-items');
+
+  if (!showMoreContainer || !hiddenItems) return;
+
+  const button = showMoreContainer.querySelector('button');
+  if (!button) return;
+
+  const showAllProjects = () => {
+    hiddenItems.style.display = 'flex';
+    showMoreContainer.style.display = 'none';
+  };
+
+  button.addEventListener('click', (e) => {
+    showAllProjects();
+  });
+
+  const updateVisibility = () => {
+    if (window.innerWidth >= 768) {
+      hiddenItems.style.display = 'block';
+      showMoreContainer.style.display = 'none';
+    } else {
+      hiddenItems.style.display = 'none';
+      showMoreContainer.style.display = hiddenItems.children.length > 0 ? 'block' : 'none';
+    }
+  };
+
+  updateVisibility();
+
+  window.addEventListener('resize', updateVisibility);
 });

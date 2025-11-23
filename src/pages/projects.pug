@@ -1,4 +1,141 @@
 extends ../layouts/main
 
 block content
-  div Проекты
+  include ../includes/mixins/hero-other.pug
+  include ../includes/mixins/button.pug
+
+  - var heroOtherData = {
+  -   tagline: 'Главная | Проекты',
+  -   title: 'Реализованные проекты',
+  -   subtitle: 'Мы строим не просто объекты — мы создаём инфраструктуру будущего. Ниже представлены ключевые проекты, выполненные нашей командой в разных регионах страны.',
+  -   pdf: 'все проекты', 
+  -   bgImage: '../assets/images/hero-img2.png'
+  - }
+
+  +hero-other(heroOtherData.tagline, heroOtherData.title, heroOtherData.subtitle, heroOtherData.pdf, heroOtherData.bgImage)
+
+  .project-page
+    .project-page__title 
+      p Проекты
+    .project-page__container
+      - var projects = [
+      -   {
+      -     img: '/assets/images/Frame1-project.png',
+      -     name: 'МНОГОФУНКЦИОНАЛЬНЫЙ ЖИЛОЙ КОМПЛЕКС С АМФИТЕАТРОМ И КОВОРКИНГОМ',
+      -     address: 'г. Москва, Потешная ул., вл. 5',
+      -     complex: 'EVOPARK Сокольники',
+      -     area: 'Площадь: 41 187 кв.м'
+      -   },
+      -   {
+      -     img: '/assets/images/Frame2-project.png',
+      -     name: 'ЖИЛОЙ КОМПЛЕКС БИЗНЕС-КЛАССА',
+      -     address: 'г. Москва, ул. Электродная, вл. 2А',
+      -     complex: 'EVOPARK Измайлово',
+      -     area: 'Площадь:19964 кв.м.'
+      -   },
+      -   {
+      -     img: '/assets/images/Frame3-project.png',
+      -     name: 'СЕТЬ КЛИНИК «АО “МЕДИЦИНА” (КЛИНИКА АКАДЕМИКА РОЙТБЕРГА)»',
+      -     address: 'г. Химки,  кв-л Клязьма, 300',
+      -     complex: 'Институт ядерной медицины',
+      -     area: 'Площадь: 22 000 кв.м.'
+      -   },
+      -   {
+      -     img: '/assets/images/Frame4-project.png',
+      -     name: 'ЖИЛОЙ КОМПЛЕКС БИЗНЕС-КЛАССА',
+      -     address: 'г. Москва, Долгопрудненское ш., д.3',
+      -     complex: 'ФИЗТЕХСИТИ',
+      -     area: 'Площадь: 32 823 кв.м.'
+      -   },
+      -   {
+      -     img: '/assets/images/Frame5-project.png',
+      -     name: 'ФЕДЕРАЛЬНАЯ СЕТЬ ГОРОДСКИХ КУРОРТОВ С ФИТНЕСОМ TERMOLAND',
+      -     address: 'г. Москва',
+      -     complex: 'ТЕРМОЛЕНД Физтехпарк',
+      -     area: 'Площадь: 6 746,2 кв.м'
+      -   },
+      -   {
+      -     img: '/assets/images/Frame6-project.png',
+      -     name: 'ФЕДЕРАЛЬНАЯ СЕТЬ ГОРОДСКИХ КУРОРТОВ С ФИТНЕСОМ TERMOLAND',
+      -     address: 'г. Москва, Речной вокзал, Ленинградское шоссе, 47',
+      -     complex: 'ТЕРМОЛЕНД Речной вокзал',
+      -     area: 'Площадь: 7 713,6 кв.м'
+      -   },
+      -   {
+      -     img: '/assets/images/Frame7-project.png',
+      -     name: 'ЖИЛОЙ КОМПЛЕКС',
+      -     address: 'г. Королёв, ул. Академика Легостаева, д. 8',
+      -     complex: 'ПАРАД ПЛАНЕТ',
+      -     area: 'Площадь:  144 256 кв.м.'
+      -   },
+      -   {
+      -     img: '/assets/images/Frame8-project.png',
+      -     name: 'ЖИЛОЙ КОМПЛЕКС КЛАССА КОМФОРТ+',
+      -     address: 'г. Королёв, ул. Академика Легостаева, д. 8',
+      -     complex: 'ГРАНИ',
+      -     area: 'Площадь: 28 000,00 кв.м'
+      -   },
+      -   {
+      -     img: '/assets/images/Frame9-project.png',
+      -     name: 'ФЕДЕРАЛЬНАЯ СЕТЬ ГОРОДСКИХ КУРОРТОВ С ФИТНЕСОМ TERMOLAND',
+      -     address: 'г. Оренбург',
+      -     complex: 'ТЕРМОЛЕНД Оренбург',
+      -     area: 'Площадь: 17 446,31 кв.м'
+      -   },
+      -   {
+      -     img: '/assets/images/Frame10-project.png',
+      -     name: 'МНОГОФУНКЦИОНАЛЬНЫЙ ЖИЛОЙ КОМПЛЕКС С АМФИТЕАТРОМ И КОВОРКИНГОМ',
+      -     address: 'г. Москва, Потешная ул., вл. 5',
+      -     complex: 'ТЕРМОЛЕНД Красногорск',
+      -     area: 'Площадь: 11 058,10 кв.м.'
+      -   }
+      - ]
+      - var visibleProjects = projects.slice(0, 9)
+      - var hiddenProjects = projects.slice(9)
+
+      each project in visibleProjects
+        .projects__menu__item 
+          img(src=project.img, alt="Проект")
+          .projects__info
+            p= project.name
+            p= project.address
+          .projects__details
+            p= project.complex
+            p Площадь: #{project.area}
+            div 
+            div
+              +button('подробнее', 'primary')
+
+      .projects__hidden-items
+        each project in hiddenProjects
+          .projects__menu__item
+            img(src=project.img, alt="Проект")
+            .projects__info
+              p= project.name
+              p= project.address
+            .projects__details
+              p= project.complex
+              p Площадь: #{project.area}
+              div 
+              div
+                +button('подробнее', 'primary')
+
+    .project-page__number 
+      button 
+        svg(width="24", height="24", viewBox="0 0 24 24", fill="none", xmlns="http://www.w3.org/2000/svg")
+          g(clip-path="url(#clip0_488_11710)")
+            path(d="M15 6L9 12L15 18", stroke="#DFE2E7", stroke-width="1.33333", stroke-linecap="round", stroke-linejoin="round")
+          defs
+            clipPath#clip0_488_11710
+              rect(width="24", height="24", fill="white")
+      button.page-number--active 01
+      button.page-number 02
+      button 
+        svg(width="24", height="24", viewBox="0 0 24 24", fill="none", xmlns="http://www.w3.org/2000/svg")
+          g(clip-path="url(#clip0_488_11716)")
+            path(d="M9 6L15 12L9 18", stroke="#243984", stroke-width="1.33333", stroke-linecap="round", stroke-linejoin="round")
+          defs
+            clipPath#clip0_488_11716
+              rect(width="24", height="24", fill="white")
+      .js-show-more
+        +button('показать еще', 'outline')

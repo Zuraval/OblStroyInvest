@@ -3,12 +3,14 @@
 @use './footer';
 @use './home';
 @use './hero';
+@use './hero-other';
 @use './input';
 @use './button';
 @use './error';
 @use './user-agreement';
 @use './policy';
 @use './contacts';
+@use './projects';
 
 :root {
 	--bg: #f5f5f5;
@@ -131,8 +133,8 @@ ul li {
 }
 
 .container {
-  margin: 0 auto;
-  padding: 0px 48px;
+  margin: 0 16px;
+  padding: 0px 4.8rem;
 }
 
 input[type="number"]::-webkit-inner-spin-button,
@@ -158,6 +160,7 @@ input[type="number"] {
   }
 
   .container {
+    margin: 0 auto;
     padding: 0px 16px; // в моб версии отступ от края задаем для всех контейнеров, а там где не нужно можем точечно убрать
     width: 100%;
   }

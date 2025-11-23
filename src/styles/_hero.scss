@@ -14,7 +14,7 @@
     background: url('../assets/images/hero-img1.png') no-repeat center center;
     background-size: cover;
     z-index: -1;
-    min-height: 102.4rem
+    height: 102.4rem
   }
 
   &__content {
@@ -139,5 +139,11 @@
     font-size: 1.2rem;
     line-height: 110%;
     color: var(--primary);
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
   }
 }

@@ -1,0 +1,141 @@
+.hero-other {
+  height: 97.9rem;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20rem;
+  --hero-bg-image-url: '../assets/images/hero-img1.png';
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;  
+    background: var(--hero-bg-image-url) no-repeat center center;
+    background-size: cover;
+    z-index: -1;
+    height: 97.9rem;
+  }
+
+  &__content {
+    color: var(--white);
+    text-align: left; 
+    position: relative;
+    width: 100%;
+  }
+
+  &__tagline {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 1.8rem;
+    line-height: 120%;
+    text-transform: uppercase;
+    color: var(--light-text);
+    margin-bottom: 8.7rem;
+  }
+
+  &__title {
+    font-family: var(--second-family);
+    font-weight: 400;
+    font-size: 8rem;
+    line-height: 110%;
+    color: var(--white);
+    margin-bottom: 6.4rem;
+    max-width: 60rem;
+  }
+
+  &__subtitle {
+    font-family: var(--font-family);
+    font-weight: 300;
+    font-size: 2.4rem;
+    line-height: 120%;
+    color: var(--white);
+    max-width: 58rem;
+  }
+
+  &__pdf-doc {
+
+    position: absolute;
+    right: 8.7rem;
+    bottom: 0;
+    display: flex;
+    gap: 1.6rem;
+    align-items: center;
+
+    div {
+      font-family: var(--font-family);
+      font-weight: 500;
+      font-size: 1.6rem;
+      line-height: 120%;
+      color: var(--white);
+      text-transform: uppercase;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 4px;
+      padding: 1.45rem 0.95rem;
+      background: #e2231a;
+    }
+
+    p {
+      font-family: var(--font-family);
+      font-weight: 400;
+      font-size: 1.8rem;
+      line-height: 110%;
+      color: var(--light-text);
+      text-transform: uppercase;
+    }
+  }
+
+
+}
+
+@media (max-width: 768px) {
+  .hero-other {
+
+    margin-bottom: 8rem;
+    flex-direction: column;
+    height: 103.2rem;
+    justify-content: center;
+
+    &__content {
+      margin-top: 13rem;
+      padding-bottom: 17.6rem;
+    }
+
+    &::before {
+      height: 103.2rem;
+    }
+
+    &__tagline {
+      font-size: 2.4rem;
+      margin-bottom: 4.8rem;
+    }
+
+    &__title {
+      font-size: 8rem;
+      margin-bottom: 4.8rem;
+    }
+
+    &__subtitle {
+      font-size: 3.4rem;
+      max-width: 100%;
+    }
+
+    &__pdf-doc {
+      bottom: 0;
+      left: 0;
+
+      div {
+        font-size: 3.2rem;
+        padding: 2.9rem 1.9rem;
+      }
+
+      p {
+        font-size: 2.8rem;
+      }
+    }
+  }
+}
