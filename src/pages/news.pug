@@ -1,4 +1,115 @@
 extends ../layouts/main
 
 block content
-  div Новости
+  include ../includes/mixins/hero-other.pug
+  include ../includes/mixins/button.pug
+
+  .news-page 
+    - var heroOtherData = {
+    -   tagline: 'Главная | Новости',
+    -   title: 'Новости и события',
+    -   subtitle: 'Следите за актуальными событиями компании: запуск новых проектов, этапы строительства, благоустройство территорий и другие важные новости из мира строительства.',
+    -   pdf: 'ПРЕЗЕНТАЦИЯ<br> КОМПАНИИ', 
+    -   bgImage: '../assets/images/hero-img4.png'
+    - }
+
+    +hero-other(heroOtherData.tagline, heroOtherData.title, heroOtherData.subtitle, heroOtherData.pdf, heroOtherData.bgImage)
+
+    - var newsItems = [
+    -   {
+    -     date: '30.07.2025',
+    -     title: 'Новый жилой комплекс бизнес-класса в районе «Заречье»',
+    -     subtitle: 'Компания ООО «ОблсСтройИнвест» начинает строительство жилого комплекса бизнес-класса «Ривер Парк» в престижном районе «Заречье». Проект включает современные дома с панорамным остеклением, подземным паркингом и собственной набережной.',
+    -     image: '/assets/images/NewsPage1.png'
+    -   },
+    -   {
+    -     date: '25.07.2025',
+    -     title: 'Завершены работы по благоустройству ЖК «Гармония»',
+    -     subtitle: 'Завершен финальный этап благоустройства территории жилого комплекса «Гармония» в районе «Московский». Жители уже могут пользоваться просторными внутренними дворами с ландшафтным дизайном, детскими спортивными площадками.',
+    -     image: '/assets/images/NewsPage2.png'
+    -   },
+    -   {
+    -     date: '20.07.2025',
+    -     title: 'Началось строительство элитного комплекса «Сосновый квартал»',
+    -     subtitle: 'На северо-западе города стартовало строительство жилого комплекса премиум-класса «Сосновый квартал». Проект реализуется в экологически чистом районе у лесопарка, с уникальным видом в городские и лесные инфраструктуры.',
+    -     image: '/assets/images/NewsPage3.png'
+    -   },
+    -   {
+    -     date: '24.06.2025',
+    -     title: 'Запуск нового проекта в Тюмени',
+    -     subtitle: 'Наши эксперты приняли участие в форуме «Строительство и технологии 2025», где представили доклад о цифровизации процессов и контроле качества на всех этапах реализации проектов.',
+    -     image: '/assets/images/NewsPage4.png'
+    -   },
+    -   {
+    -     date: '12.06.2025',
+    -     title: 'Получена новая государственная лицензия',
+    -     subtitle: 'Организация успешно прошла аудит и получила расширенную лицензию на строительство особо ответственных и технически сложных объектов.',
+    -     image: '/assets/images/NewsPage5.png'
+    -   },
+    -   {
+    -     date: '06.06.2025',
+    -     title: 'Компания выступила на профильном форуме',
+    -     subtitle: 'Наши эксперты приняли участие в форуме «Строительство и технологии 2025», где представили доклад о цифровизации процессов и контроле качества на всех этапах реализации проектов.',
+    -     image: '/assets/images/NewsPage6.png'
+    -   }
+    - ]
+    - var visibleNews = newsItems.slice(0, 5)
+    - var hiddenNews = newsItems.slice(5)
+
+    .news-page__content
+      each item, index in visibleNews
+        .news-page__content__item
+          .image
+            img(src=item.image, alt="Новость")
+          .info
+            .info__date
+              p= item.date
+            .info__text
+              .info__text__title
+                p= item.title
+              .info__text__subtitle
+                p= item.subtitle
+            .info__button
+              +button('читать дальше', 'outline')
+
+        if index < visibleNews.length - 1
+          .news-page__content__line
+
+    .news-page__hidden-items
+      each item, index in hiddenNews
+        .news-page__content__item
+          .image
+            img(src=item.image, alt="Новость")
+          .info
+            .info__date
+              p= item.date
+            .info__text
+              .info__text__title
+                p= item.title
+              .info__text__subtitle
+                p= item.subtitle
+            .info__button
+              +button('читать дальше', 'outline')
+
+        if index < hiddenNews.length - 1
+          .news-page__content__line
+
+    .news-page__number
+      button 
+        svg(width="24", height="24", viewBox="0 0 24 24", fill="none", xmlns="http://www.w3.org/2000/svg")
+          g(clip-path="url(#clip0_488_11710)")
+            path(d="M15 6L9 12L15 18", stroke="#DFE2E7", stroke-width="1.33333", stroke-linecap="round", stroke-linejoin="round")
+          defs
+            clipPath#clip0_488_11710
+              rect(width="24", height="24", fill="white")
+      button.page-number--active 01
+      button.page-number 02
+      button 
+        svg(width="24", height="24", viewBox="0 0 24 24", fill="none", xmlns="http://www.w3.org/2000/svg")
+          g(clip-path="url(#clip0_488_11716)")
+            path(d="M9 6L15 12L9 18", stroke="#243984", stroke-width="1.33333", stroke-linecap="round", stroke-linejoin="round")
+          defs
+            clipPath#clip0_488_11716
+              rect(width="24", height="24", fill="white")
+      .js-show-more
+        +button('показать еще', 'outline')

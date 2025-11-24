@@ -434,3 +434,33 @@ document.addEventListener('DOMContentLoaded', () => {
 
   window.addEventListener('resize', updateVisibility);
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+  const showMoreContainer = document.querySelector('.js-show-more');
+  const hiddenItemsContainer = document.querySelector('.news-page__hidden-items');
+
+  if (!showMoreContainer || !hiddenItemsContainer) return;
+
+  const button = showMoreContainer.querySelector('button');
+  if (!button) return;
+
+  const updateVisibility = () => {
+    if (window.innerWidth >= 768) {
+      hiddenItemsContainer.style.display = 'block';
+      showMoreContainer.style.display = 'none';
+    } else {
+      hiddenItemsContainer.style.display = 'none';
+      showMoreContainer.style.display = hiddenItemsContainer.children.length > 0 ? 'block' : 'none';
+    }
+  };
+
+  const showAllNews = () => {
+    hiddenItemsContainer.style.display = 'block';
+    showMoreContainer.style.display = 'none';
+  };
+
+  button.addEventListener('click', showAllNews);
+
+  updateVisibility();
+  window.addEventListener('resize', updateVisibility);
+});

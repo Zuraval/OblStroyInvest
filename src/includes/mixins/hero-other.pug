@@ -6,7 +6,7 @@ mixin hero-other(tagline, title, subtitle, pdf, bgImage, buttonData = null)
       p.hero-other__subtitle= subtitle
       a(href="#").hero-other__pdf-doc
         div pdf
-        p.hero-other__pdf= pdf
+        p.hero-other__pdf!= pdf
 
       if buttonData
         +button(...buttonData)
