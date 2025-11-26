@@ -1,7 +1,7 @@
 .btn {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 1.6rem;
   background: var(--primary);
   color: var(--light-text);
   padding: 0.8rem 1.6rem 0.8rem 2rem;
@@ -14,7 +14,7 @@
   transition: all 0.2s ease;
 
   .icon_arrow-right {
-    border: 1px solid var(--white);
+    border: 0.1rem solid var(--white);
     border-radius: 50%;
     padding: 0.7rem;
     display: flex;
@@ -22,10 +22,15 @@
     justify-content: center;
     background: transparent;
     transition: all 0.2s ease;
+
+    svg {
+      width: 1.6rem;
+      height: 1.6rem;
+    }
   }
 
   .icon_download {
-    border: 1px solid var(--white);
+    border: 0.1rem solid var(--white);
     border-radius: 50%;
     padding: 0.7rem;
     display: flex;
@@ -33,6 +38,11 @@
     justify-content: center;
     background: transparent;
     transition: all 0.2s ease;
+
+    svg {
+      width: 1.6rem;
+      height: 1.6rem;
+    }
   }
 
   svg g path {
@@ -58,7 +68,7 @@
   &--outline {
     background: transparent;
     color: var(--primary);
-    border: 1px solid var(--primary);
+    border: 0.1rem solid var(--primary);
     
     .icon_arrow-right {
       border-color: var(--primary);

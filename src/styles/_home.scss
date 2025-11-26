@@ -45,6 +45,12 @@
     }
 
     .btn {
+      div {
+        margin-bottom: 0;
+      }
+    }
+
+    .btn {
       margin-bottom: 10.6rem;
     }
   }
@@ -192,7 +198,6 @@
   }
 
   &__menu {
-    // Стили для Swiper контейнера
     .swiper {
       width: 100%;
       height: auto;
@@ -208,7 +213,6 @@
       align-items: stretch;
     }
 
-    // Десктопные стили (когда слайдер отключен)
     @media (min-width: 769px) {
       display: grid !important;
       grid-template-columns: repeat(3, 1fr) !important;
@@ -311,7 +315,6 @@
       }
     }
 
-    // Мобильные стили (когда слайдер активен)
     @media (max-width: 768px) {
       .swiper-slide {
         .projects__menu__item {
@@ -620,6 +623,10 @@
   }
 
   .main-slider-container {
+
+    .swiper.main-slider {
+      padding-bottom: 8.4rem;
+    }
   
     .main-slide-content {
       box-sizing: border-box;
@@ -627,30 +634,45 @@
 
     .swiper-button-prev,
     .swiper-button-next {
-      color: transparent;
+      top: auto;
+      bottom: 0;
+      color: #243984;
+      width: 2.4rem;
+      height: 2.4rem;
+      
+      svg {
+        width: 0.8rem;
+        height: 1.4rem;
+      }
     }
 
-    .main-button-next::before {
-      content: "";
-      display: block;
-      width: 24px;
-      height: 24px;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E...");
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-position: center;
-      z-index: 110;
+    .swiper-button-prev {
+      left: 47%;
+    }
+
+    .swiper-button-next {
+      right: 47%;
     }
 
     .main-pagination {
+
+      bottom: 0.2rem;
 
       .swiper-pagination-bullet {
 
         background: #dfe2e7;
         opacity: 1;
+        width: 0.8rem;
+        height: 0.8rem;
+        margin: 0.3rem;
 
         &-active {
           background: var(--blue);
+        }
+
+        &-disabled {
+          color: #DFE2E7;
+          opacity: 1;
         }
       }
     }
@@ -662,6 +684,9 @@
 
           background: #dfe2e7;
           opacity: 1;
+          width: 0.8rem;
+          height: 0.8rem;
+          margin: 0.3rem;
 
           &-active {
             background: var(--blue);
@@ -710,11 +735,13 @@
     }
 
     @media (min-width: 769px) {
+
       .swiper,
       .swiper-wrapper {
         display: flex !important;
         flex-direction: row !important;
         align-items: stretch !important;
+        justify-content: space-between;
       }
 
       .swiper-slide {
