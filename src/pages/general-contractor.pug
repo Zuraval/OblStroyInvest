@@ -1,0 +1,398 @@
+extends ../layouts/main
+
+block content
+  include ../includes/mixins/hero-other.pug
+  include ../includes/mixins/button.pug
+
+  .general-contractor
+    - var heroOtherData = {
+    -   tagline: 'Главная | Услуги',
+    -   title: 'Полный спектр услуг',
+    -   subtitle: 'Мы предоставляем полный комплекс услуг в сфере строительства и технического сопровождения объектов любой сложности.',
+    -   pdf: 'все проекты', 
+    -   bgImage: '../assets/images/hero-img5.png',
+    -   buttonData: ['оставить заявку', 'primary']
+    - }
+
+    +hero-other(heroOtherData.tagline, heroOtherData.title, heroOtherData.subtitle, heroOtherData.pdf, heroOtherData.bgImage, heroOtherData.buttonData)
+
+    .general-contractor__content 
+      .info-block 
+        .info-block__text 
+          p ООО «ОблсСтройИнвест» предоставляет услугу Генерального подряда, который включает в себя управление всеми этапами строительного процесса, а также сопровождение проектной и сметной документации. Основная задача генподрядчика — контроль за выполнением всех видов строительных работ, а также ответственность за достижение конечного результата и минимизацию основных рисков, связанных с реализацией проекта. Взаимоотношения между заказчиком и генеральным подрядчиком оформляются договором генерального подряда, в котором подробно прописаны обязанности сторон и условия сотрудничества.
+          p Договор генподряда — это гражданско-правовой документ, по которому одна сторона, Генподрядчик, обязуется выполнить строительство объекта в установленный срок, а другая сторона, Заказчик, — принять выполненные работы и оплатить их в соответствии с договором. Такой договор заключается в двух экземплярах с равной юридической силой и регулируется Гражданским кодексом РФ.
+        .info-block__image
+          img(src="/assets/images/General1.png", alt="Фото")
+      .info-block 
+        .info-block__image
+          img(src="/assets/images/General2.png", alt="Фото")
+        .info-block__text 
+          p Строительный генеральный подряд — это организационная форма проведения строительных работ, при которой Генподрядчик выступает главным исполнителем. Генподрядчик имеет право привлекать специалистов — субподрядчиков, однако все основные монтажно-строительные работы и связанные с ними риски остаются за Генподрядчиком. 
+          p ООО «ОблсСтройИнвест» имеет богатый практический опыт в координации и управлении строительными проектами более 50 объектов, среди которых жилые комплексы, коммерческие здания и производственные предприятия.
+          p Выбирая генеральный подряд от ООО «ОблсСтройИнвест», вы получаете надёжного партнёра, который берет на себя все организационные и технические задачи, позволяя вам сосредоточиться на развитии вашего бизнеса. Мы гарантируем качественную реализацию проекта в установленные сроки и с соблюдением всех стандартов.
+      .service-list
+        .service-list__top-title
+          p Состав услуги
+        .service-list__item
+          .service-list__title
+            p Инженерная подготовка территории
+
+            svg.service-list__icon(width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg")
+              path.service-list__icon-cross(v-if="true" d="M16 6.67V25.33" stroke="#243984" stroke-width="4" stroke-linecap="round")
+              path.service-list__icon-bar(d="M6.67 16H25.33" stroke="#243984" stroke-width="4" stroke-linecap="round")
+
+          .service-list__roster.is-collapsed
+            .service-list__roster__item
+              .service-list__roster__item__container
+                .title
+                  p Планировка территории
+                .description
+                  p Выравнивание участка, срезка или отсыпка грунта, создание насыпей и выемок
+
+            .service-list__roster__item
+              .service-list__roster__item__container
+                .title
+                  p Водоотведение
+                .description
+                  p Устройство дренажных систем, ливневой канализации, отведение поверхностных вод, защита от подтопления
+
+            .service-list__roster__item
+              .service-list__roster__item__container
+                .title
+                  p Укрепление грунтов
+                .description
+                  p Стабилизация слабых грунтов, противооползневые мероприятия, берегоукрепление
+
+            .service-list__roster__item
+              .service-list__roster__item__container
+                .title
+                  p Прокладка инженерных сетей
+                .description
+                  p Строительство подземных коммуникаций, подготовка площадок для размещения временных объектов строительства
+
+        .service-list__item
+          .service-list__title
+            p Земляные работы
+
+            svg.service-list__icon(width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg")
+              path.service-list__icon-cross(v-if="true" d="M16 6.67V25.33" stroke="#243984" stroke-width="4" stroke-linecap="round")
+              path.service-list__icon-bar(d="M6.67 16H25.33" stroke="#243984" stroke-width="4" stroke-linecap="round")
+
+          .service-list__roster.is-collapsed
+            .service-list__roster__item
+              .service-list__roster__item__container
+                .title
+                  p Планировка территории
+                .description
+                  p Выравнивание участка, срезка или отсыпка грунта, создание насыпей и выемок
+
+            .service-list__roster__item
+              .service-list__roster__item__container
+                .title
+                  p Водоотведение
+                .description
+                  p Устройство дренажных систем, ливневой канализации, отведение поверхностных вод, защита от подтопления
+
+            .service-list__roster__item
+              .service-list__roster__item__container
+                .title
+                  p Укрепление грунтов
+                .description
+                  p Стабилизация слабых грунтов, противооползневые мероприятия, берегоукрепление
+
+            .service-list__roster__item
+              .service-list__roster__item__container
+                .title
+                  p Прокладка инженерных сетей
+                .description
+                  p Строительство подземных коммуникаций, подготовка площадок для размещения временных объектов строительства
+
+        .service-list__item
+          .service-list__title
+            p Общестроительные работы
+
+            svg.service-list__icon(width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg")
+              path.service-list__icon-cross(v-if="true" d="M16 6.67V25.33" stroke="#243984" stroke-width="4" stroke-linecap="round")
+              path.service-list__icon-bar(d="M6.67 16H25.33" stroke="#243984" stroke-width="4" stroke-linecap="round")
+
+          .service-list__roster.is-collapsed
+            .service-list__roster__item
+              .service-list__roster__item__container
+                .title
+                  p Планировка территории
+                .description
+                  p Выравнивание участка, срезка или отсыпка грунта, создание насыпей и выемок
+
+            .service-list__roster__item
+              .service-list__roster__item__container
+                .title
+                  p Водоотведение
+                .description
+                  p Устройство дренажных систем, ливневой канализации, отведение поверхностных вод, защита от подтопления
+
+            .service-list__roster__item
+              .service-list__roster__item__container
+                .title
+                  p Укрепление грунтов
+                .description
+                  p Стабилизация слабых грунтов, противооползневые мероприятия, берегоукрепление
+
+            .service-list__roster__item
+              .service-list__roster__item__container
+                .title
+                  p Прокладка инженерных сетей
+                .description
+                  p Строительство подземных коммуникаций, подготовка площадок для размещения временных объектов строительства
+
+        .service-list__item
+          .service-list__title
+            p Монтаж наружных инженерных сетей и сооружений
+
+            svg.service-list__icon(width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg")
+              path.service-list__icon-cross(v-if="true" d="M16 6.67V25.33" stroke="#243984" stroke-width="4" stroke-linecap="round")
+              path.service-list__icon-bar(d="M6.67 16H25.33" stroke="#243984" stroke-width="4" stroke-linecap="round")
+
+          .service-list__roster.is-collapsed
+            .service-list__roster__item
+              .service-list__roster__item__container
+                .name 
+                  p Этапы монтажа:
+                .title
+                  p Проектирование
+                .description
+                  p Разработка детальной проектной документации с учётом особенностей объекта и существующих коммуникаций
+
+            .service-list__roster__item
+              .service-list__roster__item__container
+                .title
+                  p Подготовка территории
+                .description
+                  p Выравнивание участка, устройство траншей, подготовка оснований для опор и других сооружений
+
+            .service-list__roster__item
+              .service-list__roster__item__container
+                .title
+                  p Монтаж оборудования и трубопроводов
+                .description
+                  p Прокладка кабелей, труб, установка насосов, трансформаторов, распределительных устройств и других элементов инженерных сетей
+
+            .service-list__roster__item
+              .service-list__roster__item__container
+                .title
+                  p Устройство сооружений
+                .description
+                  p Строительство колодцев, камер, эстакад, тепловых пунктов и других объектов, необходимых для обслуживания и эксплуатации сетей
+
+            .service-list__roster__item
+              .service-list__roster__item__container
+                .title
+                  p Подключение к существующим сетям
+                .description
+                  p Соединение наружных сетей с внутренними системами здания и существующими коммуникациями
+
+            .service-list__roster__item
+              .service-list__roster__item__container
+                .title
+                  p Пуско-наладочные работы и сдача в эксплуатацию
+                .description
+                  p Проверка работоспособности всех систем и получение необходимых разрешений для начала эксплуатации
+
+            .service-list__roster__item
+              .service-list__roster__item__container
+                .name(style="margin-top: 3.6rem")
+                  p Согласования и строительно-монтажные работы по наружным инженерным сетям:
+                .title
+                  p Водопровод
+                .description
+                  p Обеспечение подачи воды в здание
+
+            .service-list__roster__item
+              .service-list__roster__item__container
+                .title
+                  p Канализация
+                .description
+                  p Отведение сточных вод из здания
+
+            .service-list__roster__item
+              .service-list__roster__item__container
+                .title
+                  p Электроснабжение
+                .description
+                  p Подача электроэнергии к зданию
+
+            .service-list__roster__item
+              .service-list__roster__item__container
+                .title
+                  p Отопление
+                .description
+                  p Подача тепла в здание
+
+            .service-list__roster__item
+              .service-list__roster__item__container
+                .title
+                  p Газоснабжение
+                .description
+                  p Подача газа для отопления, приготовления пищи и других нужд
+
+            .service-list__roster__item
+              .service-list__roster__item__container
+                .title
+                  p Тепловые сети
+                .description
+                  p Транспортировка теплоносителя от источника тепла к потребителям 
+
+            .service-list__roster__item
+              .service-list__roster__item__container
+                .title
+                  p Каналы связи
+                .description
+                  p Обеспечение связи и передачи данных  
+
+            .service-list__roster__item
+              .service-list__roster__item__container
+                  .name(style="margin-top: 3.6rem")
+                    p Согласования и строительно-монтажные работы по наружным инженерным сооружениям:
+                  .title
+                    p Колодцы
+                  .description
+                    p Служат для обслуживания и ремонта подземных коммуникаций 
+
+            .service-list__roster__item
+              .service-list__roster__item__container
+                .title
+                  p Камеры
+                .description
+                  p Места соединения и разветвления трубопроводов и кабелей
+
+            .service-list__roster__item
+              .service-list__roster__item__container
+                .title
+                  p Эстакады
+                .description
+                  p Поднимают трубопроводы и кабели над поверхностью земли, освобождая пространство
+
+            .service-list__roster__item
+              .service-list__roster__item__container
+                .title
+                  p Тепловые пункты
+                .description
+                  p Обеспечивают распределение тепла от тепловых сетей к потребителям
+
+            .service-list__roster__item
+              .service-list__roster__item__container
+                .title
+                  p Насосные станции
+                .description
+                  p Обеспечивают перекачку воды и других жидкостей
+
+
+        .service-list__item
+          .service-list__title
+            p Монтаж внутренних инженерных сетей
+
+            svg.service-list__icon(width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg")
+              path.service-list__icon-cross(v-if="true" d="M16 6.67V25.33" stroke="#243984" stroke-width="4" stroke-linecap="round")
+              path.service-list__icon-bar(d="M6.67 16H25.33" stroke="#243984" stroke-width="4" stroke-linecap="round")
+
+          .service-list__roster.is-collapsed
+            .service-list__roster__item
+              .service-list__roster__item__container
+                .title
+                  p Планировка территории
+                .description
+                  p Выравнивание участка, срезка или отсыпка грунта, создание насыпей и выемок
+
+            .service-list__roster__item
+              .service-list__roster__item__container
+                .title
+                  p Водоотведение
+                .description
+                  p Устройство дренажных систем, ливневой канализации, отведение поверхностных вод, защита от подтопления
+
+            .service-list__roster__item
+              .service-list__roster__item__container
+                .title
+                  p Укрепление грунтов
+                .description
+                  p Стабилизация слабых грунтов, противооползневые мероприятия, берегоукрепление
+
+            .service-list__roster__item
+              .service-list__roster__item__container
+                .title
+                  p Прокладка инженерных сетей
+                .description
+                  p Строительство подземных коммуникаций, подготовка площадок для размещения временных объектов строительства
+
+        .service-list__item
+          .service-list__title
+            p Специальные работы по строительству и производству
+
+            svg.service-list__icon(width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg")
+              path.service-list__icon-cross(v-if="true" d="M16 6.67V25.33" stroke="#243984" stroke-width="4" stroke-linecap="round")
+              path.service-list__icon-bar(d="M6.67 16H25.33" stroke="#243984" stroke-width="4" stroke-linecap="round")
+
+          .service-list__roster.is-collapsed
+            .service-list__roster__item
+              .service-list__roster__item__container
+                .title
+                  p Планировка территории
+                .description
+                  p Выравнивание участка, срезка или отсыпка грунта, создание насыпей и выемок
+
+            .service-list__roster__item
+              .service-list__roster__item__container
+                .title
+                  p Водоотведение
+                .description
+                  p Устройство дренажных систем, ливневой канализации, отведение поверхностных вод, защита от подтопления
+
+            .service-list__roster__item
+              .service-list__roster__item__container
+                .title
+                  p Укрепление грунтов
+                .description
+                  p Стабилизация слабых грунтов, противооползневые мероприятия, берегоукрепление
+
+            .service-list__roster__item
+              .service-list__roster__item__container
+                .title
+                  p Прокладка инженерных сетей
+                .description
+                  p Строительство подземных коммуникаций, подготовка площадок для размещения временных объектов строительства
+
+        .service-list__item
+          .service-list__title
+            p Пуско-наладочные работы и запуск в эксплуатацию
+
+            svg.service-list__icon(width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg")
+              path.service-list__icon-cross(v-if="true" d="M16 6.67V25.33" stroke="#243984" stroke-width="4" stroke-linecap="round")
+              path.service-list__icon-bar(d="M6.67 16H25.33" stroke="#243984" stroke-width="4" stroke-linecap="round")
+
+          .service-list__roster.is-collapsed
+            .service-list__roster__item
+              .service-list__roster__item__container
+                .title
+                  p Планировка территории
+                .description
+                  p Выравнивание участка, срезка или отсыпка грунта, создание насыпей и выемок
+
+            .service-list__roster__item
+              .service-list__roster__item__container
+                .title
+                  p Водоотведение
+                .description
+                  p Устройство дренажных систем, ливневой канализации, отведение поверхностных вод, защита от подтопления
+
+            .service-list__roster__item
+              .service-list__roster__item__container
+                .title
+                  p Укрепление грунтов
+                .description
+                  p Стабилизация слабых грунтов, противооползневые мероприятия, берегоукрепление
+
+            .service-list__roster__item
+              .service-list__roster__item__container
+                .title
+                  p Прокладка инженерных сетей
+                .description
+                  p Строительство подземных коммуникаций, подготовка площадок для размещения временных объектов строительства

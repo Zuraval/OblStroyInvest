@@ -464,3 +464,30 @@ document.addEventListener('DOMContentLoaded', () => {
   updateVisibility();
   window.addEventListener('resize', updateVisibility);
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+  const items = document.querySelectorAll('.service-list__item');
+
+  items.forEach(item => {
+    const title = item.querySelector('.service-list__title');
+    const roster = item.querySelector('.service-list__roster');
+
+    const isCollapsed = roster.classList.contains('is-collapsed');
+    item.classList.toggle('is-expanded', !isCollapsed);
+    title.setAttribute('aria-expanded', String(!isCollapsed));
+
+    title.addEventListener('click', () => {
+      const isExpanded = roster.classList.contains('is-collapsed') === false;
+
+      if (isExpanded) {
+        roster.classList.add('is-collapsed');
+        item.classList.remove('is-expanded');
+        title.setAttribute('aria-expanded', 'false');
+      } else {
+        roster.classList.remove('is-collapsed');
+        item.classList.add('is-expanded');
+        title.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+});
