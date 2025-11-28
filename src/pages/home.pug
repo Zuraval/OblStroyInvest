@@ -8,7 +8,7 @@ block content
   - var heroData = {
   -   tagline: 'От идеи до реализации',
   -   title: 'Строим будущее вместе',
-  -   subtitle: 'Надёжный партнёр в реализации сложных\nстроительных проектов',
+  -   subtitle: 'Надёжный партнёр в реализации сложных строительных проектов',
   -   button: 'Оставить заявку',
   -   stats: [
   -     { number: '15+', label: 'Лет на рынке' },
@@ -17,6 +17,7 @@ block content
   -   ],
   -   location: {
   -     title: 'Москва',
+  -     titleMobi: 'ФИЗТЕХСИТИ',
   -     images: ['/assets/images/Ellipse1.png', '/assets/images/Ellipse2.png', '/assets/images/Ellipse3.png', '/assets/images/Ellipse4.png', '/assets/images/Ellipse5.png', '/assets/images/Ellipse6.png'],
   -     caption: 'Центральный офис'
   -   }
@@ -131,6 +132,8 @@ block content
           p Мы обеспечим системный подход к решению инженерных задач и строгое соответствие всем действующим нормам и правилам.
           p Наш многоплановый опыт работ позволяет нам вести широкий спектр объектов разного уровня сложности.
           p Мобильность Компании ООО «ОблСтройИнвест» позволяет проводить работы не только в Москве и Московской области, но и на территории других субъектов Российской Федерации.
+        .about-company__content-image
+          img(src="/assets/images/section-img1.png", alt="Дом")
         +button('узнать больше', 'primary')
         .about-company__content-text__group 
           div
@@ -142,6 +145,8 @@ block content
             p Более 15 лет мы успешно реализуем уникальные проекты в области промышленного, жилищного гражданского, транспортного строительства. Благодаря сильной команде профессионалов ООО «Облстройинвест» мы результативно выполняем функции Генерального подрядчика, Технического заказчика и Строительного контроля.
       .about-company__content-image
         img(src="/assets/images/section-img1.png", alt="Дом")
+      .about-company__content-button
+        +button('узнать больше', 'primary')
   
   .services 
     .services__title
@@ -254,7 +259,9 @@ block content
               div 
               div
                 +button('подробнее', 'primary')
-      .swiper-pagination
+      .swiper-pagination.main-pagination
+      .swiper-button-next.main-button-next
+      .swiper-button-prev.main-button-prev
     .projects__bottom-line
       +button('смотреть все проекты', 'primary')
 
@@ -263,7 +270,7 @@ block content
       p.project-stages-slider__title ЭТАПЫ ПРОЕКТА
     .project-stages-slider__content-wrapper
       .project-stages-slider__text-content
-        p.project-stages-slider__subtitle ООО «ОблСтройИнвест» в реализации инвестиционного проекта. Помогаем на всех этапах:
+        p.project-stages-slider__subtitle ООО «ОблСтройИнвест» в реализации инвестиционного проекта.<br /> Помогаем на всех этапах:
         p.project-stages-slider__stage-title= projectStagesData[0].title
         .project-stages-slider__description
           each line in projectStagesData[0].description
@@ -367,9 +374,11 @@ block content
           .item__image
             img(src="/assets/images/Advantages8.png", alt="Преимущество")
     .advantages__ps 
-      p <span>„</span> С нами вы получаете не просто строительную компанию, а партнёра, который делает ваш проект успешным, комфортным и вдохновляющим. 
+      p <span>„</span> С нами вы получаете не просто строительную компанию, а партнёра, который делает ваш проект успешным, комфортным и вдохновляющим. 
 
   .licenses__slider 
+    .licenses__slider__title
+      p ЛИЦЕНЗИИ И БЛАГОДАРНОСТИ
     .main-slider-container
       .swiper.main-slider
         .swiper-wrapper
@@ -438,7 +447,9 @@ block content
                 p 24.06.2025
               .item__button
                 +button('читать дальше', 'outline')
-      .swiper-pagination
+      .swiper-pagination.main-pagination
+      .swiper-button-next.main-button-next
+      .swiper-button-prev.main-button-prev
     
   .modal-overlay
     .modal-content
