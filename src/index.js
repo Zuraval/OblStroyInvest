@@ -512,12 +512,12 @@ document.addEventListener('DOMContentLoaded', function () {
     grabCursor: true,
     breakpoints: {
       768: {
-        slidesPerView: 4.2,
-        spaceBetween: 15,
+        slidesPerView: 3.1,
+        spaceBetween: 20,
       },
       320: {
         slidesPerView: 1.2,
-        spaceBetween: 15,
+        spaceBetween: 20,
       },
     },
   });

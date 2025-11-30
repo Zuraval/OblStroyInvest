@@ -85,7 +85,18 @@ block content
 
       .lightbox-overlay(style="display: none;")
         .lightbox-content
-          .lightbox-close ×
+          .lightbox-close
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g clip-path="url(#clip0_512_21160)">
+                <path d="M36 12L12 36" stroke="#1B1F2E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M12 12L36 36" stroke="#1B1F2E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+              </g>
+              <defs>
+                <clipPath id="clip0_512_21160">
+                  <rect width="48" height="48" fill="white" />
+                </clipPath>
+              </defs>
+            </svg>
           .lightbox-main-image
             .swiper.lightbox-swiper
               .swiper-wrapper
@@ -107,5 +118,8 @@ block content
       .specific-project__video__description 
         p Вдохновляющее видео, которое раскрывает характер объекта, его масштаб и значение. В кадрах показаны ключевые решения и детали, отражающие качество и стиль выполненной работы. Ролик помогает увидеть проект не только с технической стороны, но и прочувствовать его атмосферу. Такое представление создаёт целостное впечатление и позволяет лучше понять ценность объекта.
       .specific-project__video__video 
+        video(controls poster="/assets/images/video.png" width="100%")
+          source(src="№" type="video/mp4")
+          source(src="№" type="video/webm")
 
 
