@@ -492,3 +492,112 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+
+/*------photo-gallery-slider-----*/
+
+document.addEventListener('DOMContentLoaded', function () {
+  const mainSwiper = new Swiper('.photo-gallery', {
+    modules: [Pagination, Navigation],
+    slidesPerView: 'auto',
+    spaceBetween: 20,
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    loop: false,
+    grabCursor: true,
+    breakpoints: {
+      768: {
+        slidesPerView: 4.2,
+        spaceBetween: 15,
+      },
+      320: {
+        slidesPerView: 1.2,
+        spaceBetween: 15,
+      },
+    },
+  });
+
+  const lightboxOverlay = document.querySelector('.lightbox-overlay');
+  const lightboxClose = document.querySelector('.lightbox-close');
+
+  lightboxClose.addEventListener('click', () => {
+    lightboxOverlay.style.display = 'none';
+    document.body.style.overflow = '';
+  });
+
+  lightboxOverlay.addEventListener('click', (e) => {
+    if (e.target === lightboxOverlay) {
+      lightboxOverlay.style.display = 'none';
+      document.body.style.overflow = '';
+    }
+  });
+
+  const gallerySlides = document.querySelectorAll('.photo-gallery .swiper-slide');
+
+  const thumbSwiper = new Swiper('.thumb-swiper', {
+    modules: [Pagination, Navigation],
+    slidesPerView: 'auto',
+    spaceBetween: 10,
+    freeMode: true,
+    watchSlidesProgress: true,
+    slideToClickedSlide: true,
+    clickable: true,
+    on: {
+      click: function (swiper, e) {
+        const slide = e.target.closest('.swiper-slide');
+        if (slide) {
+          const index = parseInt(slide.dataset.index);
+          if (!isNaN(index)) {
+            lightboxSwiper.slideTo(index);
+          }
+        }
+      },
+    },
+  });
+
+  const lightboxSwiper = new Swiper('.lightbox-swiper', {
+    modules: [Pagination, Navigation],
+    effect: 'fade',
+    loop: false,
+    navigation: {
+      nextEl: '.main-button-next',
+      prevEl: '.main-button-prev',
+    },
+    thumbs: {
+      swiper: thumbSwiper,
+    },
+    on: {
+      slideChange: function () {
+        setTimeout(() => {
+          thumbSwiper.slideTo(this.activeIndex);
+        }, 10);
+
+        const slides = Array.from(document.querySelectorAll('.thumb-swiper .swiper-slide'));
+        slides.forEach((slide, i) => {
+          if (i === this.activeIndex) {
+            slide.classList.add('swiper-slide-thumb-active');
+          } else {
+            slide.classList.remove('swiper-slide-thumb-active');
+          }
+        });
+      },
+    },
+  });
+
+  gallerySlides.forEach((slide, index) => {
+    slide.addEventListener('click', () => {
+      lightboxOverlay.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+      lightboxSwiper.slideTo(index, 0);
+    });
+  });
+
+  document.querySelectorAll('.swiper-button-prev, .swiper-button-next').forEach(btn => {
+    btn.addEventListener('mousedown', e => e.preventDefault());
+  });
+});

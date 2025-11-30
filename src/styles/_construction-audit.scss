@@ -1,0 +1,416 @@
+.construction-audit {
+
+  .hero-other__subtitle {
+    margin-bottom: 6.4rem;
+  }
+
+  .hero-other__pdf-doc {
+    display: none;
+  }
+
+  &__info {
+    .info {
+
+      display: flex;
+      flex-direction: column;
+      gap: 3.2rem;
+
+      &__description {
+        p {
+          font-family: var(--font-family);
+          font-weight: 300;
+          font-size: 2.4rem;
+          line-height: 120%;
+          color: var(--text);
+        }
+      }
+
+      &__line {
+        border: 1px solid var(--line-light);
+        width: 100%;
+      }
+
+      &__title {
+        font-family: var(--second-family);
+        font-weight: 500;
+        font-size: 3.2rem;
+        line-height: 100%;
+        color: var(--blue);
+        margin-bottom: 3.2rem;
+      }
+
+      .service-list {
+
+        display: flex;
+        flex-direction: column;
+        gap: 2.4rem;
+        margin-bottom: 20rem;
+          
+        &__top-title {
+          font-family: var(--second-family);
+          font-weight: 600;
+          font-size: 2.4rem;
+          line-height: 110%;
+          text-transform: uppercase;
+          color: var(--blue);
+        }
+      
+        &__item {
+          background-color: var(--white);
+          border-radius: 16px;
+          overflow: hidden;
+        
+          .service-list__roster {
+            padding: 3.6rem 3.2rem 2.4rem;
+            overflow: hidden;
+            opacity: 1;
+            transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+          
+            &.is-collapsed {
+              max-height: 0;
+              opacity: 0;
+              padding-top: 0;
+              padding-bottom: 0;
+            }
+          }
+        
+          &.is-expanded {
+            .service-list__icon {
+              .service-list__icon-cross {
+                opacity: 0;
+                transform: rotate(90deg);
+              }
+            }
+          }
+        }
+      
+        &__title {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 2.4rem 3.2rem;
+          cursor: pointer;
+          background-color: var(--white);
+        
+          p {
+            font-family: var(--second-family);
+            font-weight: 600;
+            font-size: 1.8rem;
+            line-height: 120%;
+            text-transform: uppercase;
+            color: var(--text);
+          }
+        
+          .service-list__icon {
+            flex-shrink: 0;
+            width: 2.4rem;
+            height: 2.4rem;
+            display: block;
+          
+            path {
+              stroke: #243984;
+              stroke-width: 2;
+              stroke-linecap: round;
+              fill: none;
+              transition: opacity 0.3s ease, transform 0.3s ease;
+            }
+          
+            .service-list__icon-cross {
+              opacity: 1;
+              transform-origin: center;
+            }
+          }
+        }
+      
+        &__roster {
+        
+          padding: 2.4rem 3.2rem;
+          opacity: 1;
+          transition: max-height 0.3s ease-in, opacity 0.3s ease-in;
+        
+          &__item {
+            margin-bottom: 2.4rem;
+          
+            &:last-child {
+              margin-bottom: 0;
+            }
+          
+            &__container {
+            
+              display: flex;
+              flex-direction: column;
+              gap: 1.6rem;
+              align-items: flex-start;
+            
+              .name {
+                font-family: var(--second-family);
+                font-weight: 600;
+                font-size: 2.4rem;
+                line-height: 110%;
+                text-transform: uppercase;
+                color: var(--blue);
+                margin-bottom: 2.4rem;
+              }
+            
+              .title {
+                flex-shrink: 0;
+                font-family: var(--second-family);
+                font-weight: 600;
+                font-size: 2.4rem;
+                line-height: 110%;
+                text-transform: uppercase;
+                color: var(--text);
+              }
+            
+              .description {
+                flex: 1;
+                font-family: var(--font-family);
+                font-weight: 300;
+                font-size: 2.4rem;
+                line-height: 120%;
+                color: var(--grey-text);
+                margin: 0;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &__card {
+
+    margin-bottom: 20rem;
+
+    &__title {
+      display: flex;
+      justify-content: center;
+      font-family: var(--second-family);
+      font-weight: 600;
+      font-size: 4.8rem;
+      line-height: 120%;
+      color: var(--text);
+      margin-bottom: 12rem;
+    }
+
+    .card-list {
+
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8rem;
+      justify-content: center;
+
+      &__item {
+
+        position: relative;
+
+        &__container {
+          padding: 4rem 2.4rem;
+          background-color: var(--white);
+          border-radius: 16px;
+          height: 31.9rem;
+        }
+
+        &__text {
+          font-family: var(--second-family);
+          font-weight: 600;
+          font-size: 1.8rem;
+          line-height: 120%;
+          text-transform: uppercase;
+          color: var(--text);
+          width: 36.6rem;
+        }
+
+        &__image {
+
+          position: absolute;
+          bottom: -0.5rem;
+          right: 0;
+
+          img {
+            width: 19.4rem;
+            height: 20.6rem;
+          }
+        }
+
+      }
+    }
+  }
+
+  &__text {
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12rem;
+    justify-content: center;
+    margin-bottom: 20rem;
+
+    &__block {
+      p {
+        font-family: var(--font-family);
+        font-weight: 300;
+        font-size: 2.4rem;
+        line-height: 120%;
+        color: var(--text);
+        width: 68rem;
+      }
+    }
+
+    &__block:last-child {
+      p {
+        font-family: var(--second-family);
+        font-weight: 500;
+        font-size: 3.2rem;
+        line-height: 100%;
+        text-align: center;
+        color: var(--blue);
+        width: 114.6rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .construction-audit {
+
+    .hero-other__subtitle {
+      margin-bottom: 8rem;
+    }
+
+    .hero-other__content {
+      padding-bottom: 0;
+    }
+
+    &__info {
+      .info {
+
+        gap: 6.4rem;
+
+        &__description {
+          p {
+            font-size: 3.6rem;
+          }
+        }
+        
+        &__title {
+          font-size: 3.2rem;
+          margin-bottom: 0;
+        }
+
+        .service-list {
+
+          gap: 4.8rem;
+          margin-bottom: 24.4rem;
+        
+          &__item {
+            .service-list__roster {
+              padding: 2.4rem 3.2rem 2.4rem;
+            }
+          }
+        
+          &__title {
+          
+            padding: 2.4rem 3.2rem;
+          
+            p {
+              font-size: 2.4rem;
+              max-width: 52.8rem;
+            }
+          
+            .service-list__icon {
+              width: 4.8rem;
+              height: 4.8rem;
+            }      
+          }
+        
+          &__roster {
+            &__item {
+            
+              margin-bottom: 3.6rem;
+            
+              &__container {
+              
+                gap: 3.2rem;
+              
+                .name {
+                  font-size: 3.2rem;
+                }
+              
+                .title {
+                  font-size: 3.2rem;
+                }
+              
+                .description {
+                  font-size: 2.8rem;
+                }
+              
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &__card {
+
+      margin-bottom: 18.4rem;
+
+      &__title {
+        font-size: 6rem;
+        margin-bottom: 6.4rem;
+      }
+
+      .card-list {
+
+        gap: 1.6rem;
+
+        &__item {
+
+          &__container {
+            border-radius: 4px;
+            height: 33.2rem;
+            width: 33.2rem;
+            padding: 1.6rem;
+          }
+
+          &__text {
+            font-size: 2.4rem;
+            width: 30rem;
+
+            white-space: normal;
+            overflow-wrap: break-word;
+            word-break: normal
+          }
+
+          &__image {
+            img {
+              width: 10.7rem;
+              height: 11.3rem;
+            }
+          }
+        }
+
+      }
+    }
+
+    &__text {
+
+      gap: 3.2rem;
+      margin-bottom: 8rem;
+
+      &__block {
+        p {
+          font-size: 2.8rem;
+        }
+      }
+
+      &__block:last-child {
+        p {
+          margin-top: 3.2rem;
+          width: 100%;
+          font-size: 3.2rem;
+        }
+      }
+    }
+  }
+}

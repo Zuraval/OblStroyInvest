@@ -1,0 +1,111 @@
+extends ../layouts/main
+
+block content
+  include ../includes/mixins/hero-other.pug
+  include ../includes/mixins/button.pug
+
+  .specific-project
+    - var heroOtherData = {
+    -   tagline: 'Главная | Проекты | EVOPARK Сокольники',
+    -   title: 'EVOPARK Сокольники',
+    -   subtitle: 'Современное пространство рядом с парком, с дизайнерскими лобби, террасами, панорамными окнами и развитой инфраструктурой для комфортной жизни и отдыха.',
+    -   pdf: 'все проекты', 
+    -   bgImage: '../assets/images/hero-img7.png',
+    - }
+
+    +hero-other(heroOtherData.tagline, heroOtherData.title, heroOtherData.subtitle, heroOtherData.pdf, heroOtherData.bgImage)
+
+    .specific-project__title
+      p EVOPARK Сокольники
+    .specific-project__title-block 
+      .info 
+        .info__description
+          p ОБЪЕКТ ЖИЛОГО НАЗНАЧЕНИЯ
+        .info__title 
+          p МНОГОФУНКЦИОНАЛЬНЫЙ ЖИЛОЙ КОМПЛЕКС С АМФИТЕАТРОМ И КОВОРКИНГОМ
+        .info__list 
+          .info__list__item
+            .info__list__title 
+              img(src="/assets/images/Adress.png", alt="Адрес")
+              p Адрес
+            .info__list__description 
+              p 107076, Российская Федерация, г. Москва, Потешная ул., вл. 5
+
+          .info__list__item
+            .info__list__title 
+              img(src="/assets/images/Square.png", alt="Площадь")
+              p Площадь
+            .info__list__description 
+              p 41 187 кв.м.
+
+          .info__list__item
+            .info__list__title 
+              img(src="/assets/images/General.png", alt="Генеральный подрядчик")
+              p ГЕНЕРАЛЬНЫЙ ПОДРЯДЧИК
+
+          .info__list__item
+            .info__list__title 
+              img(src="/assets/images/Tech.png", alt="Технический заказчик")
+              p ТЕХНИЧЕСКИЙ ЗАКАЗЧИК
+
+      .image 
+        img(src="/assets/images/Project.png", alt="Проект")
+
+    .specific-project__about-company 
+      .title 
+        p о проекте
+      .text-list 
+        p Evopark Сокольники располагается в 300 метрах от парка «Сокольники» и пешей доступности от метро «Преображенская площадь». Он состоит из двух секций переменной этажности 13–19–20 этажей. Неоспоримыми преимуществами комплекса стали видовые террасы, панорамные окна, авторское благоустройство, дизайнерские лобби, подземный паркинг, зоны для отдыха и прогулок, а также смотровая площадка и амфитеатр.
+        p Уникальное расположение подарит возможность своим резидентам не просто жить ярко и интересно, но и при желании спрятаться от городской суеты и отдохнуть в красивейшей городской локации. Утренняя пробежка под пение птиц или романтическая вечерняя прогулка — теперь это может стать ежедневным удовольствием. Представьте, что вы можете приходить сюда, когда пожелаете!
+        p Апарт-комплекс «EVOPARK Сокольники» будет состоять из двух секций переменной этажности. В каждой из секций запроектированы просторные лобби с высокими потолками, где будут стойки ресепшен с консьерж-службой.
+        p На первом этаже расположены: зал для мероприятий, зона коворкинга, детская игровая комната, кафе, аптека и другие помещения под сервисы. В каждой из двух входных групп обустроены мягкие зоны ожидания, комнаты матери и ребёнка, а также комнаты для мойки лап домашних животных. На подземном уровне разместят паркинг и индивидуальные кладовые помещения для жильцов
+
+    .specific-project__gallery
+      .swiper.photo-gallery
+        .swiper-wrapper
+          - const galleryImages = [
+          -   { src: '/assets/images/Galery1.png', alt: 'Изображение 1' },
+          -   { src: '/assets/images/Galery2.png', alt: 'Изображение 2' },
+          -   { src: '/assets/images/Galery3.png', alt: 'Изображение 3' },
+          -   { src: '/assets/images/Galery4.png', alt: 'Изображение 4' },
+          -   { src: '/assets/images/Galery5.png', alt: 'Изображение 5' },
+          -   { src: '/assets/images/Galery6.png', alt: 'Изображение 6' },
+          -   { src: '/assets/images/Galery7.png', alt: 'Изображение 7' },
+          -   { src: '/assets/images/Galery8.png', alt: 'Изображение 8' },
+          -   { src: '/assets/images/Galery9.png', alt: 'Изображение 9' }
+          - ]
+
+          each img, index in galleryImages
+            .swiper-slide(data-index=index)
+              img(src=img.src, alt=img.alt)
+
+        .swiper-pagination.main-pagination
+        .swiper-button-next.main-button-next
+        .swiper-button-prev.main-button-prev
+
+      .lightbox-overlay(style="display: none;")
+        .lightbox-content
+          .lightbox-close ×
+          .lightbox-main-image
+            .swiper.lightbox-swiper
+              .swiper-wrapper
+                each img in galleryImages
+                  .swiper-slide
+                    img(src=img.src, alt=img.alt)
+              .swiper-button-next.main-button-next
+              .swiper-button-prev.main-button-prev
+          .lightbox-thumbnails
+            .swiper.thumb-swiper
+              .swiper-wrapper
+                each img, index in galleryImages
+                  .swiper-slide(data-index=index)
+                    img(src=img.src, alt=img.alt)
+
+    .specific-project__video
+      .specific-project__video__title 
+        p Видео-презентация проекта
+      .specific-project__video__description 
+        p Вдохновляющее видео, которое раскрывает характер объекта, его масштаб и значение. В кадрах показаны ключевые решения и детали, отражающие качество и стиль выполненной работы. Ролик помогает увидеть проект не только с технической стороны, но и прочувствовать его атмосферу. Такое представление создаёт целостное впечатление и позволяет лучше понять ценность объекта.
+      .specific-project__video__video 
+
+

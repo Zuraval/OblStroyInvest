@@ -1,0 +1,332 @@
+extends ../layouts/main
+
+block content
+  include ../includes/mixins/hero-other.pug
+  include ../includes/mixins/button.pug
+
+  .construction-audit
+    - var heroOtherData = {
+    -   tagline: 'Главная | Услуги | Строительный аудит',
+    -   title: 'Строительный аудит',
+    -   subtitle: 'Проводим проверку смет, оценку рисков и контроль финансово‑технических показателей.',
+    -   pdf: 'все проекты', 
+    -   bgImage: '../assets/images/hero-img6.png',
+    -   buttonData: ['оставить заявку', 'primary']
+    - }
+
+    +hero-other(heroOtherData.tagline, heroOtherData.title, heroOtherData.subtitle, heroOtherData.pdf, heroOtherData.bgImage, heroOtherData.buttonData)
+
+    .construction-audit__container 
+      .construction-audit__info 
+        .info 
+          .info__description 
+            p Строительный аудит от компании ООО «ОблСтройинвест» — это профессиональная комплексная услуга, направленная на всестороннюю проверку и оценку строительного проекта на всех этапах его реализации.
+          .info__line 
+          .info__title 
+            p Что входит в услугу строительного аудита от ООО «ОблСтройинвест»
+          .service-list
+            .service-list__item
+              .service-list__title
+                p Анализ проектной и сметной документации на соответствие действующим стандартам и требованиям заказчика
+
+                svg.service-list__icon(width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg")
+                  path.service-list__icon-cross(v-if="true" d="M16 6.67V25.33" stroke="#243984" stroke-width="4" stroke-linecap="round")
+                  path.service-list__icon-bar(d="M6.67 16H25.33" stroke="#243984" stroke-width="4" stroke-linecap="round")
+
+              .service-list__roster.is-collapsed
+                .service-list__roster__item
+                  .service-list__roster__item__container
+                    .title
+                      p Планировка территории
+                    .description
+                      p Выравнивание участка, срезка или отсыпка грунта, создание насыпей и выемок
+
+                .service-list__roster__item
+                  .service-list__roster__item__container
+                    .title
+                      p Водоотведение
+                    .description
+                      p Устройство дренажных систем, ливневой канализации, отведение поверхностных вод, защита от подтопления
+
+                .service-list__roster__item
+                  .service-list__roster__item__container
+                    .title
+                      p Укрепление грунтов
+                    .description
+                      p Стабилизация слабых грунтов, противооползневые мероприятия, берегоукрепление
+
+                .service-list__roster__item
+                  .service-list__roster__item__container
+                    .title
+                      p Прокладка инженерных сетей
+                    .description
+                      p Строительство подземных коммуникаций, подготовка площадок для размещения временных объектов строительства
+
+            .service-list__item
+              .service-list__title
+                p Контроль соблюдения строительных норм, правил и технологий в процессе выполнения работ
+
+                svg.service-list__icon(width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg")
+                  path.service-list__icon-cross(v-if="true" d="M16 6.67V25.33" stroke="#243984" stroke-width="4" stroke-linecap="round")
+                  path.service-list__icon-bar(d="M6.67 16H25.33" stroke="#243984" stroke-width="4" stroke-linecap="round")
+
+              .service-list__roster.is-collapsed
+                .service-list__roster__item
+                  .service-list__roster__item__container
+                    .title
+                      p Планировка территории
+                    .description
+                      p Выравнивание участка, срезка или отсыпка грунта, создание насыпей и выемок
+
+                .service-list__roster__item
+                  .service-list__roster__item__container
+                    .title
+                      p Водоотведение
+                    .description
+                      p Устройство дренажных систем, ливневой канализации, отведение поверхностных вод, защита от подтопления
+
+                .service-list__roster__item
+                  .service-list__roster__item__container
+                    .title
+                      p Укрепление грунтов
+                    .description
+                      p Стабилизация слабых грунтов, противооползневые мероприятия, берегоукрепление
+
+                .service-list__roster__item
+                  .service-list__roster__item__container
+                    .title
+                      p Прокладка инженерных сетей
+                    .description
+                      p Строительство подземных коммуникаций, подготовка площадок для размещения временных объектов строительства
+
+            .service-list__item
+              .service-list__title
+                p Оценка качества используемых материалов и выполненных строительных работ
+
+                svg.service-list__icon(width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg")
+                  path.service-list__icon-cross(v-if="true" d="M16 6.67V25.33" stroke="#243984" stroke-width="4" stroke-linecap="round")
+                  path.service-list__icon-bar(d="M6.67 16H25.33" stroke="#243984" stroke-width="4" stroke-linecap="round")
+
+              .service-list__roster.is-collapsed
+                .service-list__roster__item
+                  .service-list__roster__item__container
+                    .title
+                      p Планировка территории
+                    .description
+                      p Выравнивание участка, срезка или отсыпка грунта, создание насыпей и выемок
+
+                .service-list__roster__item
+                  .service-list__roster__item__container
+                    .title
+                      p Водоотведение
+                    .description
+                      p Устройство дренажных систем, ливневой канализации, отведение поверхностных вод, защита от подтопления
+
+                .service-list__roster__item
+                  .service-list__roster__item__container
+                    .title
+                      p Укрепление грунтов
+                    .description
+                      p Стабилизация слабых грунтов, противооползневые мероприятия, берегоукрепление
+
+                .service-list__roster__item
+                  .service-list__roster__item__container
+                    .title
+                      p Прокладка инженерных сетей
+                    .description
+                      p Строительство подземных коммуникаций, подготовка площадок для размещения временных объектов строительства
+
+            .service-list__item
+              .service-list__title
+                p Мониторинг сроков и этапов строительства с выявлением отклонений и рисков
+
+                svg.service-list__icon(width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg")
+                  path.service-list__icon-cross(v-if="true" d="M16 6.67V25.33" stroke="#243984" stroke-width="4" stroke-linecap="round")
+                  path.service-list__icon-bar(d="M6.67 16H25.33" stroke="#243984" stroke-width="4" stroke-linecap="round")
+
+              .service-list__roster.is-collapsed
+                .service-list__roster__item
+                  .service-list__roster__item__container
+                    .title
+                      p Планировка территории
+                    .description
+                      p Выравнивание участка, срезка или отсыпка грунта, создание насыпей и выемок
+
+                .service-list__roster__item
+                  .service-list__roster__item__container
+                    .title
+                      p Водоотведение
+                    .description
+                      p Устройство дренажных систем, ливневой канализации, отведение поверхностных вод, защита от подтопления
+
+                .service-list__roster__item
+                  .service-list__roster__item__container
+                    .title
+                      p Укрепление грунтов
+                    .description
+                      p Стабилизация слабых грунтов, противооползневые мероприятия, берегоукрепление
+
+                .service-list__roster__item
+                  .service-list__roster__item__container
+                    .title
+                      p Прокладка инженерных сетей
+                    .description
+                      p Строительство подземных коммуникаций, подготовка площадок для размещения временных объектов строительства
+
+            .service-list__item
+              .service-list__title
+                p Проверка наличия и правильности оформления разрешительной и технической документации
+
+                svg.service-list__icon(width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg")
+                  path.service-list__icon-cross(v-if="true" d="M16 6.67V25.33" stroke="#243984" stroke-width="4" stroke-linecap="round")
+                  path.service-list__icon-bar(d="M6.67 16H25.33" stroke="#243984" stroke-width="4" stroke-linecap="round")
+
+              .service-list__roster.is-collapsed
+                .service-list__roster__item
+                  .service-list__roster__item__container
+                    .title
+                      p Планировка территории
+                    .description
+                      p Выравнивание участка, срезка или отсыпка грунта, создание насыпей и выемок
+
+                .service-list__roster__item
+                  .service-list__roster__item__container
+                    .title
+                      p Водоотведение
+                    .description
+                      p Устройство дренажных систем, ливневой канализации, отведение поверхностных вод, защита от подтопления
+
+                .service-list__roster__item
+                  .service-list__roster__item__container
+                    .title
+                      p Укрепление грунтов
+                    .description
+                      p Стабилизация слабых грунтов, противооползневые мероприятия, берегоукрепление
+
+                .service-list__roster__item
+                  .service-list__roster__item__container
+                    .title
+                      p Прокладка инженерных сетей
+                    .description
+                      p Строительство подземных коммуникаций, подготовка площадок для размещения временных объектов строительства
+
+            .service-list__item
+              .service-list__title
+                p Выявление нарушений и предоставление рекомендаций по их устранению
+
+                svg.service-list__icon(width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg")
+                  path.service-list__icon-cross(v-if="true" d="M16 6.67V25.33" stroke="#243984" stroke-width="4" stroke-linecap="round")
+                  path.service-list__icon-bar(d="M6.67 16H25.33" stroke="#243984" stroke-width="4" stroke-linecap="round")
+
+              .service-list__roster.is-collapsed
+                .service-list__roster__item
+                  .service-list__roster__item__container
+                    .title
+                      p Планировка территории
+                    .description
+                      p Выравнивание участка, срезка или отсыпка грунта, создание насыпей и выемок
+
+                .service-list__roster__item
+                  .service-list__roster__item__container
+                    .title
+                      p Водоотведение
+                    .description
+                      p Устройство дренажных систем, ливневой канализации, отведение поверхностных вод, защита от подтопления
+
+                .service-list__roster__item
+                  .service-list__roster__item__container
+                    .title
+                      p Укрепление грунтов
+                    .description
+                      p Стабилизация слабых грунтов, противооползневые мероприятия, берегоукрепление
+
+                .service-list__roster__item
+                  .service-list__roster__item__container
+                    .title
+                      p Прокладка инженерных сетей
+                    .description
+                      p Строительство подземных коммуникаций, подготовка площадок для размещения временных объектов строительства
+
+            .service-list__item
+              .service-list__title
+                p Подготовка детального аудиторского отчёта с выводами и предложениями для заказчика
+
+                svg.service-list__icon(width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg")
+                  path.service-list__icon-cross(v-if="true" d="M16 6.67V25.33" stroke="#243984" stroke-width="4" stroke-linecap="round")
+                  path.service-list__icon-bar(d="M6.67 16H25.33" stroke="#243984" stroke-width="4" stroke-linecap="round")
+
+              .service-list__roster.is-collapsed
+                .service-list__roster__item
+                  .service-list__roster__item__container
+                    .title
+                      p Планировка территории
+                    .description
+                      p Выравнивание участка, срезка или отсыпка грунта, создание насыпей и выемок
+
+                .service-list__roster__item
+                  .service-list__roster__item__container
+                    .title
+                      p Водоотведение
+                    .description
+                      p Устройство дренажных систем, ливневой канализации, отведение поверхностных вод, защита от подтопления
+
+                .service-list__roster__item
+                  .service-list__roster__item__container
+                    .title
+                      p Укрепление грунтов
+                    .description
+                      p Стабилизация слабых грунтов, противооползневые мероприятия, берегоукрепление
+
+                .service-list__roster__item
+                  .service-list__roster__item__container
+                    .title
+                      p Прокладка инженерных сетей
+                    .description
+                      p Строительство подземных коммуникаций, подготовка площадок для размещения временных объектов строительства
+
+      .construction-audit__card 
+        .construction-audit__card__title
+          p Преимущества заказа строительного аудита у нас
+        .card-list 
+          .card-list__item 
+            .card-list__item__container
+              .card-list__item__text 
+                p Высококвалифицированная команда экспертов с многолетним опытом в строительной отрасли
+              .card-list__item__image
+                img(src="/assets/images/Advantage1.png", alt="Преимущество")
+
+          .card-list__item 
+            .card-list__item__container
+              .card-list__item__text 
+                p Независимый и объективный подход к проверке
+              .card-list__item__image
+                img(src="/assets/images/Advantage2.png", alt="Преимущество")
+
+          .card-list__item 
+            .card-list__item__container
+              .card-list__item__text 
+                p Использование современных методик и инструментов контроля
+              .card-list__item__image
+                img(src="/assets/images/Advantage3.png", alt="Преимущество")
+
+          .card-list__item 
+            .card-list__item__container
+              .card-list__item__text 
+                p Гибкость и индивидуальный подход к каждому проекту
+              .card-list__item__image
+                img(src="/assets/images/Advantage4.png", alt="Преимущество")
+
+          .card-list__item 
+            .card-list__item__container
+              .card-list__item__text 
+                p Своевременное предоставление результатов для принятия эффективных управленческих решений
+              .card-list__item__image
+                img(src="/assets/images/Advantage5.png", alt="Преимущество")
+
+      .construction-audit__text 
+        .construction-audit__text__block 
+          p Компания ООО «ОблСтройинвест» проводит строительный аудит на различных этапах проекта: при подготовке к строительству, в процессе выполнения работ, после завершения строительства и при эксплуатации объекта.
+        .construction-audit__text__block 
+          p Таким образом, строительный аудит является важным инструментом контроля и управления строительными проектами, способствующим успешной реализации объектов с соблюдением всех требований качества, безопасности и законодательства.
+        .construction-audit__text__block 
+          p Обратившись в ООО «ОблСтройинвест», вы получаете надёжного партнёра, который поможет обеспечить качество, безопасность и экономическую целесообразность вашего строительного проекта, а также минимизировать риски и избежать непредвиденных затрат.
