@@ -61,6 +61,8 @@ block content
         p На первом этаже расположены: зал для мероприятий, зона коворкинга, детская игровая комната, кафе, аптека и другие помещения под сервисы. В каждой из двух входных групп обустроены мягкие зоны ожидания, комнаты матери и ребёнка, а также комнаты для мойки лап домашних животных. На подземном уровне разместят паркинг и индивидуальные кладовые помещения для жильцов
 
     .specific-project__gallery
+      .specific-project__gallery__title
+        p фотогалерея
       .swiper.photo-gallery
         .swiper-wrapper
           - const galleryImages = [
@@ -117,9 +119,10 @@ block content
         p Видео-презентация проекта
       .specific-project__video__description 
         p Вдохновляющее видео, которое раскрывает характер объекта, его масштаб и значение. В кадрах показаны ключевые решения и детали, отражающие качество и стиль выполненной работы. Ролик помогает увидеть проект не только с технической стороны, но и прочувствовать его атмосферу. Такое представление создаёт целостное впечатление и позволяет лучше понять ценность объекта.
-      .specific-project__video__video 
-        video(controls poster="/assets/images/video.png" width="100%")
-          source(src="№" type="video/mp4")
-          source(src="№" type="video/webm")
+      .specific-project__video__video
+        .video-poster
+        video.specific-project__video__video(controls width="100%")
+          source(src="#" type="video/mp4")
+          source(src="#" type="video/webm")
 
 

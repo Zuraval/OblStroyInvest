@@ -516,11 +516,17 @@ document.addEventListener('DOMContentLoaded', function () {
         spaceBetween: 20,
       },
       320: {
-        slidesPerView: 1.2,
-        spaceBetween: 20,
+        slidesPerView: 1.15,
+        spaceBetween: 12,
       },
     },
   });
+
+  const isMobile = window.innerWidth < 768;
+
+  if (isMobile) {
+    return;
+  }
 
   const lightboxOverlay = document.querySelector('.lightbox-overlay');
   const lightboxClose = document.querySelector('.lightbox-close');
@@ -542,7 +548,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const thumbSwiper = new Swiper('.thumb-swiper', {
     modules: [Pagination, Navigation],
     slidesPerView: 'auto',
-    spaceBetween: 10,
+    spaceBetween: 0,
     freeMode: true,
     watchSlidesProgress: true,
     slideToClickedSlide: true,
@@ -600,4 +606,37 @@ document.addEventListener('DOMContentLoaded', function () {
   document.querySelectorAll('.swiper-button-prev, .swiper-button-next').forEach(btn => {
     btn.addEventListener('mousedown', e => e.preventDefault());
   });
+});
+
+/*----video-poster------*/
+
+const videos = document.querySelectorAll('.specific-project__video__video');
+videos.forEach(video => {
+  video.addEventListener('play', () => {
+    const poster = video.parentNode.querySelector('.video-poster');
+    if (poster) poster.style.display = 'none';
+  });
+  video.addEventListener('pause', () => {
+    const poster = video.parentNode.querySelector('.video-poster');
+    if (poster) poster.style.display = 'block';
+  });
+});
+
+/*----technical-customer-slider----*/
+
+const technicalCustomerSwiper = new Swiper('.technical-customer-swiper', {
+  modules: [Pagination, Navigation],
+  slidesPerView: 'auto',
+  centeredSlides: true,
+  spaceBetween: 0,
+  loop: true,
+  watchSlidesProgress: true,
+  pagination: {
+    el: '.main-pagination',
+    clickable: true,
+  },
+  navigation: {
+    nextEl: '.main-button-next',
+    prevEl: '.main-button-prev',
+  },
 });
