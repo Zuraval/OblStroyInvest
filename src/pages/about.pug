@@ -1,5 +1,167 @@
 extends ../layouts/main
 
 block content
-  h2 О нас
-  p Это страница "О нас"
+  include ../includes/mixins/hero-other.pug
+  include ../includes/mixins/button.pug
+
+  .about
+    - var heroOtherData = {
+    -   tagline: 'Главная | О компании',
+    -   title: 'Строим надёжное будущее',
+    -   subtitle: 'Мы создаём объекты, которые служат десятилетиями — с упором на качество, безопасность и ответственность на каждом этапе реализации проекта.',
+    -   pdf: 'ПРЕЗЕНТАЦИЯ\nКОМПАНИИ', 
+    -   bgImage: '../assets/images/hero-img9.png',
+    - }
+
+    +hero-other(heroOtherData.tagline, heroOtherData.title, heroOtherData.subtitle, heroOtherData.pdf, heroOtherData.bgImage)
+
+    .about__info
+      .about__info__title 
+        p О КОМПАНИИ
+      .about__info__container 
+        .about__info__container__text 
+          .about__info__container__text__list 
+            p ООО «ОблСтройИнвест» - динамично развивающаяся  строительная компания,  входит в состав  финансово-производственного холдинга АО ГК «ОСНОВА» <a href="https://gk-osnova.ru/" target="_blank">https://gk-osnova.ru/</a>.  
+            p Наша компания успешно выполняет функции Генерального  подрядчика,технического Заказчика, в том числе функции  строительного контроля, включая особо опасные, технически  сложные и уникальные объекты, а также полный комплекс  строительно-монтажных работ на строительных объектах  любого уровня сложности. 
+            p 15 лет успеха на рынке позволили пополнить активы  компании десятками крупных и средних объектов самого  различного назначения.  
+            p Наша компания имеет многолетний опыт  успешной  реализации самых разноплановых проектов в области  промышленного и жилого строительства, Реконструкции и благоустройства, Гражданского и  Транспортного строительства
+          .about__info__container__text__mission
+            <svg width="24" height="23" viewBox="0 0 24 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0 22.5L0.55 18.35C1.95 18.45 3 18.1833 3.7 17.55C4.4 16.9167 4.85 16.05 5.05 14.95C5.25 13.85 5.28333 12.6333 5.15 11.3H0V0H9.8V12.8C9.8 16.3 8.93333 18.9333 7.2 20.7C5.5 22.4667 3.1 23.0667 0 22.5ZM14.05 22.5L14.6 18.35C16 18.45 17.05 18.1833 17.75 17.55C18.45 16.9167 18.9 16.05 19.1 14.95C19.3 13.85 19.3333 12.6333 19.2 11.3H14.05V0H23.85V12.8C23.85 16.3 22.9833 18.9333 21.25 20.7C19.55 22.4667 17.15 23.0667 14.05 22.5Z" fill="#D6DAE3" />
+            </svg>
+            .line
+            .about__info__container__text__mission__text
+              p наша миссия
+              p Наша миссия — строить объекты, которые служат людям. Мы гарантируем качество, соблюдение сроков и индивидуальный подход к каждому проекту. Главная цель — создавать устойчивую ценность для заказчиков, партнёров и окружающей среды.
+        .about__info__container__image
+          img(src="/assets/images/About-us.png", alt="О компании")
+
+    .about__numbers
+      .about__numbers__title 
+        p О нас в цифрах
+      .about__numbers__list 
+        .about__numbers__list__item 
+          p 15+
+          div
+          p лет на рынке
+        .about__numbers__list__item 
+          p 50+
+          div
+          p реализованных проектов
+        .about__numbers__list__item 
+          p 100
+          p.percent %
+          div
+          p работаем по всей России
+
+    .about__managment
+      .about__managment__title 
+        p руководство
+      .about__managment__list 
+        .about__managment__list__item 
+          .about__managment__list__item__container 
+            <svg width="24" height="23" viewBox="0 0 24 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0 22.5L0.55 18.35C1.95 18.45 3 18.1833 3.7 17.55C4.4 16.9167 4.85 16.05 5.05 14.95C5.25 13.85 5.28333 12.6333 5.15 11.3H0V0H9.8V12.8C9.8 16.3 8.93333 18.9333 7.2 20.7C5.5 22.4667 3.1 23.0667 0 22.5ZM14.05 22.5L14.6 18.35C16 18.45 17.05 18.1833 17.75 17.55C18.45 16.9167 18.9 16.05 19.1 14.95C19.3 13.85 19.3333 12.6333 19.2 11.3H14.05V0H23.85V12.8C23.85 16.3 22.9833 18.9333 21.25 20.7C19.55 22.4667 17.15 23.0667 14.05 22.5Z" fill="#D6DAE3" />
+            </svg>
+            .text-block 
+              p Волхонский Вадим Борисович
+              div 
+              p Генеральный директор
+
+        .about__managment__list__item 
+          .about__managment__list__item__container 
+            <svg width="24" height="23" viewBox="0 0 24 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0 22.5L0.55 18.35C1.95 18.45 3 18.1833 3.7 17.55C4.4 16.9167 4.85 16.05 5.05 14.95C5.25 13.85 5.28333 12.6333 5.15 11.3H0V0H9.8V12.8C9.8 16.3 8.93333 18.9333 7.2 20.7C5.5 22.4667 3.1 23.0667 0 22.5ZM14.05 22.5L14.6 18.35C16 18.45 17.05 18.1833 17.75 17.55C18.45 16.9167 18.9 16.05 19.1 14.95C19.3 13.85 19.3333 12.6333 19.2 11.3H14.05V0H23.85V12.8C23.85 16.3 22.9833 18.9333 21.25 20.7C19.55 22.4667 17.15 23.0667 14.05 22.5Z" fill="#D6DAE3" />
+            </svg>
+            .text-block 
+              p Роменский Сергей Анатольевич
+              div 
+              p Заместитель генерального директора
+
+        .about__managment__list__item 
+          .about__managment__list__item__container 
+            <svg width="24" height="23" viewBox="0 0 24 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0 22.5L0.55 18.35C1.95 18.45 3 18.1833 3.7 17.55C4.4 16.9167 4.85 16.05 5.05 14.95C5.25 13.85 5.28333 12.6333 5.15 11.3H0V0H9.8V12.8C9.8 16.3 8.93333 18.9333 7.2 20.7C5.5 22.4667 3.1 23.0667 0 22.5ZM14.05 22.5L14.6 18.35C16 18.45 17.05 18.1833 17.75 17.55C18.45 16.9167 18.9 16.05 19.1 14.95C19.3 13.85 19.3333 12.6333 19.2 11.3H14.05V0H23.85V12.8C23.85 16.3 22.9833 18.9333 21.25 20.7C19.55 22.4667 17.15 23.0667 14.05 22.5Z" fill="#D6DAE3" />
+            </svg>
+            .text-block 
+              p Канаев Николай Геннадьевич
+              div 
+              p Заместитель генерального директора — главный инженер
+  
+    .specific-project__video
+      .specific-project__video__title 
+        p презентация компании
+      .specific-project__video__description 
+        p «Наша компания — это команда профессионалов, которые воплощают сложные задачи в реальные объекты, сохраняя высокие стандарты качества и доверие клиентов. Мы тщательно контролируем каждый этап реализации проектов, уделяя внимание деталям и соблюдению сроков. Для нас важно не просто строить, а создавать решения, которые служат людям и развивают территорию. Именно поэтому мы продолжаем двигаться вперёд, сохраняя репутацию надёжного партнёра».
+      .specific-project__video__video
+        .video-poster
+        video.specific-project__video__video(controls width="100%")
+          source(src="#" type="video/mp4")
+          source(src="#" type="video/webm")
+
+    .about__portfolio 
+      .about__portfolio__title 
+        p портфолио
+      .about__portfolio__list 
+        .about__portfolio__list__item 
+          img(src="/assets/images/Frame1.png", alt="Пример")
+        .about__portfolio__list__item 
+          img(src="/assets/images/Frame2.png", alt="Пример")
+        .about__portfolio__list__item 
+          img(src="/assets/images/Frame3.png", alt="Пример")
+        .about__portfolio__list__item 
+          img(src="/assets/images/Frame4.png", alt="Пример")
+        .about__portfolio__list__item 
+          img(src="/assets/images/Frame5.png", alt="Пример")
+        .about__portfolio__list__item 
+          img(src="/assets/images/Frame7.png", alt="Пример")
+      .about__portfolio__pagination 
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g clip-path="url(#clip0_495_14556)">
+            <path d="M15 6L9 12L15 18" stroke="#DFE2E7" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round" />
+          </g>
+          <defs>
+            <clipPath id="clip0_495_14556">
+              <rect width="24" height="24" fill="white" />
+            </clipPath>
+          </defs>
+        </svg> 
+        p 01
+        p 02
+        p 03
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g clip-path="url(#clip0_495_14562)">
+            <path d="M9 6L15 12L9 18" stroke="#243984" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round" />
+          </g>
+          <defs>
+            <clipPath id="clip0_495_14562">
+              <rect width="24" height="24" fill="white" />
+            </clipPath>
+          </defs>
+        </svg>
+
+    .about__slider 
+      .about__slider__title 
+        p ЛИЦЕНЗИИ и благодарности
+      .swiper.about-slider
+        .swiper-wrapper
+          - 
+            var slides = [
+              '/assets/images/Doc1-1.png',
+              '/assets/images/Doc1-2.png',
+              '/assets/images/Doc1-3.png',
+              '/assets/images/Doc1-4.png',
+              '/assets/images/Doc2-1.png',
+              '/assets/images/Doc2-1.png',
+              '/assets/images/Doc1-1.png',
+            ]
+          each imgSrc in slides
+            .swiper-slide
+              img.slider-image(src=imgSrc alt="Проект")
+
+        .swiper-pagination.main-pagination
+        .swiper-button-next.main-button-next
+        .swiper-button-prev.main-button-prev
+    
+
+

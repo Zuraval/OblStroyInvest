@@ -640,3 +640,31 @@ const technicalCustomerSwiper = new Swiper('.technical-customer-swiper', {
     prevEl: '.main-button-prev',
   },
 });
+
+/*-----about-slider----*/
+
+document.addEventListener('DOMContentLoaded', () => {
+  const swiper = new Swiper('.about-slider', {
+    modules: [Pagination, Navigation],
+    slidesPerView: 4.2,
+    spaceBetween: 20,
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    breakpoints: {
+      320: {
+        slidesPerView: 1.2,
+        spaceBetween: 10,
+      },
+      768: {
+        slidesPerView: 4.2,
+        spaceBetween: 20,
+      },
+    }
+  });
+});

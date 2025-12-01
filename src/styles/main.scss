@@ -18,6 +18,7 @@
 @use './specific-project';
 @use './technical-customer';
 @use './detail-news';
+@use './about';
 
 :root {
 	--bg: #f5f5f5;
@@ -140,7 +141,7 @@ ul li {
 }
 
 .container {
-  margin: 0 16px;
+  margin: 0 1.6rem;
   padding: 0px 4.8rem;
 }
 

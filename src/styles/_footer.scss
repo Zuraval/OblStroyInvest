@@ -42,7 +42,7 @@
         line-height: 120%;
         text-transform: uppercase;
         color: var(--white);
-        margin-bottom: 2.4rem;
+        margin-bottom: 3.2rem;
       }
 
       &.footer-form {
@@ -54,6 +54,10 @@
           text-transform: uppercase;
           color: var(--white);
           margin-bottom: 3.2rem;
+        }
+
+        .footer-column-form-text {
+          white-space: nowrap;
         }
       }
 
@@ -317,6 +321,10 @@
         }
 
         &.footer-form {
+
+        .footer-column-form-text {
+          white-space: wrap;
+        }
 
           p:first-child {
             font-family: var(--font-family);
