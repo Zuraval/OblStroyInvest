@@ -45,6 +45,7 @@
         font-size: 1.8rem;
         line-height: 110%;
         color: var(--text);
+        width: 58rem;
       }
     }
 
@@ -93,6 +94,7 @@
         font-weight: 400;
         font-size: 1.8rem;
         line-height: 110%;
+        width: 48rem;
         color: var(--grey-text);
       }
     }
@@ -382,7 +384,7 @@
           width: 100%;
 
           img {
-            width: 60rem;
+            width: 56rem;
             height: 60rem;
             object-fit: cover;
             border-radius: 16px;
@@ -1092,6 +1094,7 @@
 
         p {
           font-size: 2.8rem;
+          width: 100%;
         }
       }
 
@@ -1135,6 +1138,7 @@
 
           p:last-child {
             font-size: 2.8rem;
+            width: 100%;
           }
         }
       }

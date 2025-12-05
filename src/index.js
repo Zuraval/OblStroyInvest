@@ -668,3 +668,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
+
+/*------portfolio-slider-----*/
+

@@ -15,7 +15,7 @@
     .text {
 
       display: flex;
-      justify-content: space-between;
+      gap: 16.6rem;
 
       p {
         font-family: var(--font-family);
@@ -23,7 +23,7 @@
         font-size: 1.8rem;
         line-height: 110%;
         color: var(--text);
-        max-width: 71rem;
+        max-width: 72rem;
       }
     }
 
@@ -128,6 +128,18 @@
 
       &-prev {
         transform: translateX(40rem) scale(0.87) !important;
+
+        .swiper-slide__number {
+          visibility: hidden;
+        }
+
+        .swiper-slide__title {
+          visibility: hidden;
+        }
+
+        .swiper-slide__description  {
+          visibility: hidden;
+        }
       }
 
       &-next {
@@ -196,7 +208,7 @@
 
     &__block {
       display: flex;
-      justify-content: space-between;
+      gap: 17.2rem;
     }
 
     &__column {
@@ -204,7 +216,7 @@
       display: flex;
       flex-direction: column;
       gap: 2.4rem;
-      width: 71rem;
+      width: 74rem;
 
       p {
         font-family: var(--font-family);
@@ -233,7 +245,7 @@
     &__block {
 
       display: flex;
-      justify-content: space-between;
+      gap: 17.2rem;
 
       &__column:first-child {
         p {
@@ -263,7 +275,7 @@
           font-size: 1.8rem;
           line-height: 110%;
           color: var(--text);
-          width: 71rem;
+          width: 73rem;
         }
       }
     }
@@ -444,6 +456,7 @@
       margin-bottom: 16rem;
 
       .swiper {
+      
         width: 100%;
 
         &-slide {

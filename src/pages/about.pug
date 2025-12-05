@@ -25,6 +25,8 @@ block content
             p Наша компания успешно выполняет функции Генерального  подрядчика,технического Заказчика, в том числе функции  строительного контроля, включая особо опасные, технически  сложные и уникальные объекты, а также полный комплекс  строительно-монтажных работ на строительных объектах  любого уровня сложности. 
             p 15 лет успеха на рынке позволили пополнить активы  компании десятками крупных и средних объектов самого  различного назначения.  
             p Наша компания имеет многолетний опыт  успешной  реализации самых разноплановых проектов в области  промышленного и жилого строительства, Реконструкции и благоустройства, Гражданского и  Транспортного строительства
+          .about__info__container__image
+            img(src="/assets/images/About-us.png", alt="О компании")
           .about__info__container__text__mission
             <svg width="24" height="23" viewBox="0 0 24 23" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M0 22.5L0.55 18.35C1.95 18.45 3 18.1833 3.7 17.55C4.4 16.9167 4.85 16.05 5.05 14.95C5.25 13.85 5.28333 12.6333 5.15 11.3H0V0H9.8V12.8C9.8 16.3 8.93333 18.9333 7.2 20.7C5.5 22.4667 3.1 23.0667 0 22.5ZM14.05 22.5L14.6 18.35C16 18.45 17.05 18.1833 17.75 17.55C18.45 16.9167 18.9 16.05 19.1 14.95C19.3 13.85 19.3333 12.6333 19.2 11.3H14.05V0H23.85V12.8C23.85 16.3 22.9833 18.9333 21.25 20.7C19.55 22.4667 17.15 23.0667 14.05 22.5Z" fill="#D6DAE3" />
@@ -43,6 +45,7 @@ block content
         .about__numbers__list__item 
           p 15+
           div
+          p лет<br />на рынке
           p лет на рынке
         .about__numbers__list__item 
           p 50+
@@ -99,7 +102,7 @@ block content
           source(src="#" type="video/mp4")
           source(src="#" type="video/webm")
 
-    .about__portfolio 
+    .about__portfolio.desktop
       .about__portfolio__title 
         p портфолио
       .about__portfolio__list 
@@ -139,6 +142,30 @@ block content
             </clipPath>
           </defs>
         </svg>
+
+    .about__portfolio__modile
+      .about__portfolio
+        .about__slider__title 
+          p ЛИЦЕНЗИИ и благодарности
+        .swiper.about-portfolio-slider
+          .swiper-wrapper
+            - 
+              var slides = [
+                '/assets/images/Doc1-1.png',
+                '/assets/images/Doc1-2.png',
+                '/assets/images/Doc1-3.png',
+                '/assets/images/Doc1-4.png',
+                '/assets/images/Doc2-1.png',
+                '/assets/images/Doc2-1.png',
+                '/assets/images/Doc1-1.png',
+              ]
+            each imgSrc in slides
+              .swiper-slide
+                img.slider-image(src=imgSrc alt="Проект")
+
+          .swiper-button-next.main-button-next
+          .swiper-button-prev.main-button-prev
+          .swiper-pagination-dots
 
     .about__slider 
       .about__slider__title 

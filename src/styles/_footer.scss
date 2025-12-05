@@ -40,7 +40,6 @@
         font-weight: 600;
         font-size: 1.8rem;
         line-height: 120%;
-        text-transform: uppercase;
         color: var(--white);
         margin-bottom: 3.2rem;
       }
@@ -137,11 +136,16 @@
         gap: 1.6rem;
         margin-bottom: 2.5rem;
 
-        span {
+        a {
           font-family: var(--font-family);
           font-weight: 400;
           font-size: 1.8rem;
           line-height: 120%;
+          transition: all 0.2s ease;
+
+          &:hover {
+            color: var(--primary);
+          }
         }
       }
     }
@@ -300,7 +304,6 @@
           font-weight: 600;
           font-size: 2.4rem;
           line-height: 120%;
-          text-transform: uppercase;
           color: var(--white);
           margin-bottom: 4.8rem;
         }
@@ -408,7 +411,7 @@
             height: 4rem;
           }
         
-          span {
+          a {
             font-family: var(--font-family);
             font-weight: 400;
             font-size: 2.8rem;
