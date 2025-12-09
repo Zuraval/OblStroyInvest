@@ -1,32 +1,54 @@
 include ./button.pug
 
-mixin hero(tagline, title, subtitle, button, stats, location)
-  section.hero
+mixin hero(tagline, title, subtitle, button, stats, location, bgImages)
+  section.hero(data-bg-index='0')
+    if bgImages && bgImages.length
+      each bg, i in bgImages
+        div.hero__bg(
+          style='background-image: url(' + bg + ')'
+          data-bg=i
+          class=(i === 0 ? 'hero__bg--active ' : '') + 'hero__bg--' + i
+        )
+
     .hero__content
       .hero__tagline= tagline
       p.hero__title= title
       p.hero__subtitle= subtitle
       if button
-        +button(button, 'primary')= button
+        +button(button, 'primary')
+
       .hero__stats-mobile
         .hero__stats
           each stat in stats
             .hero__stat
               .hero__stat-number= stat.number
               .hero__stat-label= stat.label
+
       .hero__location
         .hero__location-title= location.title
         .hero__location-images
-          each img in location.images
-            img(src=img, alt=location.title)
+          each img, i in location.images
+            - var ariaLabel = 'Сменить фон на ' + location.title + ' ' + (i + 1)
+            button.hero__location-btn(
+              type='button'
+              aria-label=ariaLabel
+              data-bg-index=i
+            )
+              img(src=img, alt=location.title)
         .hero__location-caption= location.caption
-      
+
       .hero__location-mobile
         .hero__location
           .hero__location-title= location.titleMobi
           .hero__location-images
-            each img in location.images
-              img(src=img, alt=location.title)
+            each img, i in location.images
+              - var ariaLabelMobi = 'Сменить фон на ' + location.titleMobi + ' ' + (i + 1)
+              button.hero__location-btn(
+                type='button'
+                aria-label=ariaLabelMobi
+                data-bg-index=i
+              )
+                img(src=img, alt=location.titleMobi)
 
     .hero__stats
       each stat in stats

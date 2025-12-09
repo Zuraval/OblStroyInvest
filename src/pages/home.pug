@@ -2,29 +2,52 @@ extends ../layouts/main
 
 block content
   
-  include ../includes/mixins/hero.pug
   include ../includes/mixins/button.pug
-  
+
   - var heroData = {
   -   tagline: 'От идеи до реализации',
   -   title: 'Строим будущее вместе',
   -   subtitle: 'Надёжный партнёр в реализации сложных строительных проектов',
   -   button: 'Оставить заявку',
   -   stats: [
-  -     { number: '15+', label: 'Лет на рынке' },
-  -     { number: '50+', label: 'Реализованных проектов' },
-  -     { number: '100%', label: 'Работаем по всей России' }
+  -     { number: '15+', label: 'лет на рынке' },
+  -     { number: '50+', label: 'реализованных проектов' },
+  -     { number: '100%', label: 'работаем по всей России' }
   -   ],
   -   location: {
   -     title: 'Москва',
   -     titleMobi: 'ФИЗТЕХСИТИ',
-  -     images: ['/assets/images/Ellipse1.png', '/assets/images/Ellipse2.png', '/assets/images/Ellipse3.png', '/assets/images/Ellipse4.png', '/assets/images/Ellipse5.png', '/assets/images/Ellipse6.png'],
+  -     images: [
+  -       '/assets/images/Ellipse1.png',
+  -       '/assets/images/Ellipse2.png',
+  -       '/assets/images/Ellipse3.png',
+  -       '/assets/images/Ellipse4.png',
+  -       '/assets/images/Ellipse5.png',
+  -       '/assets/images/Ellipse6.png'
+  -     ],
   -     caption: 'Центральный офис'
-  -   }
+  -   },
+  -   bgImages: [ 
+  -     '/assets/images/hero-img1.png',
+  -     '/assets/images/hero-img2.png',
+  -     '/assets/images/hero-img3.png',
+  -     '/assets/images/hero-img4.png',
+  -     '/assets/images/hero-img5.png',
+  -     '/assets/images/hero-img6.png',
+  -   ]
   - }
 
-  +hero(heroData.tagline, heroData.title, heroData.subtitle, heroData.button, heroData.stats, heroData.location)
+  include ../includes/mixins/hero.pug
 
+  +hero(
+    heroData.tagline,
+    heroData.title,
+    heroData.subtitle,
+    heroData.button,
+    heroData.stats,
+    heroData.location,
+    heroData.bgImages
+  ) 
   - var items = [
   -   { title: "Лицензии", docs: ["/assets/images/Frame1.png", "/assets/images/Frame1.png", "/assets/images/Frame1.png"] },
   -   { title: "Благодарности", docs: ["/assets/images/Frame1.png", "/assets/images/Frame1.png"] }

@@ -671,3 +671,56 @@ document.addEventListener('DOMContentLoaded', () => {
 
 /*------portfolio-slider-----*/
 
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const hero = document.querySelector('.hero');
+  if (!hero) return;
+
+  const bgElements = hero.querySelectorAll('.hero__bg');
+  const buttons = hero.querySelectorAll('.hero__location-btn');
+  const total = bgElements.length;
+  if (total === 0) return;
+
+  let currentIndex = 0;
+  let autoSwitch = null;
+
+  function showBg(index) {
+    bgElements.forEach((el, i) => {
+      el.classList.toggle('hero__bg--active', i === index);
+    });
+    hero.setAttribute('data-bg-index', index);
+    currentIndex = index;
+
+    buttons.forEach((btn, i) => {
+      btn.classList.toggle('active', i === index);
+    });
+  }
+
+  function startAutoSwitch() {
+    if (autoSwitch) clearInterval(autoSwitch);
+    autoSwitch = setInterval(() => {
+      currentIndex = (currentIndex + 1) % total;
+      showBg(currentIndex);
+    }, 5000);
+  }
+
+  function stopAndRestartAutoSwitch() {
+    if (autoSwitch) clearInterval(autoSwitch);
+    setTimeout(startAutoSwitch, 10000);
+  }
+
+  showBg(0);
+  startAutoSwitch();
+
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const newIdx = parseInt(btn.getAttribute('data-bg-index'), 10);
+      if (!isNaN(newIdx) && newIdx >= 0 && newIdx < total) {
+        showBg(newIdx);
+        stopAndRestartAutoSwitch();
+      }
+    });
+  });
+});

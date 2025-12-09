@@ -1,20 +1,26 @@
 .hero {
+  position: relative;
   height: 102.4rem;
   display: flex;
   align-items: end;
   margin-bottom: 20rem;
 
-  &::before {
-    content: '';
+  &__bg {
     position: absolute;
     top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url('../assets/images/hero-img1.png') no-repeat center center;
+    left: calc(-1.6rem - 4.8rem);
+    width: calc(100% + 1.6rem * 2 + 4.8rem * 2);
+    height: 100%;
     background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
     z-index: -1;
-    height: 102.4rem
+  }
+
+  &__bg--active {
+    opacity: 1;
+    z-index: -1;
   }
 
   &__content {
@@ -66,6 +72,10 @@
     display: flex;
     gap: 7.7rem;
     margin-bottom: 4.1rem;
+
+    .hero__stat:last-child {
+      width: 25rem;
+    }
   }
 
   &__stat {
@@ -115,30 +125,41 @@
   }
 
   &__location-images {
+    height: 8rem;
     display: flex;
-    align-items: center;
-    margin-bottom: 0.3rem;
+  }
+
+  &__location-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    outline: none;
+    z-index: 10;
+
+    &:nth-child(2) {transform: translateX(calc(-3.4rem)); z-index: 9;}
+    &:nth-child(3) {transform: translateX(calc(-6.8rem)); z-index: 8;}
+    &:nth-child(4) {transform: translateX(calc(-10.2rem)); z-index: 7}
+    &:nth-child(5) {transform: translateX(calc(-13.6rem)); z-index: 6}
+    &:nth-child(6) {transform: translateX(calc(-17rem)); z-index: 5}
 
     img {
       width: 6.8rem;
       height: 6.8rem;
       object-fit: cover;
       border-radius: 50%;
-      margin-left: -3.2rem;
-
-      &:nth-child(2) { z-index: 50; }
-      &:nth-child(3) { z-index: 40; }
-      &:nth-child(4) { z-index: 30; }
-      &:nth-child(5) { z-index: 20; }
-      &:nth-child(6) { z-index: 10; }
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
     }
+  }
 
-    img:first-child {
+  &__location-btn.active {
+    z-index: 60;
+
+    img {
       width: 8rem;
       height: 8rem;
-      border: 1px solid var(--primary);
-      margin-left: 0;
-      z-index: 60;
+      border: 2px solid var(--primary);
     }
   }
 
@@ -157,6 +178,11 @@
     height: 144.8rem;
     justify-content: center;
     margin-bottom: 8rem;
+
+    &__bg {
+      left: -3.2rem;
+      width: calc(100% + 3.2rem + 3.2rem);
+    }
 
     &::before {
       height: 144.8rem;
@@ -231,6 +257,7 @@
         .hero__location {
           display: flex;
           flex-direction: column;
+          width: 22rem;
 
           &-title {
             font-family: var(--font-family);
