@@ -180,8 +180,8 @@
     margin-bottom: 8rem;
 
     &__bg {
-      left: -3.2rem;
-      width: calc(100% + 3.2rem + 3.2rem);
+      left:-16px;
+      width: calc(100% + 32px);
     }
 
     &::before {
@@ -222,7 +222,7 @@
         .hero__stats {
 
           display: flex;
-          gap: 4rem;
+          gap: 2rem;
           margin-bottom: 5.8rem;
 
           .hero__stat:nth-child(2) {
@@ -233,6 +233,14 @@
 
             padding-right: 4rem;
             padding-bottom: 2rem;
+
+            &:first-child {
+              padding-right: 2rem;
+            }
+
+            &:last-child {
+              padding-right: 0rem;
+            }
 
             &-number {
               font-size: 6.4rem;
