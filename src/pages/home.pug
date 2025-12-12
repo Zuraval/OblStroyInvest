@@ -295,9 +295,10 @@ block content
       .project-stages-slider__text-content
         p.project-stages-slider__subtitle ООО «ОблСтройИнвест» в реализации инвестиционного проекта.<br /> Помогаем на всех этапах:
         p.project-stages-slider__stage-title= projectStagesData[0].title
-        .project-stages-slider__description
-          each line in projectStagesData[0].description
-            .description-line #{line}
+        .project-stages-slider__description-wrapper
+          .project-stages-slider__description
+            each line in projectStagesData[0].description
+              .description-line #{line}
       .project-stages-slider__image-container
         .project-stages-slider__image-prev
           img(src=projectStagesData[projectStagesData.length - 1].image, alt="Предыдущий этап")

@@ -60,6 +60,7 @@ class ProjectStagesSlider {
     this.totalSlides = this.slides.length;
 
     this.titleEl = this.container.querySelector('.project-stages-slider__stage-title');
+    this.descWrapper = this.container.querySelector('.project-stages-slider__description-wrapper');
     this.descEl = this.container.querySelector('.project-stages-slider__description');
     this.currentImgEl = this.container.querySelector('.project-stages-slider__image-current img');
     this.prevImgEl = this.container.querySelector('.project-stages-slider__image-prev img');
@@ -70,6 +71,7 @@ class ProjectStagesSlider {
     this.nextBtn = this.container.querySelector('.project-stages-slider__btn--next');
 
     this.isAnimating = false;
+    this.isMobile = window.innerWidth < 768;
 
     this.slides.forEach(slide => {
       const img = new Image();
@@ -77,11 +79,28 @@ class ProjectStagesSlider {
     });
 
     this.init();
+    this.bindResize();
+  }
+
+  bindResize() {
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        this.isMobile = window.innerWidth < 768;
+        if (this.isMobile) {
+          this.updateDescriptionHeight();
+        }
+      }, 150);
+    });
   }
 
   init() {
     this.bindEvents();
     this.updateSlide();
+    if (this.isMobile) {
+      this.descWrapper.style.height = this.descEl.scrollHeight + 'px';
+    }
   }
 
   bindEvents() {
@@ -112,9 +131,7 @@ class ProjectStagesSlider {
   }
 
   updateDescription(newLines) {
-    if (!Array.isArray(newLines)) {
-      newLines = [];
-    }
+    if (!Array.isArray(newLines)) newLines = [];
 
     const existingLines = Array.from(this.descEl.children);
     const maxLen = Math.max(existingLines.length, newLines.length);
@@ -130,14 +147,20 @@ class ProjectStagesSlider {
         el.textContent = newLines[i].trim();
         el.style.visibility = 'visible';
         el.style.position = 'static';
-      } else {
-        if (existingLines[i]) {
-          existingLines[i].style.visibility = 'hidden';
-          existingLines[i].style.position = 'absolute';
-          existingLines[i].style.top = '-9999px';
-        }
+      } else if (existingLines[i]) {
+        existingLines[i].style.visibility = 'hidden';
+        existingLines[i].style.position = 'absolute';
+        existingLines[i].style.top = '-9999px';
       }
     }
+  }
+
+  updateDescriptionHeight() {
+    if (!this.isMobile) return;
+
+    this.descWrapper.style.height = 'auto';
+    const newHeight = this.descEl.scrollHeight;
+    this.descWrapper.style.height = newHeight + 'px';
   }
 
   updateSlide() {
@@ -145,10 +168,13 @@ class ProjectStagesSlider {
     const prevIndex = (this.currentIndex - 1 + this.totalSlides) % this.totalSlides;
     const nextIndex = (this.currentIndex + 1) % this.totalSlides;
 
+    if (this.isMobile) {
+      this.descWrapper.style.height = this.descEl.scrollHeight + 'px';
+    }
+
     this.titleEl.style.opacity = '0';
     this.descEl.style.opacity = '0';
-
-    this.descEl.style.pointerEvents = 'none';
+    this.numberEl.style.opacity = '0';
 
     setTimeout(() => {
       this.currentImgEl.src = current.image;
@@ -159,10 +185,15 @@ class ProjectStagesSlider {
       this.numberEl.textContent = current.number;
       this.updateDescription(current.description);
 
+      if (this.isMobile) {
+        setTimeout(() => {
+          this.updateDescriptionHeight();
+        }, 10);
+      }
+
       this.titleEl.style.opacity = '1';
       this.descEl.style.opacity = '1';
       this.numberEl.style.opacity = '1';
-      this.descEl.style.pointerEvents = 'auto';
 
       this.isAnimating = false;
     }, 150);
