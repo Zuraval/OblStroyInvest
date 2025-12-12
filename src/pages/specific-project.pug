@@ -99,20 +99,24 @@ block content
                 </clipPath>
               </defs>
             </svg>
+      
           .lightbox-main-image
-            .swiper.lightbox-swiper
-              .swiper-wrapper
-                each img in galleryImages
-                  .swiper-slide
-                    img(src=img.src, alt=img.alt)
-              .swiper-button-next.main-button-next
-              .swiper-button-prev.main-button-prev
+            .main-image-container
+              .swiper.lightbox-swiper
+                .swiper-wrapper
+                  each img in galleryImages
+                    .swiper-slide
+                      img(src=img.src, alt=img.alt)
+                .swiper-button-next.main-button-next
+                .swiper-button-prev.main-button-prev
+      
           .lightbox-thumbnails
-            .swiper.thumb-swiper
-              .swiper-wrapper
-                each img, index in galleryImages
-                  .swiper-slide(data-index=index)
-                    img(src=img.src, alt=img.alt)
+            .thumbnail-container
+              .swiper.thumb-swiper
+                .swiper-wrapper
+                  each img, index in galleryImages
+                    .swiper-slide(data-index=index)
+                      img(src=img.src, alt=img.alt)
 
     .specific-project__video
       .specific-project__video__title 

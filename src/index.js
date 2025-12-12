@@ -71,6 +71,11 @@ class ProjectStagesSlider {
 
     this.isAnimating = false;
 
+    this.slides.forEach(slide => {
+      const img = new Image();
+      img.src = slide.image;
+    });
+
     this.init();
   }
 
@@ -90,7 +95,6 @@ class ProjectStagesSlider {
 
   goToSlide(index) {
     if (index < 0 || index >= this.totalSlides || this.isAnimating) return;
-
     this.isAnimating = true;
     this.currentIndex = index;
     this.updateSlide();
@@ -99,14 +103,41 @@ class ProjectStagesSlider {
 
   goToPrev() {
     if (this.isAnimating) return;
-    const newIndex = (this.currentIndex - 1 + this.totalSlides) % this.totalSlides;
-    this.goToSlide(newIndex);
+    this.goToSlide((this.currentIndex - 1 + this.totalSlides) % this.totalSlides);
   }
 
   goToNext() {
     if (this.isAnimating) return;
-    const newIndex = (this.currentIndex + 1) % this.totalSlides;
-    this.goToSlide(newIndex);
+    this.goToSlide((this.currentIndex + 1) % this.totalSlides);
+  }
+
+  updateDescription(newLines) {
+    if (!Array.isArray(newLines)) {
+      newLines = [];
+    }
+
+    const existingLines = Array.from(this.descEl.children);
+    const maxLen = Math.max(existingLines.length, newLines.length);
+
+    for (let i = 0; i < maxLen; i++) {
+      if (i < newLines.length) {
+        let el = existingLines[i];
+        if (!el) {
+          el = document.createElement('div');
+          el.className = 'description-line';
+          this.descEl.appendChild(el);
+        }
+        el.textContent = newLines[i].trim();
+        el.style.visibility = 'visible';
+        el.style.position = 'static';
+      } else {
+        if (existingLines[i]) {
+          existingLines[i].style.visibility = 'hidden';
+          existingLines[i].style.position = 'absolute';
+          existingLines[i].style.top = '-9999px';
+        }
+      }
+    }
   }
 
   updateSlide() {
@@ -114,9 +145,10 @@ class ProjectStagesSlider {
     const prevIndex = (this.currentIndex - 1 + this.totalSlides) % this.totalSlides;
     const nextIndex = (this.currentIndex + 1) % this.totalSlides;
 
-    this.titleEl.classList.add('project-stages-slider__fade-out');
-    this.descEl.classList.add('project-stages-slider__fade-out');
-    this.numberEl.classList.add('project-stages-slider__fade-out');
+    this.titleEl.style.opacity = '0';
+    this.descEl.style.opacity = '0';
+
+    this.descEl.style.pointerEvents = 'none';
 
     setTimeout(() => {
       this.currentImgEl.src = current.image;
@@ -125,35 +157,14 @@ class ProjectStagesSlider {
 
       this.titleEl.textContent = current.title;
       this.numberEl.textContent = current.number;
+      this.updateDescription(current.description);
 
-      this.descEl.innerHTML = '';
+      this.titleEl.style.opacity = '1';
+      this.descEl.style.opacity = '1';
+      this.numberEl.style.opacity = '1';
+      this.descEl.style.pointerEvents = 'auto';
 
-      if (Array.isArray(current.description)) {
-        current.description.forEach(line => {
-          const lineElement = document.createElement('div');
-          lineElement.className = 'description-line';
-          lineElement.textContent = line.trim();
-          this.descEl.appendChild(lineElement);
-        });
-      } else {
-        console.warn('Описание слайда не является массивом:', current.description);
-      }
-
-      this.titleEl.classList.remove('project-stages-slider__fade-out');
-      this.titleEl.classList.add('project-stages-slider__fade-in');
-
-      this.descEl.classList.remove('project-stages-slider__fade-out');
-      this.descEl.classList.add('project-stages-slider__fade-in');
-
-      this.numberEl.classList.remove('project-stages-slider__fade-out');
-      this.numberEl.classList.add('project-stages-slider__fade-in');
-
-      setTimeout(() => {
-        this.titleEl.classList.remove('project-stages-slider__fade-in');
-        this.descEl.classList.remove('project-stages-slider__fade-in');
-        this.numberEl.classList.remove('project-stages-slider__fade-in');
-        this.isAnimating = false;
-      }, 300);
+      this.isAnimating = false;
     }, 150);
   }
 

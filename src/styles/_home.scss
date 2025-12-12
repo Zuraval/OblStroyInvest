@@ -436,13 +436,14 @@
   &__content-wrapper {
     display: flex;
     align-items: center;
-    gap: 40px;
+    justify-content: space-between;
     max-width: 100%;
   }
 
   &__text-content {
-    flex: 0 0 35%;
+    flex: 0 0 30%;
     text-align: left;
+    height: 70.1rem;
 
     .project-stages-slider__subtitle {
       font-family: var(--font-family);
