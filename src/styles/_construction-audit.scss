@@ -414,3 +414,13 @@
     }
   }
 }
+
+@media (max-width: 375px) {
+  .construction-audit {
+    &__card {
+      .card-list__item__container {
+        width: 32rem;
+      }
+    }
+  }
+}
