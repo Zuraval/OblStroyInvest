@@ -102,9 +102,8 @@ block content
           .projects__details
             p= project.complex
             p Площадь: #{project.area}
-            div 
             div
-              +button('подробнее', 'primary')
+              +button('узнать больше', 'primary')
 
       .projects__hidden-items
         each project in hiddenProjects
@@ -116,9 +115,8 @@ block content
             .projects__details
               p= project.complex
               p Площадь: #{project.area}
-              div 
               div
-                +button('подробнее', 'primary')
+                +button('узнать больше', 'primary')
 
     .project-page__number 
       button 

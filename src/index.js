@@ -673,6 +673,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
+/*------hero-bg-script-----*/
 
 document.addEventListener('DOMContentLoaded', () => {
   const hero = document.querySelector('.hero');

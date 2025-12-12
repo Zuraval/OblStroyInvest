@@ -47,7 +47,7 @@
 
 html {
   font-family: var(--font-family);
-  font-size: clamp(1px, 0.520835vw, 60px); // на разрешении 1920 0.520835vw === 10px, 1rem = 10px
+  font-size: 0.520835vw; // на разрешении 1920 0.520835vw === 10px, 1rem = 10px
   font-style: normal;
   font-weight: 400;
   -webkit-animation: bugfix infinite 1s;

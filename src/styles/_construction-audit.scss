@@ -156,7 +156,7 @@
                 flex-shrink: 0;
                 font-family: var(--second-family);
                 font-weight: 600;
-                font-size: 2.4rem;
+                font-size: 1.8rem;
                 line-height: 110%;
                 text-transform: uppercase;
                 color: var(--text);
@@ -166,7 +166,7 @@
                 flex: 1;
                 font-family: var(--font-family);
                 font-weight: 300;
-                font-size: 2.4rem;
+                font-size: 1.8rem;
                 line-height: 120%;
                 color: var(--grey-text);
                 margin: 0;
@@ -333,15 +333,15 @@
                 gap: 3.2rem;
               
                 .name {
-                  font-size: 3.2rem;
+                  font-size: 2.4rem;
                 }
               
                 .title {
-                  font-size: 3.2rem;
+                  font-size: 2.4rem;
                 }
               
                 .description {
-                  font-size: 2.8rem;
+                  font-size: 2.4rem;
                 }
               
               }
@@ -389,7 +389,6 @@
             }
           }
         }
-
       }
     }
 
@@ -409,6 +408,7 @@
           margin-top: 3.2rem;
           width: 100%;
           font-size: 3.2rem;
+          text-transform: uppercase;
         }
       }
     }

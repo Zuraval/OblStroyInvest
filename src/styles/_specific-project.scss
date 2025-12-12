@@ -218,11 +218,15 @@
       box-sizing: border-box;
 
       .lightbox-content {
-        position: relative;
-        width: 154rem;
-        height: 98.5rem;
+
+        max-width: 95vw;
+        max-height: 90vh;
+        width: auto;
+        height: auto;
         display: flex;
         flex-direction: column;
+        box-sizing: border-box;
+        position: relative;
         gap: 6rem;
       
         .lightbox-close {
@@ -242,8 +246,8 @@
               height: auto;
             
               img {
-                width: 154rem;
-                height: 80rem;
+                width: auto;
+                max-height: 80vh;
                 border-radius: 8px;
               }
             }
@@ -251,34 +255,53 @@
         }
       
         .lightbox-thumbnails {
+          width: 100%; /* Важно! Чтобы ширина совпадала с основным изображением */
+          max-width: 100%;
+          margin-top: 1rem;
+          padding: 0.5rem 0;
+          overflow-x: auto;
+          -webkit-overflow-scrolling: touch;
+          border-top: 1px solid rgba(255,255,255,0.1);
+          scrollbar-width: thin;
+          scrollbar-color: rgba(255,255,255,0.3) transparent;
+                
           .thumb-swiper {
             .swiper-wrapper {
               display: flex;
-              justify-content: space-between;
+              gap: 0.5rem;
+              flex-wrap: nowrap;
             }
           
             .swiper-slide {
-              width: auto;
-              height: 12.5rem;
+              width: calc((100% - 4rem) / 6); /* 6 миниатюр в ряд, с отступами */
+              height: auto; /* высота автоматическая, пропорциональная */
+              aspect-ratio: 4 / 3; /* или 16/9 — выберите под ваши изображения */
               cursor: pointer;
               border: 2px solid transparent;
-              border-radius: 1.2rem;
+              border-radius: 0.8rem;
               overflow: hidden;
-              transition: border-color 0.2s;
+              transition: border-color 0.2s, transform 0.2s;
+              flex-shrink: 0;
+            
+              &:hover {
+                transform: scale(1.05);
+              }
             
               &.swiper-slide-thumb-active {
                 border-color: var(--primary);
+                transform: scale(1.05);
               }
             
               img {
                 width: 100%;
                 height: 100%;
                 object-fit: cover;
-                border-radius: 8px;
+                object-position: center;
+                border-radius: 0.6rem;
               }
             }
           }
-        }
+}
       }
     }
   }
