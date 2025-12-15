@@ -25,30 +25,47 @@ mixin hero(tagline, title, subtitle, button, stats, location, bgImages)
               .hero__stat-label= stat.label
 
       .hero__location
-        .hero__location-title= location.title
+        each titleDesk, i in location.titles
+          .hero__location-title.hero__location-title--desk(
+            data-bg-index=i
+            class=(i === 0 ? 'hero__location-title--active' : '')
+          )= titleDesk
+
         .hero__location-images
           each img, i in location.images
-            - var ariaLabel = 'Сменить фон на ' + location.title + ' ' + (i + 1)
+            - var deskTitle = location.titles[i] || 'локация'
+            - var ariaLabel = 'Сменить фон на ' + deskTitle + ' ' + (i + 1)
             button.hero__location-btn(
               type='button'
               aria-label=ariaLabel
               data-bg-index=i
             )
-              img(src=img, alt=location.title)
-        .hero__location-caption= location.caption
+              img(src=img, alt=deskTitle)
+
+        each captionDesk, i in location.captions
+          .hero__location-caption.hero__location-caption--desk(
+            data-bg-index=i
+            class=(i === 0 ? 'hero__location-caption--active' : '')
+          )= captionDesk
 
       .hero__location-mobile
         .hero__location
-          .hero__location-title= location.titleMobi
+          each titleMobi, i in location.titlesMobi
+            .hero__location-title.hero__location-title--mobi(
+              data-bg-index=i
+              class=(i === 0 ? 'hero__location-title--active' : '')
+            )= titleMobi
+
           .hero__location-images
             each img, i in location.images
-              - var ariaLabelMobi = 'Сменить фон на ' + location.titleMobi + ' ' + (i + 1)
+              - var mobiTitle = location.titlesMobi[i] || 'локация'
+              - var ariaLabelMobi = 'Сменить фон на ' + mobiTitle + ' ' + (i + 1)
               button.hero__location-btn(
                 type='button'
                 aria-label=ariaLabelMobi
                 data-bg-index=i
               )
-                img(src=img, alt=location.titleMobi)
+                img(src=img, alt=mobiTitle)
 
     .hero__stats
       each stat in stats

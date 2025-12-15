@@ -1,3 +1,15 @@
+.hero__location-title--desk,
+.hero__location-caption--desk,
+.hero__location-title--mobi {
+  display: none;
+}
+
+.hero__location-title--desk.hero__location-title--active,
+.hero__location-caption--desk.hero__location-caption--active,
+.hero__location-title--mobi.hero__location-title--active {
+  display: block;
+}
+
 .hero {
   position: relative;
   height: 102.4rem;

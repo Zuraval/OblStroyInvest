@@ -94,27 +94,27 @@ block content
       - var hiddenProjects = projects.slice(9)
 
       each project in visibleProjects
-        .projects__menu__item 
+        a(href="#").projects__menu__item 
           img(src=project.img, alt="Проект")
           .projects__info
             p= project.name
             p= project.address
           .projects__details
             p= project.complex
-            p Площадь: #{project.area}
+            p #{project.area}
             div
               +button('узнать больше', 'primary')
 
       .projects__hidden-items
         each project in hiddenProjects
-          .projects__menu__item
+          a(href="#").projects__menu__item
             img(src=project.img, alt="Проект")
             .projects__info
               p= project.name
               p= project.address
             .projects__details
               p= project.complex
-              p Площадь: #{project.area}
+              p #{project.area}
               div
                 +button('узнать больше', 'primary')
 

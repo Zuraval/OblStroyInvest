@@ -726,6 +726,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const total = bgElements.length;
   if (total === 0) return;
 
+  const deskTitles = hero.querySelectorAll('.hero__location-title--desk');
+  const deskCaptions = hero.querySelectorAll('.hero__location-caption--desk');
+  const mobiTitles = hero.querySelectorAll('.hero__location-title--mobi');
+
   let currentIndex = 0;
   let autoSwitch = null;
 
@@ -733,11 +737,23 @@ document.addEventListener('DOMContentLoaded', () => {
     bgElements.forEach((el, i) => {
       el.classList.toggle('hero__bg--active', i === index);
     });
+
     hero.setAttribute('data-bg-index', index);
     currentIndex = index;
 
     buttons.forEach((btn, i) => {
       btn.classList.toggle('active', i === index);
+    });
+
+    deskTitles.forEach((el, i) => {
+      el.classList.toggle('hero__location-title--active', i === index);
+    });
+    deskCaptions.forEach((el, i) => {
+      el.classList.toggle('hero__location-caption--active', i === index);
+    });
+
+    mobiTitles.forEach((el, i) => {
+      el.classList.toggle('hero__location-title--active', i === index);
     });
   }
 

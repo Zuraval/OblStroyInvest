@@ -15,8 +15,32 @@ block content
   -     { number: '100%', label: 'работаем по всей России' }
   -   ],
   -   location: {
-  -     title: 'Москва',
-  -     titleMobi: 'ФИЗТЕХСИТИ',
+  -     titles: [
+  -       'Москва',
+  -       'Санкт-Петербург',
+  -       'Казань',
+  -       'Новосибирск',
+  -       'Екатеринбург',
+  -       'Владивосток'
+  -     ],
+  -     captions: [
+  -       'Центральный офис',
+  -       'Филиал на Неве',
+  -       'IT-парк Иннополис',
+  -       'Сибирский хаб',
+  -       'Уральский центр',
+  -       'Офис'
+  -     ],
+  -
+  -     titlesMobi: [
+  -       'ФИЗТЕХСИТИ',
+  -       'НЕВСКИЙ',
+  -       'ИННОПОЛИС',
+  -       'СИБИРЬ',
+  -       'УРАЛ',
+  -       'ОФИС'
+  -     ],
+  -
   -     images: [
   -       '/assets/images/Ellipse1.png',
   -       '/assets/images/Ellipse2.png',
@@ -24,8 +48,7 @@ block content
   -       '/assets/images/Ellipse4.png',
   -       '/assets/images/Ellipse5.png',
   -       '/assets/images/Ellipse6.png'
-  -     ],
-  -     caption: 'Центральный офис'
+  -     ]
   -   },
   -   bgImages: [ 
   -     '/assets/images/hero-img1.png',
@@ -47,7 +70,8 @@ block content
     heroData.stats,
     heroData.location,
     heroData.bgImages
-  ) 
+  )
+
   - var items = [
   -   { title: "Лицензии", docs: ["/assets/images/Frame1.png", "/assets/images/Frame1.png", "/assets/images/Frame1.png"] },
   -   { title: "Благодарности", docs: ["/assets/images/Frame1.png", "/assets/images/Frame1.png"] }
