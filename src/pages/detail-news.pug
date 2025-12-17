@@ -1,0 +1,153 @@
+extends ../layouts/main
+
+block content
+  include ../includes/mixins/hero-other.pug
+  include ../includes/mixins/button.pug
+
+  .detail-news
+    - var heroOtherData = {
+    -   tagline: 'Главная | новости | Новый жK бизнес-класса в районе «Заречье»',
+    -   title: 'Новый жилой комплекс бизнес-класса в районе «Заречье»',
+    -   subtitle: '<span class="hero-other__date">30.07.2025</span><span class="hero-other__author">Анна Астапова</span>',
+    -   pdf: 'все проекты', 
+    -   bgImage: '../assets/images/hero-img10.png',
+    -   buttonData: ['оставить заявку', 'primary']
+    - }
+
+    +hero-other(heroOtherData.tagline, heroOtherData.title, heroOtherData.subtitle, heroOtherData.pdf, heroOtherData.bgImage, heroOtherData.buttonData)
+
+    .detail-news__description
+      .title 
+        p Описание
+      .list 
+        .item 
+          .name 
+            p Современный проект в одном из самых зелёных районов города
+          .text
+            p В тихом и престижном районе «Заречье» стартовало строительство нового жилого комплекса бизнес-класса. Архитектурная концепция проекта разработана с учётом природного ландшафта и предполагает гармоничное сочетание лаконичного городского стиля и уюта пригорода.
+            p Комплекс будет состоять из нескольких корпусов переменной этажности — от 10 до 20 этажей. Благодаря такому решению, жильцы смогут наслаждаться панорамными видами на парк и реку, а нижние этажи обеспечат приватность и зелёное окружение.
+        
+        .item 
+          .name 
+            p Инфраструктура для комфортной жизни
+          .text
+            p Первый этаж каждого корпуса займут коммерческие помещения: кофейни, аптеки, минимаркеты и салоны красоты. Просторные дизайнерские лобби с высокими потолками будут оборудованы ресепшенами и зонами ожидания с мягкой мебелью. Для комфорта жителей предусмотрены комнаты матери и ребёнка, помещения для мытья лап домашних животных и колясочные.
+            p На территории комплекса расположатся:
+              <br />
+              | — современные детские и спортивные площадки,
+              <br />
+              | — зелёные прогулочные аллеи и велодорожки,
+              <br />
+              | — уютные зоны отдыха с Wi-Fi и беседками,
+              <br />
+              | — крытая и открытая парковка,
+              <br />
+              | — индивидуальные кладовые.
+            
+        .item 
+          .name 
+            p Жильё для тех, кто ценит пространство и стиль
+          .text
+            p Покупателям предложены квартиры с продуманными планировками от 1 до 4 комнат, с панорамным остеклением и высокими потолками. Каждое жильё будет оснащено современной системой вентиляции и фильтрации воздуха, а также тёплыми полами и шумоизоляцией.
+            
+        .item 
+          .name 
+            p Безопасность и приватность
+          .text
+            p Комплекс будет ограждён по периметру и оснащён системой контроля доступа, видеонаблюдением и охраной. Все зоны — от входной группы до подземного паркинга — спроектированы с учётом приватности и комфорта будущих резидентов.
+            
+        .item 
+          .name 
+            p Расположение с преимуществом
+          .text
+            p ЖК «Заречье» находится всего в 15 минутах от центра города. Рядом — парк, набережная, остановки общественного транспорта и выезд на ключевые магистрали. В шаговой доступности — школы, детские сады, медицинские и культурные учреждения.
+            
+        .item 
+          .name 
+            p Каждый день — как в отпуске
+          .text
+            p Утренняя пробежка по парку, кофе с видом на воду, вечер на террасе или прогулка по тенистой аллее — всё это становится частью повседневной жизни. Новый комплекс в «Заречье» — это не просто жильё, это городская гармония, в которой легко быть собой.
+
+    .detail-news__image-slider
+      .swiper.detail-news__image-slider__slider
+        .swiper-wrapper
+          - const galleryImages = [
+          -   { src: '/assets/images/Galery1.png', alt: 'Изображение 1' },
+          -   { src: '/assets/images/Galery2.png', alt: 'Изображение 2' },
+          -   { src: '/assets/images/Galery3.png', alt: 'Изображение 3' },
+          -   { src: '/assets/images/Galery4.png', alt: 'Изображение 4' },
+          -   { src: '/assets/images/Galery5.png', alt: 'Изображение 5' },
+          -   { src: '/assets/images/Galery6.png', alt: 'Изображение 6' },
+          -   { src: '/assets/images/Galery7.png', alt: 'Изображение 7' },
+          -   { src: '/assets/images/Galery8.png', alt: 'Изображение 8' },
+          -   { src: '/assets/images/Galery9.png', alt: 'Изображение 9' }
+          - ]
+
+          each img, index in galleryImages
+            .swiper-slide(data-index=index)
+              img(src=img.src, alt=img.alt)
+
+        .swiper-pagination.main-pagination
+        .swiper-button-next.main-button-next
+        .swiper-button-prev.main-button-prev
+
+    .detail-news__video
+      .specific-project__video__title 
+        p Видеообзор
+      .specific-project__video__description 
+        p В этом видео мы показываем ключевые особенности нового жилого комплекса бизнес-класса «Заречье». Вы сможете увидеть архитектурные решения, благоустроенные дворы и инфраструктуру, которая создаёт комфорт для жизни. Видео позволяет лучше почувствовать атмосферу будущего пространства и оценить масштаб проекта. Это краткий, но наглядный обзор преимуществ, ради которых выбирают «Заречье».
+      .specific-project__video__video
+        .video-poster
+        video.specific-project__video__video(controls width="100%")
+          source(src="#" type="video/mp4")
+          source(src="#" type="video/webm")
+          
+    .detail-news__slider
+      .news
+        .news__title
+          p НОВОСТИ И СОБЫТИЯ
+        .news__list.swiper(data-slider-mode='all')
+          .swiper-wrapper
+            .swiper-slide
+              .item
+                .item__container
+                  .item__image
+                    img(src="/assets/images/News1.png", alt="Новость")
+                  .item__title
+                    p Запуск нового проекта в Тюмени
+                  .item__subtitle
+                    p Наши эксперты приняли участие в форуме «Строительство и технологии 2025», где представили доклад о цифровизации процессов и контроле качества на всех этапах реализации проектов.
+                  .item__date
+                    p 24.06.2025
+                  .item__button
+                    +button('читать дальше', 'outline')
+            .swiper-slide
+              .item
+                .item__container
+                  .item__image
+                    img(src="/assets/images/News2.png", alt="Новость")
+                  .item__title
+                    p Запуск нового проекта в Тюмени
+                  .item__subtitle
+                    p Наши эксперты приняли участие в форуме «Строительство и технологии 2025», где представили доклад о цифровизации процессов и контроле качества на всех этапах реализации проектов.
+                  .item__date
+                    p 24.06.2025
+                  .item__button
+                    +button('читать дальше', 'outline')
+            .swiper-slide
+              .item
+                .item__container
+                  .item__image
+                    img(src="/assets/images/News3.png", alt="Новость")
+                  .item__title
+                    p Запуск нового проекта в Тюмени
+                  .item__subtitle
+                    p Наши эксперты приняли участие в форуме «Строительство и технологии 2025», где представили доклад о цифровизации процессов и контроле качества на всех этапах реализации проектов.
+                  .item__date
+                    p 24.06.2025
+                  .item__button
+                    +button('читать дальше', 'outline')
+          .swiper-pagination.main-pagination
+          .swiper-button-next.main-button-next
+          .swiper-button-prev.main-button-prev
+            

@@ -3,7 +3,7 @@ mixin hero-other(tagline, title, subtitle, pdf, bgImage, buttonData = null)
     .hero-other__content
       .hero-other__tagline= tagline
       p.hero-other__title= title
-      p.hero-other__subtitle= subtitle
+      p.hero-other__subtitle!= subtitle
       a(href="#").hero-other__pdf-doc
         div pdf
         p.hero-other__pdf!= pdf
