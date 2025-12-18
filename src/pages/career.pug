@@ -1,4 +1,481 @@
 extends ../layouts/main
 
 block content
-  div Карьера
+  include ../includes/mixins/hero-other.pug
+  include ../includes/mixins/button.pug
+  include ../includes/mixins/input.pug
+
+  .career
+    - var heroOtherData = {
+    -   tagline: 'Главная | карьера',
+    -   title: 'Карьера <br /> в компании',
+    -   subtitle: 'Присоединяйтесь к «Облстройинвест» — реализуйте крупные проекты, развивайтесь и становитесь частью сильного профессионального коллектива.',
+    -   pdf: 'форма резюме', 
+    -   bgImage: '../assets/images/hero-img11.png',
+    -   buttonData: ['оставить заявку', 'primary']
+    - }
+
+    +hero-other(heroOtherData.tagline, heroOtherData.title, heroOtherData.subtitle, heroOtherData.pdf, heroOtherData.bgImage, heroOtherData.buttonData)
+
+    .career__philosophy
+      .career__philosophy__title 
+        p наша философия
+      .career__philosophy__info 
+        .career__philosophy__info__block-btn 
+          p Люди — основа нашей компании. Мы создаём безопасную и комфортную рабочую среду, обеспечиваем конкурентную оплату труда и поддерживаем профессиональное развитие каждого сотрудника
+          +button('вакансии', 'primary')
+        .career__philosophy__info__block-text 
+          p Мы обеспечиваем комфортные и безопасные условия труда как в офисах, так и на строительных площадках
+          p Используем современное оборудование и сертифицированные средства индивидуальной защиты
+          p Соблюдаем высокие стандарты охраны труда и промышленной безопасности на каждом этапе проекта
+          p Стимулируем персональную ответственность сотрудников за качество работы и общий результат
+          p Поддерживаем рост и развитие профессиональных компетенций внутри компании
+          p Создаём условия для мотивации, карьерного роста и вовлечённости команды
+
+    .career__conditions 
+      .career__conditions__title 
+        p условия труда
+      .career__conditions__subtitle 
+        p Мы предлагаем нашим сотрудникам не просто работу — а возможность строить уверенное будущее вместе с надёжной и уважаемой компанией
+      .career__conditions__cards 
+        .career__conditions__cards__item 
+          .career__conditions__cards__item__container 
+            .career__conditions__cards__item__number
+              p 01
+            .career__conditions__cards__item__title 
+              p Надёжность и стабильность
+            .career__conditions__cards__item__line
+            .career__conditions__cards__item__description 
+              p Уверенность в завтрашнем дне
+
+        .career__conditions__cards__item 
+          .career__conditions__cards__item__container 
+            .career__conditions__cards__item__number
+              p 02
+            .career__conditions__cards__item__title 
+              p Профессиональный рост
+            .career__conditions__cards__item__line
+            .career__conditions__cards__item__description 
+              p Развитие карьеры внутри компании
+
+        .career__conditions__cards__item 
+          .career__conditions__cards__item__container 
+            .career__conditions__cards__item__number
+              p 03
+            .career__conditions__cards__item__title 
+              p Командный дух
+            .career__conditions__cards__item__line
+            .career__conditions__cards__item__description 
+              p Участие в корпоративных и выездных мероприятиях
+
+        .career__conditions__cards__item 
+          .career__conditions__cards__item__container 
+            .career__conditions__cards__item__number
+              p 04
+            .career__conditions__cards__item__title 
+              p Масштабные проекты
+            .career__conditions__cards__item__line
+            .career__conditions__cards__item__description 
+              p Работа над значимыми объектами
+
+        .career__conditions__cards__item 
+          .career__conditions__cards__item__container 
+            .career__conditions__cards__item__number
+              p 05
+            .career__conditions__cards__item__title 
+              p Конкурентная оплата труда
+            .career__conditions__cards__item__line
+            .career__conditions__cards__item__description 
+              p Полный соцпакет и комфортные условия
+
+        .career__conditions__cards__item 
+          .career__conditions__cards__item__container 
+            .career__conditions__cards__item__number
+              p 06
+            .career__conditions__cards__item__title 
+              p Повышение квалификаци
+            .career__conditions__cards__item__line
+            .career__conditions__cards__item__description 
+              p Обучение в корпоративном университете
+
+    .career__vacancy 
+      .career__vacancy__title 
+        p открытые вакансии
+      .career__vacancy__description 
+        p Присоединяйтесь к команде ООО “Облстройинвест”!
+        p В нашей компании работают опытные инженеры, проектировщики, сметчики, руководители проектов, аудиторы и другие профильные специалисты. <br /> Если вы хотите расти профессионально, участвовать в реализации значимых строительных проектов и работать в сильной команде, отправьте своё резюме через форму на сайте.
+      .career__vacancy__form 
+        .career__vacancy__form__container
+          .career__vacancy__form__title
+            p Отправить резюме
+          .career__vacancy__form__inputs 
+            +inputField('Имя', '', 'name', 'Сергей')
+            +inputField('Телефон', '', 'phone', '+7 999 123-45-67')
+            +inputField('Email', '', 'mail', 'ivanov123@gmail.com')
+            +inputField('Желаемая должность', '', 'vacancy', 'Сметчик')
+          .career__vacancy__form__ps 
+            p Отправляя свои данные вы соглашаетесь с <a href="#">Пользовательским соглашением</a> и <a href="#">Политикой в отношении персональных данных</a>
+          .career__vacancy__form__button-file-wrapper
+            label.career__vacancy__form__button-file__trigger(for="resume-upload")
+              svg(width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg")
+                g(clip-path="url(#clip0_556_27243)")
+                  path(d="M15.0007 6.99996L8.50068 13.5C8.10286 13.8978 7.87936 14.4374 7.87936 15C7.87936 15.5626 8.10286 16.1021 8.50068 16.5C8.8985 16.8978 9.43807 17.1213 10.0007 17.1213C10.5633 17.1213 11.1029 16.8978 11.5007 16.5L18.0007 9.99996C18.7963 9.20432 19.2433 8.12518 19.2433 6.99996C19.2433 5.87475 18.7963 4.79561 18.0007 3.99996C17.205 3.20432 16.1259 2.75732 15.0007 2.75732C13.8755 2.75732 12.7963 3.20432 12.0007 3.99996L5.50068 10.5C4.30721 11.6934 3.63672 13.3121 3.63672 15C3.63672 16.6878 4.30721 18.3065 5.50068 19.5C6.69415 20.6934 8.31285 21.3639 10.0007 21.3639C11.6885 21.3639 13.3072 20.6934 14.5007 19.5L21.0007 13" stroke="#243984" stroke-width="2" stroke-linecap="round" stroke-linejoin="round")
+                defs
+                  clipPath(id="clip0_556_27243")
+                    rect(width="24" height="24" fill="white")
+              p Прикрепить резюме
+          
+            input#resume-upload(type="file" accept=".pdf,.doc,.docx" style="display: none;")
+          
+            .career__vacancy__form__file-preview.hidden
+              .career__vacancy__form__file-preview__content
+                .career__vacancy__form__file-icon
+                span.career__vacancy__form__file-name
+              button.career__vacancy__form__file-remove(type="button")
+                svg(width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg")
+                  g(clip-path="url(#clip0_530_10339)")
+                    path(d="M18 6L6 18" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round")
+                    path(d="M6 6L18 18" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round")
+                  defs
+                    clipPath(id="clip0_530_10339")
+                      rect(width="24" height="24" fill="white")
+          .career__vacancy__form__button-submit 
+            +button('отправить', 'primary')
+      .career__vacancy__list 
+        .service-list
+          .service-group.is-collapsed
+            .service-group__header
+              .service-group__header__info 
+                .service-group__header__title
+                  p Инженер строительного контроля
+                  button 
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <g clip-path="url(#clip0_527_11158)">
+                        <path d="M8 20L16 12L24 20" stroke="#243984" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                      </g>
+                      <defs>
+                        <clipPath id="clip0_527_11158">
+                          <rect width="32" height="32" fill="white" />
+                        </clipPath>
+                      </defs>
+                    </svg>
+                .service-group__header__line 
+                .service-group__header__description 
+                  p Ведем поиск инженера строительного контроля с опытом работы на жилых и промышленных объектах. Знание СНиП, опыт оформления исполнительной документации, контроль СМР, умение взаимодействовать с подрядчиками и заказчиком.
+
+            .service-group__content
+              .service-list__roster.is-collapsed
+                .service-list__item
+                  .service-list__title
+                    p Кто нам подходит
+
+                    svg.service-list__icon(width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg")
+                      path.service-list__icon-cross(v-if="true" d="M16 6.67V25.33" stroke="#243984" stroke-width="4" stroke-linecap="round")
+                      path.service-list__icon-bar(d="M6.67 16H25.33" stroke="#243984" stroke-width="4" stroke-linecap="round")
+
+                  .service-list__roster.is-collapsed
+                    .service-list__roster__item
+                      .service-list__roster__item__container
+                        .text 
+                          p — Высшее строительное/техническое образование
+                            <br />
+                            | — Знание AutoCAD, MS Office
+                            <br />
+                            | — Навыки заполнения КС-2, журналов работ, графиков
+                            <br />
+                            | — Умение работать с нормативной базой
+                            <br />
+                            | — Ответственность, внимательность, аналитический подход
+
+                .service-list__item
+                  .service-list__title
+                    p Кто нам подходит
+                    svg.service-list__icon(width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg")
+                      path.service-list__icon-cross(v-if="true" d="M16 6.67V25.33" stroke="#243984" stroke-width="4" stroke-linecap="round")
+                      path.service-list__icon-bar(d="M6.67 16H25.33" stroke="#243984" stroke-width="4" stroke-linecap="round")
+                  .service-list__roster.is-collapsed
+                    .service-list__roster__item
+                      .service-list__roster__item__container
+                        .text 
+                          p — Высшее строительное/техническое образование
+                            <br />
+                            | — Знание AutoCAD, MS Office
+                            <br />
+                            | — Навыки заполнения КС-2, журналов работ, графиков
+                            <br />
+                            | — Умение работать с нормативной базой
+                            <br />
+                            | — Ответственность, внимательность, аналитический подход
+
+                .service-list__item
+                  .service-list__title
+                    p Кто нам подходит
+                    svg.service-list__icon(width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg")
+                      path.service-list__icon-cross(v-if="true" d="M16 6.67V25.33" stroke="#243984" stroke-width="4" stroke-linecap="round")
+                      path.service-list__icon-bar(d="M6.67 16H25.33" stroke="#243984" stroke-width="4" stroke-linecap="round")
+                  .service-list__roster.is-collapsed
+                    .service-list__roster__item
+                      .service-list__roster__item__container
+                        .text 
+                          p — Высшее строительное/техническое образование
+                            <br />
+                            | — Знание AutoCAD, MS Office
+                            <br />
+                            | — Навыки заполнения КС-2, журналов работ, графиков
+                            <br />
+                            | — Умение работать с нормативной базой
+                            <br />
+                            | — Ответственность, внимательность, аналитический подход
+
+          .service-group.is-collapsed
+            .service-group__header
+              .service-group__header__info 
+                .service-group__header__title
+                  p Сметчик
+                  button 
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <g clip-path="url(#clip0_527_11158)">
+                        <path d="M8 20L16 12L24 20" stroke="#243984" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                      </g>
+                      <defs>
+                        <clipPath id="clip0_527_11158">
+                          <rect width="32" height="32" fill="white" />
+                        </clipPath>
+                      </defs>
+                    </svg>
+                .service-group__header__line 
+                .service-group__header__description 
+                  p Разработка сметной документации, проверка актов, составление бюджета. Требования: знание ГРАНД-Смета, опыт в строительстве от 2 лет, умение анализировать ПСД.
+
+            .service-group__content
+              .service-list__roster.is-collapsed
+                .service-list__item
+                  .service-list__title
+                    p Кто нам подходит
+
+                    svg.service-list__icon(width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg")
+                      path.service-list__icon-cross(v-if="true" d="M16 6.67V25.33" stroke="#243984" stroke-width="4" stroke-linecap="round")
+                      path.service-list__icon-bar(d="M6.67 16H25.33" stroke="#243984" stroke-width="4" stroke-linecap="round")
+
+                  .service-list__roster.is-collapsed
+                    .service-list__roster__item
+                      .service-list__roster__item__container
+                        .text 
+                          p — Высшее строительное/техническое образование
+                            <br />
+                            | — Знание AutoCAD, MS Office
+                            <br />
+                            | — Навыки заполнения КС-2, журналов работ, графиков
+                            <br />
+                            | — Умение работать с нормативной базой
+                            <br />
+                            | — Ответственность, внимательность, аналитический подход
+
+                .service-list__item
+                  .service-list__title
+                    p Кто нам подходит
+                    svg.service-list__icon(width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg")
+                      path.service-list__icon-cross(v-if="true" d="M16 6.67V25.33" stroke="#243984" stroke-width="4" stroke-linecap="round")
+                      path.service-list__icon-bar(d="M6.67 16H25.33" stroke="#243984" stroke-width="4" stroke-linecap="round")
+                  .service-list__roster.is-collapsed
+                    .service-list__roster__item
+                      .service-list__roster__item__container
+                        .text 
+                          p — Высшее строительное/техническое образование
+                            <br />
+                            | — Знание AutoCAD, MS Office
+                            <br />
+                            | — Навыки заполнения КС-2, журналов работ, графиков
+                            <br />
+                            | — Умение работать с нормативной базой
+                            <br />
+                            | — Ответственность, внимательность, аналитический подход
+
+                .service-list__item
+                  .service-list__title
+                    p Кто нам подходит
+                    svg.service-list__icon(width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg")
+                      path.service-list__icon-cross(v-if="true" d="M16 6.67V25.33" stroke="#243984" stroke-width="4" stroke-linecap="round")
+                      path.service-list__icon-bar(d="M6.67 16H25.33" stroke="#243984" stroke-width="4" stroke-linecap="round")
+                  .service-list__roster.is-collapsed
+                    .service-list__roster__item
+                      .service-list__roster__item__container
+                        .text 
+                          p — Высшее строительное/техническое образование
+                            <br />
+                            | — Знание AutoCAD, MS Office
+                            <br />
+                            | — Навыки заполнения КС-2, журналов работ, графиков
+                            <br />
+                            | — Умение работать с нормативной базой
+                            <br />
+                            | — Ответственность, внимательность, аналитический подход
+
+
+          .service-group.is-collapsed
+            .service-group__header
+              .service-group__header__info 
+                .service-group__header__title
+                  p Проектировщик инженерных систем
+                  button 
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <g clip-path="url(#clip0_527_11158)">
+                        <path d="M8 20L16 12L24 20" stroke="#243984" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                      </g>
+                      <defs>
+                        <clipPath id="clip0_527_11158">
+                          <rect width="32" height="32" fill="white" />
+                        </clipPath>
+                      </defs>
+                    </svg>
+                .service-group__header__line 
+                .service-group__header__description 
+                  p Ведём поиск специалиста, способного проектировать инженерные сети (ОВ, ВК, ЭО) в составе крупных объектов. Знание AutoCAD, опыт проектирования от 2 лет, умение вести рабочку и согласования.
+
+            .service-group__content
+              .service-list__roster.is-collapsed
+                .service-list__item
+                  .service-list__title
+                    p Кто нам подходит
+
+                    svg.service-list__icon(width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg")
+                      path.service-list__icon-cross(v-if="true" d="M16 6.67V25.33" stroke="#243984" stroke-width="4" stroke-linecap="round")
+                      path.service-list__icon-bar(d="M6.67 16H25.33" stroke="#243984" stroke-width="4" stroke-linecap="round")
+
+                  .service-list__roster.is-collapsed
+                    .service-list__roster__item
+                      .service-list__roster__item__container
+                        .text 
+                          p — Высшее строительное/техническое образование
+                            <br />
+                            | — Знание AutoCAD, MS Office
+                            <br />
+                            | — Навыки заполнения КС-2, журналов работ, графиков
+                            <br />
+                            | — Умение работать с нормативной базой
+                            <br />
+                            | — Ответственность, внимательность, аналитический подход
+
+                .service-list__item
+                  .service-list__title
+                    p Кто нам подходит
+                    svg.service-list__icon(width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg")
+                      path.service-list__icon-cross(v-if="true" d="M16 6.67V25.33" stroke="#243984" stroke-width="4" stroke-linecap="round")
+                      path.service-list__icon-bar(d="M6.67 16H25.33" stroke="#243984" stroke-width="4" stroke-linecap="round")
+                  .service-list__roster.is-collapsed
+                    .service-list__roster__item
+                      .service-list__roster__item__container
+                        .text 
+                          p — Высшее строительное/техническое образование
+                            <br />
+                            | — Знание AutoCAD, MS Office
+                            <br />
+                            | — Навыки заполнения КС-2, журналов работ, графиков
+                            <br />
+                            | — Умение работать с нормативной базой
+                            <br />
+                            | — Ответственность, внимательность, аналитический подход
+
+                .service-list__item
+                  .service-list__title
+                    p Кто нам подходит
+                    svg.service-list__icon(width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg")
+                      path.service-list__icon-cross(v-if="true" d="M16 6.67V25.33" stroke="#243984" stroke-width="4" stroke-linecap="round")
+                      path.service-list__icon-bar(d="M6.67 16H25.33" stroke="#243984" stroke-width="4" stroke-linecap="round")
+                  .service-list__roster.is-collapsed
+                    .service-list__roster__item
+                      .service-list__roster__item__container
+                        .text 
+                          p — Высшее строительное/техническое образование
+                            <br />
+                            | — Знание AutoCAD, MS Office
+                            <br />
+                            | — Навыки заполнения КС-2, журналов работ, графиков
+                            <br />
+                            | — Умение работать с нормативной базой
+                            <br />
+                            | — Ответственность, внимательность, аналитический подход
+
+          .service-group.is-collapsed
+            .service-group__header
+              .service-group__header__info 
+                .service-group__header__title
+                  p Специалист по тендерам
+                  button 
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <g clip-path="url(#clip0_527_11158)">
+                        <path d="M8 20L16 12L24 20" stroke="#243984" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                      </g>
+                      <defs>
+                        <clipPath id="clip0_527_11158">
+                          <rect width="32" height="32" fill="white" />
+                        </clipPath>
+                      </defs>
+                    </svg>
+                .service-group__header__line 
+                .service-group__header__description 
+                  p Участвие в конкурсах и тендерах, подготовка документации, взаимодействие с заказчиками. Требуется внимательность, знание законодательства 44-ФЗ, 223-ФЗ и опыт от 1 года.
+
+            .service-group__content
+              .service-list__roster.is-collapsed
+                .service-list__item
+                  .service-list__title
+                    p Кто нам подходит
+
+                    svg.service-list__icon(width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg")
+                      path.service-list__icon-cross(v-if="true" d="M16 6.67V25.33" stroke="#243984" stroke-width="4" stroke-linecap="round")
+                      path.service-list__icon-bar(d="M6.67 16H25.33" stroke="#243984" stroke-width="4" stroke-linecap="round")
+
+                  .service-list__roster.is-collapsed
+                    .service-list__roster__item
+                      .service-list__roster__item__container
+                        .text 
+                          p — Высшее строительное/техническое образование
+                            <br />
+                            | — Знание AutoCAD, MS Office
+                            <br />
+                            | — Навыки заполнения КС-2, журналов работ, графиков
+                            <br />
+                            | — Умение работать с нормативной базой
+                            <br />
+                            | — Ответственность, внимательность, аналитический подход
+
+                .service-list__item
+                  .service-list__title
+                    p Кто нам подходит
+                    svg.service-list__icon(width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg")
+                      path.service-list__icon-cross(v-if="true" d="M16 6.67V25.33" stroke="#243984" stroke-width="4" stroke-linecap="round")
+                      path.service-list__icon-bar(d="M6.67 16H25.33" stroke="#243984" stroke-width="4" stroke-linecap="round")
+                  .service-list__roster.is-collapsed
+                    .service-list__roster__item
+                      .service-list__roster__item__container
+                        .text 
+                          p — Высшее строительное/техническое образование
+                            <br />
+                            | — Знание AutoCAD, MS Office
+                            <br />
+                            | — Навыки заполнения КС-2, журналов работ, графиков
+                            <br />
+                            | — Умение работать с нормативной базой
+                            <br />
+                            | — Ответственность, внимательность, аналитический подход
+
+                .service-list__item
+                  .service-list__title
+                    p Кто нам подходит
+                    svg.service-list__icon(width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg")
+                      path.service-list__icon-cross(v-if="true" d="M16 6.67V25.33" stroke="#243984" stroke-width="4" stroke-linecap="round")
+                      path.service-list__icon-bar(d="M6.67 16H25.33" stroke="#243984" stroke-width="4" stroke-linecap="round")
+                  .service-list__roster.is-collapsed
+                    .service-list__roster__item
+                      .service-list__roster__item__container
+                        .text 
+                          p — Высшее строительное/техническое образование
+                            <br />
+                            | — Знание AutoCAD, MS Office
+                            <br />
+                            | — Навыки заполнения КС-2, журналов работ, графиков
+                            <br />
+                            | — Умение работать с нормативной базой
+                            <br />
+                            | — Ответственность, внимательность, аналитический подход

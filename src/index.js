@@ -804,3 +804,78 @@ document.addEventListener('DOMContentLoaded', function () {
     sliderEl.swiperInstance = swiper;
   }
 });
+
+/*------input-vacancy--------*/
+
+document.addEventListener('DOMContentLoaded', function () {
+  const fileInput = document.getElementById('resume-upload');
+  if (!fileInput) return;
+
+  const trigger = document.querySelector('.career__vacancy__form__button-file__trigger');
+  const preview = document.querySelector('.career__vacancy__form__file-preview');
+  const fileName = document.querySelector('.career__vacancy__form__file-name');
+  const fileIcon = document.querySelector('.career__vacancy__form__file-icon');
+  const removeBtn = document.querySelector('.career__vacancy__form__file-remove');
+
+  const icons = {
+    pdf: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 2H6C4.89543 2 4 2.89543 4 4V20C4 21.1046 4.89543 22 6 22H18C19.1046 22 20 21.1046 20 20V8L14 2Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 2V8H20" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 13H10" stroke="white" stroke-width="2" stroke-linecap="round"/><path d="M16 17H10" stroke="white" stroke-width="2" stroke-linecap="round"/><path d="M13 9H11" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>`,
+    doc: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 2H6C4.89543 2 4 2.89543 4 4V20C4 21.1046 4.89543 22 6 22H18C19.1046 22 20 21.1046 20 20V8L14 2Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 2V8H20" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 13H15" stroke="white" stroke-width="2" stroke-linecap="round"/><path d="M9 17H13" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>`,
+    docx: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 2H6C4.89543 2 4 2.89543 4 4V20C4 21.1046 4.89543 22 6 22H18C19.1046 22 20 21.1046 20 20V8L14 2Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 2V8H20" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 13H15" stroke="white" stroke-width="2" stroke-linecap="round"/><path d="M9 17H13" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>`,
+    txt: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 2H6C4.89543 2 4 2.89543 4 4V20C4 21.1046 4.89543 22 6 22H18C19.1046 22 20 21.1046 20 20V8L14 2Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 2V8H20" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 13H15" stroke="white" stroke-width="2" stroke-linecap="round"/><path d="M9 17H15" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>`,
+    default: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 2H6C4.89543 2 4 2.89543 4 4V20C4 21.1046 4.89543 22 6 22H18C19.1046 22 20 21.1046 20 20V8L14 2Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 2V8H20" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`
+  };
+
+  function getIcon(ext) {
+    ext = ext.toLowerCase();
+    if (ext === 'doc' || ext === 'docx') return icons.docx;
+    return icons[ext] || icons.default;
+  }
+
+  fileInput.addEventListener('change', function (e) {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    const name = file.name;
+    const ext = name.split('.').pop() || '';
+    fileName.textContent = name;
+    fileIcon.innerHTML = getIcon(ext);
+    trigger.style.display = 'none';
+    preview.classList.remove('hidden');
+  });
+
+  if (removeBtn) {
+    removeBtn.addEventListener('click', function () {
+      fileInput.value = '';
+      trigger.style.display = '';
+      preview.classList.add('hidden');
+    });
+  }
+});
+
+/*-------career-vacancy---------*/
+
+document.addEventListener('DOMContentLoaded', () => {
+  if (!document.querySelector('.career__vacancy__list')) return;
+
+  document.querySelectorAll('.service-group__header').forEach(header => {
+    const group = header.closest('.service-group');
+    if (!group) return;
+
+    header.addEventListener('click', () => {
+      group.classList.toggle('is-collapsed');
+      header.setAttribute('aria-expanded', String(!group.classList.contains('is-collapsed')));
+    });
+  });
+
+  document.querySelectorAll('.service-group').forEach(group => {
+    const header = group.querySelector('.service-group__header');
+    const roster = group.querySelector('.service-list__roster');
+    if (!header || !roster) return;
+
+    const isCollapsed = roster.classList.contains('is-collapsed');
+
+    header.addEventListener('click', (e) => {
+      roster.classList.toggle('is-collapsed');
+    });
+  });
+});
