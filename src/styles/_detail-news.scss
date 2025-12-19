@@ -163,5 +163,129 @@
     }
   }
 
-  
+  &__slider {
+    .news {
+      &__list {
+        padding-bottom: 8rem;
+
+        .swiper-button-prev,
+        .swiper-button-next {
+          top: auto !important;
+          bottom: 0 !important;
+          color: #243984;
+          width: 3.2rem;
+          height: 3.2rem;
+
+          svg {
+            width: 1.2rem;
+            height: 2rem;
+          }
+        }
+      
+        .swiper-button-prev {
+          left: 43% !important;
+        }
+      
+        .swiper-button-next {
+          right: 43% !important;
+        }
+
+        .main-pagination {
+        
+          bottom: 0.2rem !important;
+        
+          .swiper-pagination-bullet {
+          
+            background: #dfe2e7;
+            opacity: 1;
+            width: 1.2rem;
+            height: 1.2rem;
+            margin: 0.5rem;
+          
+            &-active {
+              background: var(--blue);
+            }
+          
+            &-disabled {
+              color: #DFE2E7;
+              opacity: 1;
+            }
+          }
+        }
+      }
+    }
+  }
 }
+
+@media (max-width: 768px) {
+  .detail-news {
+
+    .hero-other__content {
+
+      .hero-other__title {
+        max-width: 65rem;
+        margin-bottom: 8rem;
+      }
+
+      .hero-other__subtitle {
+        font-size: 2.4rem;
+        max-width: 100%;
+      }
+    }
+
+    &__description {
+
+      margin-bottom: 6.4rem;
+
+      .title {
+
+        margin-bottom: 6.4rem;
+
+        p {
+          font-size: 3.2rem;
+        }
+      }
+
+      .list {
+
+        gap: 4.8rem;
+
+        .item {
+
+          gap: 3.6rem;
+
+          .name {
+            p {
+              font-size: 6rem;
+            }
+          }
+
+          .text {
+
+            gap: 4.8rem;
+
+            p {
+              font-size: 2.8rem;
+            }
+          }
+        }
+      }
+    }
+
+    &__image-slider {
+
+      margin-bottom: 16rem;
+
+      .swiper {
+        .swiper-button-prev {
+          left: 30% !important;
+        }
+      
+        .swiper-button-next {
+          right: 30% !important;
+        }
+      }
+    }
+  }    
+}
+

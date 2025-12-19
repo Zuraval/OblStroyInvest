@@ -143,29 +143,31 @@ block content
           </defs>
         </svg>
 
-    .about__portfolio__modile
-      .about__portfolio
-        .about__slider__title 
-          p ЛИЦЕНЗИИ и благодарности
-        .swiper.about-portfolio-slider
+    .about__portfolio__mobile
+      .about__portfolio__mobile__title
+        p портфолио
+      .detail-news__image-slider
+        .swiper.detail-news__image-slider__slider
           .swiper-wrapper
-            - 
-              var slides = [
-                '/assets/images/Doc1-1.png',
-                '/assets/images/Doc1-2.png',
-                '/assets/images/Doc1-3.png',
-                '/assets/images/Doc1-4.png',
-                '/assets/images/Doc2-1.png',
-                '/assets/images/Doc2-1.png',
-                '/assets/images/Doc1-1.png',
-              ]
-            each imgSrc in slides
-              .swiper-slide
-                img.slider-image(src=imgSrc alt="Проект")
+            - const galleryImages = [
+            -   { src: '/assets/images/Galery1.png', alt: 'Изображение 1' },
+            -   { src: '/assets/images/Galery2.png', alt: 'Изображение 2' },
+            -   { src: '/assets/images/Galery3.png', alt: 'Изображение 3' },
+            -   { src: '/assets/images/Galery4.png', alt: 'Изображение 4' },
+            -   { src: '/assets/images/Galery5.png', alt: 'Изображение 5' },
+            -   { src: '/assets/images/Galery6.png', alt: 'Изображение 6' },
+            -   { src: '/assets/images/Galery7.png', alt: 'Изображение 7' },
+            -   { src: '/assets/images/Galery8.png', alt: 'Изображение 8' },
+            -   { src: '/assets/images/Galery9.png', alt: 'Изображение 9' }
+            - ]
 
+            each img, index in galleryImages
+              .swiper-slide(data-index=index)
+                img(src=img.src, alt=img.alt)
+
+          .swiper-pagination.main-pagination
           .swiper-button-next.main-button-next
           .swiper-button-prev.main-button-prev
-          .swiper-pagination-dots
 
     .about__slider 
       .about__slider__title 

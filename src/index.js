@@ -647,7 +647,7 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     breakpoints: {
       320: {
-        slidesPerView: 1.2,
+        slidesPerView: 1.3,
         spaceBetween: 10,
       },
       768: {
@@ -657,10 +657,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
-
-/*------portfolio-slider-----*/
-
-
 
 /*------hero-bg-script-----*/
 
@@ -878,4 +874,23 @@ document.addEventListener('DOMContentLoaded', () => {
       roster.classList.toggle('is-collapsed');
     });
   });
+});
+
+/*--------------cookie--------------*/
+
+document.addEventListener('DOMContentLoaded', () => {
+  const cookieBanner = document.querySelector('.cookie');
+
+  // if (localStorage.getItem('cookiesAccepted') === 'true') {
+  //   if (cookieBanner) cookieBanner.style.display = 'none';
+  //   return;
+  // }
+
+  const acceptButton = document.querySelector('.accept-all');
+  if (acceptButton && cookieBanner) {
+    acceptButton.addEventListener('click', () => {
+      cookieBanner.style.display = 'none';
+      localStorage.setItem('cookiesAccepted', 'true');
+    });
+  }
 });

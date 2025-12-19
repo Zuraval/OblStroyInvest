@@ -1,0 +1,39 @@
+include ../includes/mixins/button.pug
+.cookie
+  .cookie__container
+    .cookie__container__title 
+      p Управление cookie-файлами
+    .cookie__container__description 
+      p Мы используем файлы cookie, чтобы обеспечить наилуйчшее взаимодействие с сайтом. 
+    .cookie__container__ps 
+      p Обработка данных пользователей осуществляется в соответствии с <a href="#">«Политикой в отношении персональных данных»</a> и  <a href="#">«Пользовательским соглашением»</a>
+    .cookie__container__buttons 
+      +button('принять все', 'primary accept-all')
+      button.setings Настроить файлы cookie 
+
+  .cookie__setings
+    .cookie__container
+      .cookie__container__title 
+        p Управление cookie-файлами
+        .cookie__container__block 
+          .cookie__container__block__text 
+            p Настройки файлов cookie
+          .cookie__container__block__text-2 
+            p Cookie-файлы, необходимые для правильной работы сайта, всегда включены.<br /> Другие файлы cookie настраиваются.
+          .cookie__container__block__line
+          .cookie__container__block__description 
+            .cookie__container__block__description__item
+              .service-list__item
+              .service-list__title
+                p Оформление исходно-разрешительной документации
+
+                svg.service-list__icon(width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg")
+                  path.service-list__icon-cross(v-if="true" d="M16 6.67V25.33" stroke="#243984" stroke-width="4" stroke-linecap="round")
+                  path.service-list__icon-bar(d="M6.67 16H25.33" stroke="#243984" stroke-width="4" stroke-linecap="round")
+
+              .service-list__roster.is-collapsed
+                .service-list__roster__item 
+                  .service-list__roster__item__container 
+
+
+

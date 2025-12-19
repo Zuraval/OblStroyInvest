@@ -173,6 +173,12 @@
           color: var(--blue);
         }
       }
+
+      &__item:first-child {
+        p:nth-last-child(2) {
+          display: none;
+        }
+      }
     }
   }
 
@@ -350,7 +356,7 @@
     }
   }
 
-  &__portfolio__modile {
+  &__portfolio__mobile {
     display: none;
   }
 
@@ -632,8 +638,122 @@
       display: none;
     }
 
-    &__portfolio__modile {
-      display: flex;
+    &__portfolio__mobile {
+
+      display: block;
+
+      &__title {
+
+        margin-bottom: 6.4rem;
+
+        p {
+          font-family: var(--second-family);
+          font-weight: 400;
+          font-size: 3.2rem;
+          line-height: 110%;
+          text-transform: uppercase;
+          color: var(--blue);
+        }
+      }
+
+      .detail-news__image-slider {
+        margin-bottom: 16rem;
+      }
+
+      .detail-news__image-slider__slider {
+
+        padding-bottom: 8.4rem;
+
+        .swiper-wrapper {
+          display: flex;
+          align-items: center;
+        }
+      
+        .swiper-slide {
+          width: 56.2rem;
+          height: auto;
+        
+          img {
+            width: 100%;
+            height: 100%;
+          }
+        }
+      
+        .swiper-button-prev,
+        .swiper-button-next {
+          top: auto !important;
+          bottom: 0 !important;
+          color: #243984;
+          width: 3.2rem;
+          height: 3.2rem;
+
+          svg {
+            width: 1.2rem;
+            height: 2rem;
+          }
+        }
+      
+        .swiper-button-prev {
+          left: 30% !important;
+        }
+      
+        .swiper-button-next {
+          right: 30% !important;
+        }
+
+        .main-pagination {
+        
+          bottom: 0.2rem !important;
+        
+          .swiper-pagination-bullet {
+          
+            background: #dfe2e7;
+            opacity: 1;
+            width: 1.2rem;
+            height: 1.2rem;
+            margin: 0.5rem;
+          
+            &-active {
+              background: var(--blue);
+            }
+          
+            &-disabled {
+              color: #DFE2E7;
+              opacity: 1;
+            }
+          }
+        }
+      }
+    }
+
+    &__slider {
+
+      margin-bottom: 8rem;
+
+      &__title {
+        font-size: 3.2rem;
+        margin-bottom: 6.4rem;
+      }
+
+      .swiper-wrapper {
+        .swiper-slide {
+
+          height: 74.8rem;
+
+          img {
+            height: 100%;
+            width: 100%;
+          }
+        }
+      }
+
+      .swiper-button-prev {
+        left: 30% !important;
+      }
+    
+      .swiper-button-next {
+        right: 30% !important;
+      }
     }
   }
 }

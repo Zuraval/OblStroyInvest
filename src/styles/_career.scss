@@ -76,6 +76,10 @@
           padding-bottom: 0;
         }
       }
+
+      &__block-btn-mobi {
+        display: none;
+      }
     }
   }
 
@@ -573,25 +577,231 @@
       bottom: 3.5rem;
     }
 
+    .hero-other {
+      height: 120.8rem;
+
+      &:before {
+       height: 120.8rem;
+      }
+    }
+
+    .hero-other__content {
+      padding-bottom: 25.6rem;
+    }
+
     &__philosophy {
       
+      &__title {
+
+        margin-bottom: 6.4rem;
+
+        p {
+          font-size: 3.2rem;
+        }
+      }
+
+      &__info {
+        
+        flex-direction: column;
+        gap: 6.4rem;
+        margin-bottom: 16rem;
+
+        &__block-btn {
+
+          p {
+            font-size: 2.8rem;
+          }
+
+          .btn {
+            display: none;
+          }
+        }
+
+        &__block-text {
+          p {
+            font-size: 2.4rem;
+          }
+        }
+
+        &__block-btn-mobi {
+          display: flex;
+        }
+      }
+    }
+
+    &__conditions {
+
+      margin-bottom: 16rem;
+
+      &__title {
+
+        margin-bottom: 6.4rem;
+
+        p {
+          font-size: 3.2rem;
+        }
+      }
+
+      &__subtitle {
+
+        margin-bottom: 4.8rem;
+
+        p {
+          font-size: 2.8rem;
+        }
+      }
+
+      &__cards {
+
+        flex-direction: column;
+        gap: 3.2rem;
+
+        &__item {
+
+          width: 100%;
+
+          &__container {
+            padding: 4.8rem 3.2rem;
+            gap: 3.2rem;
+          }
+
+          &__number {
+            p {
+              font-size: 3.2rem;
+            }
+          }
+
+          &__title {
+            font-size: 3.2rem;
+          }
+
+          &__description {
+            font-size: 2.8rem;
+          }
+        }
+      }
+    }
+
+    &__vacancy {
+
+
+
+      &__title {
+
+        margin-bottom: 6.4rem;
+
+        p {
+          font-size: 3.2rem;
+        }
+      }
+
+      &__description {
+
+        gap: 4rem;
+        margin-bottom: 6.4rem;
+
+        p:first-child {
+          font-size: 6rem;
+        }
+
+        p:last-child {
+          font-size: 2.8rem;
+        }
+      }
+
+      &__form {
+
+        max-width: 100%;
+        margin-bottom: 6.4rem;
+
+        &__container {
+          padding: 3.2rem;
+        }
+
         &__title {
 
           margin-bottom: 6.4rem;
 
           p {
-            font-size: 3.2rem;
+            font-size: 6rem;
           }
         }
 
-        &__info {
+        &__ps {
 
-          flex-direction: column;
+          margin-bottom: 3.2rem;
 
-          &__block-btn {
-            
+          p {
+            font-size: 2rem;
           }
         }
+
+        &__button-file-wrapper {
+
+          width: 42rem;
+          max-width: none;
+
+          label {
+
+            gap: 4.8rem;
+            padding: 1.6rem 3.2rem;
+
+            p {
+              font-size: 2.4rem;
+            }
+          }
+        }
+      }
+
+      &__list {
+        .service-list {
+
+          margin-bottom: 8rem;
+
+          .service-group {
+            &__header {
+
+              &__title {
+
+                p {
+                  font-size: 4.8rem;
+                }
+
+                button {
+                  svg {
+                    width: 6.4rem;
+                    height: 6.4rem;
+                  }
+                }
+              }
+
+              &__description {
+                p {
+                  font-size: 3.6rem;
+                }
+              }
+            }
+
+            &__content {
+              .service-list__roster {
+                .service-list__item {
+                  .service-list__title {
+
+                    p {
+                      font-size: 3.2rem;
+                    }
+
+                    svg {
+                      width: 4.8rem;
+                      height: 4.8rem;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
 }

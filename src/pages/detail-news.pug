@@ -6,7 +6,7 @@ block content
 
   .detail-news
     - var heroOtherData = {
-    -   tagline: 'Главная | новости | Новый жK бизнес-класса в районе «Заречье»',
+    -   tagline: '<span class="breadcrumbs-item">Главная</span> | <span class="breadcrumbs-item">новости</span> | <span class="breadcrumbs-item">Новый жK бизнес-класса в районе «Заречье»</span>',
     -   title: 'Новый жилой комплекс бизнес-класса в районе «Заречье»',
     -   subtitle: '<span class="hero-other__date">30.07.2025</span><span class="hero-other__author">Анна Астапова</span>',
     -   pdf: 'все проекты', 
@@ -126,6 +126,19 @@ block content
                 .item__container
                   .item__image
                     img(src="/assets/images/News2.png", alt="Новость")
+                  .item__title
+                    p Запуск нового проекта в Тюмени
+                  .item__subtitle
+                    p Наши эксперты приняли участие в форуме «Строительство и технологии 2025», где представили доклад о цифровизации процессов и контроле качества на всех этапах реализации проектов.
+                  .item__date
+                    p 24.06.2025
+                  .item__button
+                    +button('читать дальше', 'outline')
+            .swiper-slide
+              .item
+                .item__container
+                  .item__image
+                    img(src="/assets/images/News3.png", alt="Новость")
                   .item__title
                     p Запуск нового проекта в Тюмени
                   .item__subtitle
