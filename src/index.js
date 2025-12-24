@@ -881,10 +881,10 @@ document.addEventListener('DOMContentLoaded', () => {
 document.addEventListener('DOMContentLoaded', () => {
   const cookieBanner = document.querySelector('.cookie');
 
-  // if (localStorage.getItem('cookiesAccepted') === 'true') {
-  //   if (cookieBanner) cookieBanner.style.display = 'none';
-  //   return;
-  // }
+  if (localStorage.getItem('cookiesAccepted') === 'true') {
+    if (cookieBanner) cookieBanner.style.display = 'none';
+    return;
+  }
 
   const acceptButton = document.querySelector('.accept-all');
   if (acceptButton && cookieBanner) {

@@ -1,5 +1,5 @@
 mixin hero-other(tagline, title, subtitle, pdf, bgImage, buttonData = null)
-  section.hero-other(style=`--hero-bg-image-url: url('${bgImage}');`)
+  section.hero-other.container(style=`--hero-bg-image-url: url('${bgImage}');`)
     .hero-other__content
       .hero-other__tagline!= tagline
       p.hero-other__title!= title

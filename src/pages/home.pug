@@ -169,7 +169,7 @@ block content
   -   }
   - ]
 
-  .about-company
+  .about-company.container
     .about-company__title
       p О КОМПАНИИ
     .about-company__block
@@ -195,7 +195,7 @@ block content
       .about-company__content-button
         +button('узнать больше', 'primary')
   
-  .services 
+  .services.container
     .services__title
       p УСЛУГИ
     .services__subtitle 
@@ -229,7 +229,7 @@ block content
             p Проводим проверку смет, оценку рисков и контроль финансово‑технических показателей.
           +button('подробнее', 'outline')
 
-  .projects
+  .projects.container
     .projects__title
       p ПРОЕКТЫ
     .projects__menu.swiper
@@ -312,7 +312,7 @@ block content
     .projects__bottom-line
       +button('смотреть все проекты', 'primary')
 
-  .project-stages-slider(data-slides=JSON.stringify(projectStagesData))
+  .project-stages-slider.container(data-slides=JSON.stringify(projectStagesData))
     .project-stages-slider__header
       p.project-stages-slider__title ЭТАПЫ ПРОЕКТА
     .project-stages-slider__content-wrapper
@@ -351,7 +351,7 @@ block content
           <path d="M0.666992 0.666504L6.66699 6.6665L0.666992 12.6665" stroke="#243984" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round" />
         </svg>
   
-  .advantages
+  .advantages.container
     .advantages__title 
       p НАШИ ПРЕИМУЩЕСТВА
     .advantages__subtitle 
@@ -424,7 +424,7 @@ block content
     .advantages__ps 
       p <span>„</span> С нами вы получаете не просто строительную компанию, а партнёра, который делает ваш проект успешным, комфортным и вдохновляющим. 
 
-  .licenses__slider 
+  .licenses__slider.container
     .licenses__slider__title
       p ЛИЦЕНЗИИ И БЛАГОДАРНОСТИ
     .main-slider-container
@@ -451,7 +451,7 @@ block content
         .swiper-button-next.main-button-next
         .swiper-button-prev.main-button-prev
       
-  .news
+  .news.container
     .news__title
       p НОВОСТИ И СОБЫТИЯ
     .news__list.swiper(data-slider-mode='mobile-only')

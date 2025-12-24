@@ -16,7 +16,7 @@ block content
 
     +hero-other(heroOtherData.tagline, heroOtherData.title, heroOtherData.subtitle, heroOtherData.pdf, heroOtherData.bgImage, heroOtherData.buttonData)
 
-    .detail-news__description
+    .detail-news__description.container
       .title 
         p Описание
       .list 
@@ -68,7 +68,7 @@ block content
           .text
             p Утренняя пробежка по парку, кофе с видом на воду, вечер на террасе или прогулка по тенистой аллее — всё это становится частью повседневной жизни. Новый комплекс в «Заречье» — это не просто жильё, это городская гармония, в которой легко быть собой.
 
-    .detail-news__image-slider
+    .detail-news__image-slider.container
       .swiper.detail-news__image-slider__slider
         .swiper-wrapper
           - const galleryImages = [
@@ -91,7 +91,7 @@ block content
         .swiper-button-next.main-button-next
         .swiper-button-prev.main-button-prev
 
-    .detail-news__video
+    .detail-news__video.container
       .specific-project__video__title 
         p Видеообзор
       .specific-project__video__description 
@@ -102,7 +102,7 @@ block content
           source(src="#" type="video/mp4")
           source(src="#" type="video/webm")
 
-    .detail-news__slider
+    .detail-news__slider.container
       .news
         .news__title
           p другие новости

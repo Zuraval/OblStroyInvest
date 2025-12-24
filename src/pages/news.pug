@@ -56,7 +56,7 @@ block content
     - var visibleNews = newsItems.slice(0, 5)
     - var hiddenNews = newsItems.slice(5)
 
-    .news-page__content
+    .news-page__content.container
       each item, index in visibleNews
         .news-page__content__item
           .image
@@ -75,7 +75,7 @@ block content
         if index < visibleNews.length - 1
           .news-page__content__line
 
-    .news-page__hidden-items
+    .news-page__hidden-items.container
       each item, index in hiddenNews
         .news-page__content__item
           .image
@@ -94,7 +94,7 @@ block content
         if index < hiddenNews.length - 1
           .news-page__content__line
 
-    .news-page__number
+    .news-page__number.container
       button 
         svg(width="24", height="24", viewBox="0 0 24 24", fill="none", xmlns="http://www.w3.org/2000/svg")
           g(clip-path="url(#clip0_488_11710)")

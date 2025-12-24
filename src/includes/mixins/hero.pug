@@ -22,7 +22,7 @@ mixin hero(tagline, title, subtitle, button, stats, location, bgImages)
           each stat in stats
             .hero__stat
               .hero__stat-number= stat.number
-              .hero__stat-label= stat.label
+              .hero__stat-label!= stat.label
 
       .hero__location
         each titleDesk, i in location.titles
