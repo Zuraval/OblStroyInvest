@@ -15,6 +15,7 @@
     flex-direction: column;
     gap: 3rem;
     border-radius: 16px;
+    position: relative;
 
     &__title {
       font-family: var(--second-family);
@@ -55,7 +56,7 @@
       justify-content: space-between;
       align-items: center;
 
-      .setings {
+      .setings-cookie {
         font-family: var(--font-family);
         font-weight: 500;
         font-size: 1.6rem;
@@ -70,6 +71,13 @@
     display: none;
 
     .cookie__container {
+
+      height: auto;
+
+      .btn {
+        display: flex;
+        width: fit-content;
+      }
 
       &__block {
 
@@ -93,7 +101,230 @@
         }
 
         &__line {
-          border: 1px solid var(--line-light);
+          border-top: 1px solid var(--line-light);
+        }
+
+        &__description {
+
+          &__item {
+            display: flex;
+            flex-direction: column;
+            gap: 1.8rem;
+          }
+
+          .service-list__check span {
+            color: var(--grey-text);
+          }
+
+          .service-list:first-child .service-list__check span {
+            color: var(--blue);
+          }
+
+          .service-list {
+
+            display: flex;
+          
+            &__item {
+
+              overflow: hidden;
+              display: flex;
+              align-items: flex-start;
+              justify-content: center;
+            
+              .service-list__roster {
+                overflow: hidden;
+                opacity: 1;
+                transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+              
+                &.is-collapsed {
+                  max-height: 0;
+                  opacity: 0;
+                  padding-top: 0;
+                  padding-bottom: 0;
+                }
+              }
+            
+              &.is-expanded {
+                .service-list__icon {
+                  .service-list__icon-cross {
+                    opacity: 0;
+                    transform: rotate(90deg);
+                  }
+                }
+              }
+            }
+          
+            &__title {
+
+              display: flex;
+              align-items: center;
+              cursor: pointer;
+              justify-content: space-between;
+              
+              &__plus {
+
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 0.8rem;
+
+                p {
+                  font-family: var(--font-family);
+                  font-weight: 400;
+                  font-size: 1.4rem;
+                  line-height: 110%;
+                  color: var(--text);
+                }
+
+              }
+            
+              .service-list__icon {
+                flex-shrink: 0;
+                width: 2.4rem;
+                height: 2.4rem;
+                display: block;
+              
+                path {
+                  stroke: #243984;
+                  stroke-width: 2;
+                  stroke-linecap: round;
+                  fill: none;
+                  transition: opacity 0.3s ease, transform 0.3s ease;
+                }
+              
+                .service-list__icon-cross {
+                  opacity: 1;
+                  transform-origin: center;
+                }
+              }
+            }
+          
+            &__roster {
+
+              padding-top: 1.2rem;
+              opacity: 1;
+              transition: max-height 0.3s ease-in, opacity 0.3s ease-in;
+            
+              &__item {
+              
+                &:last-child {
+                  margin-bottom: 0;
+                }
+              
+                &__container {
+
+                  p {
+                    font-family: var(--second-family);
+                    font-weight: 400;
+                    font-size: 1.4rem;
+                    line-height: 110%;
+                    color: var(--grey-text);
+                  }
+                }
+              }
+            }
+
+            &__check {
+
+              display: flex;
+              gap: 2.4rem;
+              align-items: center;
+              height: fit-content;
+
+              span {
+                white-space: nowrap;
+              }
+
+              .toggle-switch {
+
+                position: relative;
+                display: inline-block;
+                width: 5.2rem;
+                height: 3rem;
+
+                .toggle-input {
+                  opacity: 0;
+                  width: 0;
+                  height: 0;
+                }
+
+                .toggle-input:checked + .toggle-label {
+                  background-color: #D8DDEF;
+                }
+
+                .toggle-input:checked + .toggle-label::before {
+                  background-color: #243984;
+                  transform: translateX(2.2rem);
+                }
+
+                .toggle-label {
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  width: 5.2rem;
+                  height: 3rem;
+                  background-color: #E9EDF3;
+                  border-radius: 15px;
+                  cursor: pointer;
+                  transition: background-color 0.3s ease;
+                }
+
+                .toggle-label::before {
+                  content: '';
+                  position: absolute;
+                  top: 0.2rem;
+                  left: 0.2rem;
+                  width: 2.6rem;
+                  height: 2.6rem;
+                  background-color: #A6A6A8;
+                  border-radius: 50%;
+                  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.3s ease;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .cookie {
+
+    bottom: 6.4rem;
+    right: 16px;
+    left: 16px;
+
+    &__container {
+
+      width: 100%;
+      height: 55rem;
+      padding: 3.2rem 2.4rem;
+
+      &__title {
+        font-weight: 600;
+        font-size: 3.2rem;
+      }
+
+      &__description {
+        font-weight: 400;
+        font-size: 2.8rem;
+      }
+
+      &__ps {
+
+        font-weight: 400;
+        font-size: 2.8rem;
+
+        a {
+          font-size: 2.8rem;
+        }
+      }
+
+      &__buttons {
+        .setings-cookie {
+          font-size: 2.4rem;
         }
       }
     }

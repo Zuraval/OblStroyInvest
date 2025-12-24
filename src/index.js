@@ -880,11 +880,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
 document.addEventListener('DOMContentLoaded', () => {
   const cookieBanner = document.querySelector('.cookie');
+  const cookieBannerSetings = document.querySelector('.cookie__setings');
+  const cookieBannerContainer = document.querySelector('.cookie__container');
 
-  if (localStorage.getItem('cookiesAccepted') === 'true') {
-    if (cookieBanner) cookieBanner.style.display = 'none';
-    return;
-  }
+  // if (localStorage.getItem('cookiesAccepted') === 'true') {
+  //   if (cookieBanner) cookieBanner.style.display = 'none';
+  //   return;
+  // }
 
   const acceptButton = document.querySelector('.accept-all');
   if (acceptButton && cookieBanner) {
@@ -892,5 +894,47 @@ document.addEventListener('DOMContentLoaded', () => {
       cookieBanner.style.display = 'none';
       localStorage.setItem('cookiesAccepted', 'true');
     });
+  }
+
+  const confirmButton = document.querySelector('.confirm');
+  if (confirmButton && cookieBanner) {
+    confirmButton.addEventListener('click', () => {
+      cookieBanner.style.display = 'none';
+      localStorage.setItem('cookiesAccepted', 'true');
+    });
+  }
+
+  const setingsButton = document.querySelector('.setings-cookie');
+  setingsButton.addEventListener('click', () => {
+    cookieBannerContainer.style.display = 'none';
+    cookieBannerSetings.style.display = 'flex'
+  });
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+  const toggleInputs = document.querySelectorAll('.toggle-input');
+
+  toggleInputs.forEach(input => {
+    const serviceItem = input.closest('.service-list');
+    if (!serviceItem) return;
+
+    const statusSpan = serviceItem.querySelector('.category-status');
+    if (!statusSpan) return;
+
+    updateStatus(input, statusSpan);
+
+    input.addEventListener('change', () => {
+      updateStatus(input, statusSpan);
+    });
+  });
+
+  function updateStatus(input, statusSpan) {
+    if (input.checked) {
+      statusSpan.textContent = 'Разрешено';
+      statusSpan.style.color = 'var(--blue)';
+    } else {
+      statusSpan.textContent = 'Запрещено';
+      statusSpan.style.color = 'var(--grey-text)';
+    }
   }
 });
