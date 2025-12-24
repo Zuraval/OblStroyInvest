@@ -26,15 +26,16 @@ include ../includes/mixins/button.pug
             .service-list
               .service-list__item
                 .service-list__title
-                  .service-list__title__plus
-                    svg.service-list__icon(width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg")
-                      path.service-list__icon-cross(v-if="true" d="M16 6.67V25.33" stroke="#243984" stroke-width="4" stroke-linecap="round")
-                      path.service-list__icon-bar(d="M6.67 16H25.33" stroke="#243984" stroke-width="4" stroke-linecap="round")
+                  .service-list__title__obe
+                    .service-list__title__plus
+                      svg.service-list__icon(width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg")
+                        path.service-list__icon-cross(v-if="true" d="M16 6.67V25.33" stroke="#243984" stroke-width="4" stroke-linecap="round")
+                        path.service-list__icon-bar(d="M6.67 16H25.33" stroke="#243984" stroke-width="4" stroke-linecap="round")
 
-                    p Основные cookie-файлы
-                
-                .service-list__check 
-                  span  Всегда разрешено
+                      p Основные cookie-файлы
+
+                    .service-list__check 
+                      span Всегда разрешено
 
                 .service-list__roster.is-collapsed
                   .service-list__roster__item 
@@ -44,47 +45,49 @@ include ../includes/mixins/button.pug
             .service-list
               .service-list__item
                 .service-list__title
-                  .service-list__title__plus
-                    svg.service-list__icon(width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg")
-                      path.service-list__icon-cross(v-if="true" d="M16 6.67V25.33" stroke="#243984" stroke-width="4" stroke-linecap="round")
-                      path.service-list__icon-bar(d="M6.67 16H25.33" stroke="#243984" stroke-width="4" stroke-linecap="round")
+                  .service-list__title__obe
+                    .service-list__title__plus
+                      svg.service-list__icon(width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg")
+                        path.service-list__icon-cross(v-if="true" d="M16 6.67V25.33" stroke="#243984" stroke-width="4" stroke-linecap="round")
+                        path.service-list__icon-bar(d="M6.67 16H25.33" stroke="#243984" stroke-width="4" stroke-linecap="round")
 
-                    p Аналитические cookie-файлы
+                      p Аналитические cookie-файлы
+
+                    .service-list__check 
+
+                      span.category-status  Запрещено
+
+                      .toggle-switch
+                        input(type="checkbox" id="analytics-toggle" class="toggle-input")
+                        label(for="analytics-toggle" class="toggle-label")
 
                 .service-list__roster.is-collapsed
                   .service-list__roster__item 
                     .service-list__roster__item__container 
                       p Всегда включены. Эти файлы cookie необходимы для того, чтобы вы могли пользоваться сайтом и использовать его функции. Их невозможно отключить. Они создаются в ответ на ваши запросы, такие как установка настроек конфиденциальности, вход в систему или заполнение форм.
-
-              .service-list__check 
-
-                span.category-status  Запрещено
-
-                .toggle-switch
-                  input(type="checkbox" id="analytics-toggle" class="toggle-input")
-                  label(for="analytics-toggle" class="toggle-label")
 
             .service-list
               .service-list__item
                 .service-list__title
-                  .service-list__title__plus
-                    svg.service-list__icon(width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg")
-                      path.service-list__icon-cross(v-if="true" d="M16 6.67V25.33" stroke="#243984" stroke-width="4" stroke-linecap="round")
-                      path.service-list__icon-bar(d="M6.67 16H25.33" stroke="#243984" stroke-width="4" stroke-linecap="round")
+                  .service-list__title__obe
+                    .service-list__title__plus
+                      svg.service-list__icon(width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg")
+                        path.service-list__icon-cross(v-if="true" d="M16 6.67V25.33" stroke="#243984" stroke-width="4" stroke-linecap="round")
+                        path.service-list__icon-bar(d="M6.67 16H25.33" stroke="#243984" stroke-width="4" stroke-linecap="round")
 
-                    p Рекламные cookie-файлы
+                      p Рекламные cookie-файлы
+
+                    .service-list__check 
+
+                      span.category-status Запрещено
+
+                      .toggle-switch
+                        input(type="checkbox" id="advertising-toggle" class="toggle-input")
+                        label(for="advertising-toggle" class="toggle-label")
 
                 .service-list__roster.is-collapsed
                   .service-list__roster__item 
                     .service-list__roster__item__container 
                       p Всегда включены. Эти файлы cookie необходимы для того, чтобы вы могли пользоваться сайтом и использовать его функции. Их невозможно отключить. Они создаются в ответ на ваши запросы, такие как установка настроек конфиденциальности, вход в систему или заполнение форм.
-
-              .service-list__check 
-
-                span.category-status Запрещено
-
-                .toggle-switch
-                  input(type="checkbox" id="advertising-toggle" class="toggle-input")
-                  label(for="advertising-toggle" class="toggle-label")
 
       +button('подтвердить', 'primary confirm')

@@ -938,3 +938,26 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 });
+
+
+document.addEventListener('DOMContentLoaded', function () {
+  const langSwitch = document.querySelector('.lang-switch');
+
+  if (!langSwitch) return;
+
+  langSwitch.addEventListener('click', function (e) {
+    e.preventDefault();
+
+    const currentLang = this.getAttribute('data-lang');
+
+    if (currentLang === 'en') {
+      this.setAttribute('data-lang', 'ru');
+      this.textContent = 'RU';
+    } else {
+      this.setAttribute('data-lang', 'en');
+      this.textContent = 'EN';
+    }
+
+    localStorage.setItem('preferred-lang', this.getAttribute('data-lang'));
+  });
+});
