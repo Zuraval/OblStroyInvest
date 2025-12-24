@@ -247,8 +247,8 @@
 
                 position: relative;
                 display: inline-block;
-                width: 5.2rem;
-                height: 3rem;
+                width: 52px;
+                height: 30px;
 
                 .toggle-input {
                   opacity: 0;
@@ -262,15 +262,15 @@
 
                 .toggle-input:checked + .toggle-label::before {
                   background-color: #243984;
-                  transform: translateX(2.2rem);
+                  transform: translateX(22px);
                 }
 
                 .toggle-label {
                   position: absolute;
                   top: 0;
                   left: 0;
-                  width: 5.2rem;
-                  height: 3rem;
+                  width: 52px;
+                  height: 30px;
                   background-color: #E9EDF3;
                   border-radius: 15px;
                   cursor: pointer;
@@ -280,10 +280,10 @@
                 .toggle-label::before {
                   content: '';
                   position: absolute;
-                  top: 0.2rem;
-                  left: 0.2rem;
-                  width: 2.6rem;
-                  height: 2.6rem;
+                  top: 2px;
+                  left: 2px;
+                  width: 26px;
+                  height: 26px;
                   background-color: #A6A6A8;
                   border-radius: 50%;
                   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.3s ease;
@@ -333,6 +333,58 @@
       &__buttons {
         .setings-cookie {
           font-size: 2.4rem;
+        }
+      }
+    }
+
+    &__setings {
+      .cookie__container {
+        &__title {
+          p {
+            font-weight: 600;
+            font-size: 3.2rem;
+          }
+        }
+
+        &__block {
+
+          gap: 3.6rem;
+
+          &__text {
+            p {
+              font-size: 2.8rem;
+            }
+          }
+
+          &__text-2 {
+            font-size: 2.8rem;
+          }
+        }
+
+        .service-list__title__obe {
+          .service-list__title__plus {
+            svg {
+              width: 3.2rem;
+              height: 3.2rem;
+            }
+
+            p {
+              font-size: 2.8rem;
+              max-width: 25rem;
+            }
+          }
+
+          .service-list__check  {
+            span {
+              font-size: 2rem;
+            }
+          }
+        }
+
+        .service-list__roster__item__container {
+          p {
+            font-size: 2.4rem;
+          }
         }
       }
     }
