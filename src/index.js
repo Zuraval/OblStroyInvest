@@ -961,3 +961,64 @@ document.addEventListener('DOMContentLoaded', function () {
     localStorage.setItem('preferred-lang', this.getAttribute('data-lang'));
   });
 });
+
+/*--------------call-modal------------*/
+
+document.addEventListener('DOMContentLoaded', () => {
+  const modal = document.getElementById('callModal');
+  const openButtons = document.querySelectorAll('.open-call-modal');
+  const form = modal.querySelector('.call-form__form');
+
+  const openModal = () => {
+    modal.style.display = 'block';
+    document.body.classList.add('modal-open');
+  };
+
+  const closeModal = () => {
+    modal.style.display = 'none';
+    document.body.classList.remove('modal-open');
+  };
+
+  openButtons.forEach(button => {
+    button.addEventListener('click', (e) => {
+      e.preventDefault();
+      openModal();
+    });
+  });
+
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      closeModal();
+    }
+  });
+
+  const closeButton = modal.querySelector('.modal-close.js-close');
+  if (closeButton) {
+    closeButton.addEventListener('click', (e) => {
+      e.preventDefault();
+      closeModal();
+    });
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.style.display === 'block') {
+      closeModal();
+    }
+  });
+
+  if (form) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const formData = new FormData(form);
+      const name = formData.get('firstName');
+      const phone = formData.get('phone');
+
+      // Валидация
+
+      console.log('Отправка формы:', { name, phone });
+      closeModal();
+      form.reset();
+    });
+  }
+});

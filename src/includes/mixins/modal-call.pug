@@ -1,0 +1,26 @@
+include ../mixins/button.pug
+include ../mixins/input.pug
+
+.modal#callModal(style="display: none;")
+  .modal-content
+    button.modal-close.js-close
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g clip-path="url(#clip0_495_15098)">
+          <path d="M18 6L6 18" stroke="white" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M6 6L18 18" stroke="white" stroke-linecap="round" stroke-linejoin="round" />
+        </g>
+        <defs>
+          <clipPath id="clip0_495_15098">
+            <rect width="24" height="24" fill="white" />
+          </clipPath>
+        </defs>
+      </svg>
+    .call-container
+      .call-form
+        p.call-form__text Оставьте свои данные — мы свяжемся с вами
+        form.call-form__form(action="#" method="POST")
+          +inputField('Имя', '', 'firstName', 'Сергей')
+          +inputField('Телефон', '', 'phone', '+7 999 123-45-67')
+          +inputField('Комментарий', '', 'comment', '')
+          p Отправляя свои данные вы соглашаетесь с <a href="#">Пользовательским соглашением</a> и <a href="#">Политикой в отношении персональных данных</a>
+          +button('Отправить', 'submit')
