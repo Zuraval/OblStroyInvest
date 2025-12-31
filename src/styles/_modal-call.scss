@@ -15,11 +15,10 @@
     left: 50%;
     transform: translate(-50%, -50%);
     width: 55rem;
-    height: 55.7rem;
+    height: 58rem;
     background: var(--footerheader);
     padding: 4rem 6rem;
     border-radius: 16px;
-    overflow-y: auto;
     box-sizing: border-box;
     z-index: 1;
 
@@ -102,7 +101,7 @@ body.modal-open {
         &__form {
           p {
 
-            font-size: 2rem;
+            font-size: 1.9rem;
             word-wrap: break-word;
             overflow-wrap: break-word;
             hyphens: auto;
