@@ -911,6 +911,8 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+/*---------cookie-switch--------*/
+
 document.addEventListener('DOMContentLoaded', function () {
   const toggleInputs = document.querySelectorAll('.toggle-input');
 
@@ -939,6 +941,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 });
 
+/*---------togle-eng-ru--------*/
 
 document.addEventListener('DOMContentLoaded', function () {
   const langSwitch = document.querySelector('.lang-switch');
