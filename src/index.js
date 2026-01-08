@@ -1025,3 +1025,111 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+
+/*-search-*/
+
+document.addEventListener('DOMContentLoaded', () => {
+  const allSuggestions = [
+    { label: 'Массаж спины', url: '#' },
+    { label: 'Классический массаж', url: '#' },
+    { label: 'Расслабляющий массаж', url: '#' },
+    { label: 'Ламинирование ресниц', url: '#' },
+    { label: 'Наращивание ресниц', url: '#' },
+    { label: 'Коррекция бровей', url: '#' },
+    { label: 'Брови', url: '#' },
+    { label: 'SPA-процедуры', url: '#' },
+  ];
+
+  document.querySelectorAll('.search-container').forEach(container => {
+    const input = container.querySelector('.search-input');
+    const button = container.querySelector('.search-btn');
+    const suggestionsList = container.querySelector('.search-suggestions');
+
+    let highlightedIndex = -1;
+
+    button.addEventListener('click', () => {
+      container.classList.add('active');
+      input.focus();
+      input.setAttribute('aria-hidden', 'false');
+      button.setAttribute('aria-expanded', 'true');
+      updateSuggestions('');
+    });
+
+    input.addEventListener('input', () => {
+      const query = input.value.trim().toLowerCase();
+      updateSuggestions(query);
+    });
+
+    input.addEventListener('keydown', (e) => {
+      const items = suggestionsList.querySelectorAll('li');
+      if (items.length === 0) return;
+
+      if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        highlightedIndex = Math.min(highlightedIndex + 1, items.length - 1);
+        updateHighlight(items);
+      } else if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        highlightedIndex = Math.max(highlightedIndex - 1, -1);
+        updateHighlight(items);
+      } else if (e.key === 'Enter' && highlightedIndex >= 0) {
+        e.preventDefault();
+        const link = items[highlightedIndex].querySelector('a');
+        if (link) {
+          window.location.href = link.href;
+        }
+      } else if (e.key === 'Escape') {
+        e.preventDefault();
+        hideSearch();
+      }
+    });
+
+    container.addEventListener('focusout', (e) => {
+      setTimeout(() => {
+        if (!container.contains(document.activeElement)) {
+          hideSearch();
+        }
+      }, 20);
+    });
+
+
+    function updateSuggestions(query) {
+      if (!query) {
+        renderSuggestions(allSuggestions);
+        return;
+      }
+
+      const filtered = allSuggestions.filter(item =>
+        item.label.toLowerCase().includes(query)
+      );
+      renderSuggestions(filtered);
+    }
+
+    function renderSuggestions(list) {
+      if (list.length === 0) {
+        suggestionsList.innerHTML = '<li><a href="/search" tabindex="-1">Ничего не найдено</a></li>';
+      } else {
+        suggestionsList.innerHTML = list.map(item => {
+          const safeLabel = item.label.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+          return `<li role="option"><a href="${item.url}" tabindex="-1">${safeLabel}</a></li>`;
+        }).join('');
+      }
+      suggestionsList.classList.add('visible');
+      highlightedIndex = -1;
+    }
+
+    function updateHighlight(items) {
+      items.forEach((item, i) => {
+        item.classList.toggle('highlighted', i === highlightedIndex);
+      });
+    }
+
+    function hideSearch() {
+      container.classList.remove('active');
+      input.setAttribute('aria-hidden', 'true');
+      button.setAttribute('aria-expanded', 'false');
+      suggestionsList.classList.remove('visible');
+      highlightedIndex = -1;
+    }
+  });
+});
