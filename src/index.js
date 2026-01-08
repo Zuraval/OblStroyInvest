@@ -1008,22 +1008,6 @@ document.addEventListener('DOMContentLoaded', () => {
       closeModal();
     }
   });
-
-  if (form) {
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-
-      const formData = new FormData(form);
-      const name = formData.get('firstName');
-      const phone = formData.get('phone');
-
-      // Валидация
-
-      console.log('Отправка формы:', { name, phone });
-      closeModal();
-      form.reset();
-    });
-  }
 });
 
 /*-----------------search-----------------*/
