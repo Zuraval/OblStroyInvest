@@ -330,10 +330,13 @@
       margin-bottom: 6rem;
 
       &__item {
+
+        width: calc(33% - 1rem);
+
         img {
           border-radius: 16px;
-          width: 56.2rem;
-          height: 57.6rem;
+          width: 100%;
+          height: 100%;
         }
       }
     }
@@ -624,6 +627,10 @@
       &__video {
         margin-bottom: 16rem;
         height: 60rem;
+
+        video {
+          height: 60rem;
+        }
       }
     }
 
