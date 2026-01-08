@@ -1,14 +1,25 @@
 include ./button.pug
 
-mixin hero(tagline, title, subtitle, button, stats, location, bgImages)
+mixin hero(tagline, title, subtitle, button, stats, location, bgMedia)
   section.hero(data-bg-index='0')
-    if bgImages && bgImages.length
-      each bg, i in bgImages
-        div.hero__bg(
-          style='background-image: url(' + bg + ')'
-          data-bg=i
-          class=(i === 0 ? 'hero__bg--active ' : '') + 'hero__bg--' + i
-        )
+    if bgMedia && bgMedia.length
+      each item, i in bgMedia
+        if item.type === 'video'
+          video.hero__bg(
+            src=item.src
+            muted
+            autoplay
+            loop
+            playsinline
+            data-bg=i
+            class=(i === 0 ? 'hero__bg--active ' : '') + 'hero__bg--' + i
+          )
+        else
+          div.hero__bg(
+            style='background-image: url(' + item.src + ')'
+            data-bg=i
+            class=(i === 0 ? 'hero__bg--active ' : '') + 'hero__bg--' + i
+          )
 
     .hero__content
       .hero__tagline= tagline

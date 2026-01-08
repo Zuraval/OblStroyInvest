@@ -31,7 +31,6 @@ block content
   -       'Уральский центр',
   -       'Офис'
   -     ],
-  -
   -     titlesMobi: [
   -       'ФИЗТЕХСИТИ',
   -       'НЕВСКИЙ',
@@ -40,7 +39,6 @@ block content
   -       'УРАЛ',
   -       'ОФИС'
   -     ],
-  -
   -     images: [
   -       '/assets/images/Ellipse1.png',
   -       '/assets/images/Ellipse2.png',
@@ -50,18 +48,18 @@ block content
   -       '/assets/images/Ellipse6.png'
   -     ]
   -   },
-  -   bgImages: [ 
-  -     '/assets/images/hero-img1.png',
-  -     '/assets/images/hero-img2.png',
-  -     '/assets/images/hero-img3.png',
-  -     '/assets/images/hero-img4.png',
-  -     '/assets/images/hero-img5.png',
-  -     '/assets/images/hero-img6.png',
+  -   bgMedia: [
+  -     { type: 'video', src: '/assets/videos/hero-vid1.mp4' },
+  -     { type: 'image', src: '/assets/images/hero-img2.png' },
+  -     { type: 'video', src: '/assets/videos/hero-vid3.mp4' },
+  -     { type: 'image', src: '/assets/images/hero-img4.png' },
+  -     { type: 'image', src: '/assets/images/hero-img5.png' },
+  -     { type: 'image', src: '/assets/images/hero-img6.png' }
   -   ]
   - }
-
+  
   include ../includes/mixins/hero.pug
-
+  
   +hero(
     heroData.tagline,
     heroData.title,
@@ -69,7 +67,7 @@ block content
     heroData.button,
     heroData.stats,
     heroData.location,
-    heroData.bgImages
+    heroData.bgMedia
   )
 
   - var items = [

@@ -1026,7 +1026,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-/*-search-*/
+/*-----------------search-----------------*/
 
 document.addEventListener('DOMContentLoaded', () => {
   const allSuggestions = [
@@ -1130,6 +1130,39 @@ document.addEventListener('DOMContentLoaded', () => {
       button.setAttribute('aria-expanded', 'false');
       suggestionsList.classList.remove('visible');
       highlightedIndex = -1;
+    }
+  });
+});
+
+/*---------success-modal------------*/
+
+document.addEventListener('DOMContentLoaded', () => {
+  const modal = document.getElementById('successModal');
+
+  const openModal = () => {
+    modal.style.display = 'block';
+    document.body.classList.add('modal-open');
+  };
+
+  const closeModal = () => {
+    modal.style.display = 'none';
+    document.body.classList.remove('modal-open');
+  };
+
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      closeModal();
+    }
+  });
+
+  const closeButton = document.querySelector('.modal-success__content__button');
+  closeButton.addEventListener('click', () => {
+    closeModal();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.style.display === 'block') {
+      closeModal();
     }
   });
 });

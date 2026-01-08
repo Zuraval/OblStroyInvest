@@ -1,0 +1,12 @@
+include ../mixins/button.pug
+
+
+
+.modal-success#successModal(style="display: none;")
+  .modal-success__content
+    .modal-success__content__title 
+      p Ваша заявка принята
+    .modal-success__content__description 
+      p Спасибо за заявку! Наш специалист свяжется с вами в ближайшее время.
+    .modal-success__content__button
+      +button("ок", "primary").modal-close.js-close
