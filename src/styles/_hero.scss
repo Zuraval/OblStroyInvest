@@ -32,6 +32,13 @@
     z-index: -1;
   }
 
+  video.hero__bg {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    background: none !important;
+  }
+
   &__bg--active {
     opacity: 1;
     z-index: -1;
