@@ -1013,16 +1013,6 @@ document.addEventListener('DOMContentLoaded', () => {
 /*-----------------search-----------------*/
 
 document.addEventListener('DOMContentLoaded', () => {
-  const allSuggestions = [
-    { label: 'Массаж спины', url: '#' },
-    { label: 'Классический массаж', url: '#' },
-    { label: 'Расслабляющий массаж', url: '#' },
-    { label: 'Ламинирование ресниц', url: '#' },
-    { label: 'Наращивание ресниц', url: '#' },
-    { label: 'Коррекция бровей', url: '#' },
-    { label: 'Брови', url: '#' },
-    { label: 'SPA-процедуры', url: '#' },
-  ];
 
   document.querySelectorAll('.search-container').forEach(container => {
     const input = container.querySelector('.search-input');
@@ -1036,12 +1026,6 @@ document.addEventListener('DOMContentLoaded', () => {
       input.focus();
       input.setAttribute('aria-hidden', 'false');
       button.setAttribute('aria-expanded', 'true');
-      updateSuggestions('');
-    });
-
-    input.addEventListener('input', () => {
-      const query = input.value.trim().toLowerCase();
-      updateSuggestions(query);
     });
 
     input.addEventListener('keydown', (e) => {
@@ -1075,32 +1059,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       }, 20);
     });
-
-
-    function updateSuggestions(query) {
-      if (!query) {
-        renderSuggestions(allSuggestions);
-        return;
-      }
-
-      const filtered = allSuggestions.filter(item =>
-        item.label.toLowerCase().includes(query)
-      );
-      renderSuggestions(filtered);
-    }
-
-    function renderSuggestions(list) {
-      if (list.length === 0) {
-        suggestionsList.innerHTML = '<li><a href="/search" tabindex="-1">Ничего не найдено</a></li>';
-      } else {
-        suggestionsList.innerHTML = list.map(item => {
-          const safeLabel = item.label.replace(/</g, '&lt;').replace(/>/g, '&gt;');
-          return `<li role="option"><a href="${item.url}" tabindex="-1">${safeLabel}</a></li>`;
-        }).join('');
-      }
-      suggestionsList.classList.add('visible');
-      highlightedIndex = -1;
-    }
 
     function updateHighlight(items) {
       items.forEach((item, i) => {
