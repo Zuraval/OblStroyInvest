@@ -735,12 +735,12 @@ document.addEventListener('DOMContentLoaded', function () {
     slidesPerView: 1,
     spaceBetween: 0,
     pagination: {
-      el: '.swiper-pagination',
+      el: '.slider-controls .main-pagination',
       clickable: true,
     },
     navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
+      nextEl: '.slider-controls .main-button-next',
+      prevEl: '.slider-controls .main-button-prev',
     }
   });
 });

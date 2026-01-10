@@ -312,6 +312,8 @@
 
   &__portfolio {
 
+    position: relative;
+
     &__title {
       font-family: var(--second-family);
       font-weight: 400;
@@ -322,36 +324,44 @@
       margin-bottom: 8rem;
     }
 
-    .swiper-portfolio {
+    .slider-controls {
 
-      padding-bottom: 6rem;
-      margin-bottom: 6rem;
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.2rem;
+      z-index: 11;
 
-      .swiper-button-prev,
-      .swiper-button-next {
-        top: auto;
-        bottom: 0;
-        color: #243984;
+      .main-button-prev,
+      .main-button-next {
         width: 2.4rem;
         height: 2.4rem;
-        
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .main-button-prev.swiper-button-disabled,
+      .main-button-next.swiper-button-disabled {
         svg {
-          width: 0.8rem;
-          height: 1.4rem;
+          g {
+            path {
+              stroke: #DFE2E7;
+            }
+          }
         }
-      }
-    
-      .swiper-button-prev {
-        left: 47%;
-      }
-    
-      .swiper-button-next {
-        right: 47%;
       }
     
       .main-pagination {
       
-        bottom: 0.2rem;
+        display: flex;
+        align-items: center;
+        gap: 0.3rem;
+        width: fit-content;
       
         .swiper-pagination-bullet {
         
@@ -371,6 +381,11 @@
           }
         }
       }
+    }
+
+    .swiper-portfolio {
+      padding-bottom: 6rem;
+      margin-bottom: 6rem;
     }
 
     &__list {

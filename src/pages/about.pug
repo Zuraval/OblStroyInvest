@@ -107,7 +107,6 @@ block content
         p портфолио
       .swiper.swiper-portfolio
         .swiper-wrapper.about__portfolio__slides
-          // Слайд 1 — оригинальная группа
           .swiper-slide.about__portfolio__slide
             .about__portfolio__list
               .about__portfolio__list__item
@@ -123,7 +122,6 @@ block content
               .about__portfolio__list__item
                 img(src="/assets/images/Frame7.png", alt="Пример")
 
-          // Слайд 2 — дубликат (для демонстрации)
           .swiper-slide.about__portfolio__slide
             .about__portfolio__list
               .about__portfolio__list__item
@@ -139,7 +137,6 @@ block content
               .about__portfolio__list__item
                 img(src="/assets/images/Frame7.png", alt="Пример")
 
-          // Слайд 3 — ещё один дубликат (по желанию)
           .swiper-slide.about__portfolio__slide
             .about__portfolio__list
               .about__portfolio__list__item
@@ -155,9 +152,30 @@ block content
               .about__portfolio__list__item
                 img(src="/assets/images/Frame7.png", alt="Пример")
 
-        .swiper-pagination.main-pagination
-        .swiper-button-next.main-button-next
-        .swiper-button-prev.main-button-prev
+      .slider-controls
+        .main-button-prev
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g clip-path="url(#clip0_512_20360)">
+              <path d="M15 6L9 12L15 18" stroke="#243984" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round" />
+            </g>
+            <defs>
+              <clipPath id="clip0_512_20360">
+                <rect width="24" height="24" fill="white" />
+              </clipPath>
+            </defs>
+          </svg>
+        .main-pagination
+        .main-button-next
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g clip-path="url(#clip0_512_20365)">
+              <path d="M9 6L15 12L9 18" stroke="#243984" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round" />
+            </g>
+            <defs>
+              <clipPath id="clip0_512_20365">
+                <rect width="24" height="24" fill="white" />
+              </clipPath>
+            </defs>
+          </svg>
 
     .about__portfolio__mobile.container
       .about__portfolio__mobile__title
