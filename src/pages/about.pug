@@ -105,43 +105,59 @@ block content
     .about__portfolio.desktop.container
       .about__portfolio__title 
         p портфолио
-      .about__portfolio__list 
-        .about__portfolio__list__item 
-          img(src="/assets/images/Frame1.png", alt="Пример")
-        .about__portfolio__list__item 
-          img(src="/assets/images/Frame2.png", alt="Пример")
-        .about__portfolio__list__item 
-          img(src="/assets/images/Frame3.png", alt="Пример")
-        .about__portfolio__list__item 
-          img(src="/assets/images/Frame4.png", alt="Пример")
-        .about__portfolio__list__item 
-          img(src="/assets/images/Frame5.png", alt="Пример")
-        .about__portfolio__list__item 
-          img(src="/assets/images/Frame7.png", alt="Пример")
-      .about__portfolio__pagination 
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <g clip-path="url(#clip0_495_14556)">
-            <path d="M15 6L9 12L15 18" stroke="#DFE2E7" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round" />
-          </g>
-          <defs>
-            <clipPath id="clip0_495_14556">
-              <rect width="24" height="24" fill="white" />
-            </clipPath>
-          </defs>
-        </svg> 
-        p 01
-        p 02
-        p 03
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <g clip-path="url(#clip0_495_14562)">
-            <path d="M9 6L15 12L9 18" stroke="#243984" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round" />
-          </g>
-          <defs>
-            <clipPath id="clip0_495_14562">
-              <rect width="24" height="24" fill="white" />
-            </clipPath>
-          </defs>
-        </svg>
+      .swiper.swiper-portfolio
+        .swiper-wrapper.about__portfolio__slides
+          // Слайд 1 — оригинальная группа
+          .swiper-slide.about__portfolio__slide
+            .about__portfolio__list
+              .about__portfolio__list__item
+                img(src="/assets/images/Frame1.png", alt="Пример")
+              .about__portfolio__list__item
+                img(src="/assets/images/Frame2.png", alt="Пример")
+              .about__portfolio__list__item
+                img(src="/assets/images/Frame3.png", alt="Пример")
+              .about__portfolio__list__item
+                img(src="/assets/images/Frame4.png", alt="Пример")
+              .about__portfolio__list__item
+                img(src="/assets/images/Frame5.png", alt="Пример")
+              .about__portfolio__list__item
+                img(src="/assets/images/Frame7.png", alt="Пример")
+
+          // Слайд 2 — дубликат (для демонстрации)
+          .swiper-slide.about__portfolio__slide
+            .about__portfolio__list
+              .about__portfolio__list__item
+                img(src="/assets/images/Frame1.png", alt="Пример")
+              .about__portfolio__list__item
+                img(src="/assets/images/Frame2.png", alt="Пример")
+              .about__portfolio__list__item
+                img(src="/assets/images/Frame3.png", alt="Пример")
+              .about__portfolio__list__item
+                img(src="/assets/images/Frame4.png", alt="Пример")
+              .about__portfolio__list__item
+                img(src="/assets/images/Frame5.png", alt="Пример")
+              .about__portfolio__list__item
+                img(src="/assets/images/Frame7.png", alt="Пример")
+
+          // Слайд 3 — ещё один дубликат (по желанию)
+          .swiper-slide.about__portfolio__slide
+            .about__portfolio__list
+              .about__portfolio__list__item
+                img(src="/assets/images/Frame1.png", alt="Пример")
+              .about__portfolio__list__item
+                img(src="/assets/images/Frame2.png", alt="Пример")
+              .about__portfolio__list__item
+                img(src="/assets/images/Frame3.png", alt="Пример")
+              .about__portfolio__list__item
+                img(src="/assets/images/Frame4.png", alt="Пример")
+              .about__portfolio__list__item
+                img(src="/assets/images/Frame5.png", alt="Пример")
+              .about__portfolio__list__item
+                img(src="/assets/images/Frame7.png", alt="Пример")
+
+        .swiper-pagination.main-pagination
+        .swiper-button-next.main-button-next
+        .swiper-button-prev.main-button-prev
 
     .about__portfolio__mobile.container
       .about__portfolio__mobile__title

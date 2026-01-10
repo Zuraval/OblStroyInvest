@@ -322,12 +322,62 @@
       margin-bottom: 8rem;
     }
 
+    .swiper-portfolio {
+
+      padding-bottom: 6rem;
+      margin-bottom: 6rem;
+
+      .swiper-button-prev,
+      .swiper-button-next {
+        top: auto;
+        bottom: 0;
+        color: #243984;
+        width: 2.4rem;
+        height: 2.4rem;
+        
+        svg {
+          width: 0.8rem;
+          height: 1.4rem;
+        }
+      }
+    
+      .swiper-button-prev {
+        left: 47%;
+      }
+    
+      .swiper-button-next {
+        right: 47%;
+      }
+    
+      .main-pagination {
+      
+        bottom: 0.2rem;
+      
+        .swiper-pagination-bullet {
+        
+          background: #dfe2e7;
+          opacity: 1;
+          width: 0.8rem;
+          height: 0.8rem;
+          margin: 0.3rem;
+        
+          &-active {
+            background: var(--blue);
+          }
+        
+          &-disabled {
+            color: #DFE2E7;
+            opacity: 1;
+          }
+        }
+      }
+    }
+
     &__list {
 
       display: flex;
       flex-wrap: wrap;
       gap: 2rem;
-      margin-bottom: 6rem;
 
       &__item {
 
