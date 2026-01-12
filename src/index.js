@@ -40,14 +40,6 @@ document.addEventListener('DOMContentLoaded', () => {
       arrow.classList.toggle('rotated');
     });
   }
-
-  const menuItems = menuPanel.querySelectorAll('.menu-item a');
-  menuItems.forEach(item => {
-    item.addEventListener('click', function(e) {
-      e.preventDefault();
-      toggleMenu();
-    });
-  });
 });
 
 class ProjectStagesSlider {
