@@ -167,7 +167,51 @@
   }
 
   &__no-vacancy {
-    
+
+    display: flex;
+    justify-content: space-between;
+
+    &__info {
+
+      max-width: 83rem;
+      display: flex;
+      flex-direction: column;
+      gap: 8rem;
+
+      &__title {
+        p {
+          font-family: var(--second-family);
+          font-weight: 400;
+          font-size: 2.4rem;
+          line-height: 110%;
+          text-transform: uppercase;
+          color: var(--blue);
+        }
+      }
+
+      &__block {
+
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+
+        p:first-child {
+          font-family: var(--second-family);
+          font-weight: 500;
+          font-size: 3.2rem;
+          line-height: 100%;
+          color: var(--blue);
+        }
+
+        p:last-child {
+          font-family: var(--font-family);
+          font-weight: 400;
+          font-size: 1.8rem;
+          line-height: 110%;
+          color: var(--text);
+        }
+      }
+    }
   }
 
   &__vacancy {
@@ -682,9 +726,50 @@
       }
     }
 
+    &__no-vacancy {
+
+      flex-direction: column;
+
+      &__info {
+
+        gap: 6.4rem;
+
+        &__title {
+          p {
+            font-family: var(--second-family);
+            font-weight: 400;
+            font-size: 3.2rem;
+            line-height: 110%;
+            text-transform: uppercase;
+            color: var(--blue);
+          }
+        }
+
+        &__block {
+
+          gap: 4rem;
+          margin-bottom: 6.4rem;
+
+          p:first-child {
+            font-family: var(--second-family);
+            font-weight: 600;
+            font-size: 6rem;
+            line-height: 120%;
+            color: var(--blue);
+          }
+
+          p:last-child {
+            font-family: var(--font-family);
+            font-weight: 400;
+            font-size: 2.8rem;
+            line-height: 110%;
+            color: var(--text);
+          }
+        }
+      }
+    }
+
     &__vacancy {
-
-
 
       &__title {
 

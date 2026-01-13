@@ -114,6 +114,7 @@
           background: var(--footerheader);
           min-width: 114px;
           z-index: 1000;
+          border-radius: 0px 0px 12px 12px;
 
           li {
             a {
@@ -341,6 +342,15 @@
       }
     }
   }
+
+  .no-scroll {
+    display: flex;
+  }
+
+  .scroll {
+    display: none;
+  }
+
 }
 
 .burger-menu-panel {
@@ -386,6 +396,11 @@
             font-size: 2.8rem;
             line-height: 110%;
             color: var(--blue);
+
+            svg {
+              width: 3.6rem;
+              height: 3.6rem;
+            }
           }
 
           &__link {
@@ -450,5 +465,80 @@
       display: flex;
       justify-content: center;
     }
+  }
+}
+
+.site-header.scrolled {
+
+  background: var(--white);
+
+  .header-content {
+
+    .start-section {
+
+      .burger-menu {
+        .burger-icon {
+          svg {
+            line {
+              stroke: var(--blue);
+            }
+          }
+        }
+      }
+
+      .header-nav {
+        ul {
+          li {
+
+            &:hover {
+              color: var(--primary);
+            }
+
+            a {
+              color: var(--text);
+
+              &:hover {
+                color: var(--primary);
+              }
+            }
+
+            ul {
+              background: var(--white);
+            }
+          }
+        }
+      }
+    }
+
+    .end-section {
+      .header-actions {
+
+        .search-container {
+          .search-input {
+            color: var(--text);
+          }
+          .search-suggestions {
+            background: var(--white);
+          }
+        }
+
+        .lang-switch {
+
+          color: var(--text);
+
+          &:hover {
+            color: var(--primary);
+          }
+        }
+      }
+    }
+  }
+
+  .no-scroll {
+    display: none;
+  }
+
+  .scroll {
+    display: flex;
   }
 }
