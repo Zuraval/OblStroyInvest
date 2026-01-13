@@ -1131,3 +1131,47 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
+
+/*---modal=resume---*/
+
+document.addEventListener('DOMContentLoaded', () => {
+  const modal = document.getElementById('resumeModal');
+  const openButtons = document.querySelectorAll('.open-call-modal');
+
+  const openModal = () => {
+    modal.style.display = 'block';
+    document.body.classList.add('modal-open');
+  };
+
+  const closeModal = () => {
+    modal.style.display = 'none';
+    document.body.classList.remove('modal-open');
+  };
+
+  openButtons.forEach(button => {
+    button.addEventListener('click', (e) => {
+      e.preventDefault();
+      openModal();
+    });
+  });
+
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      closeModal();
+    }
+  });
+
+  const closeButton = modal.querySelector('.modal-close.js-close');
+  if (closeButton) {
+    closeButton.addEventListener('click', (e) => {
+      e.preventDefault();
+      closeModal();
+    });
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.style.display === 'block') {
+      closeModal();
+    }
+  });
+});

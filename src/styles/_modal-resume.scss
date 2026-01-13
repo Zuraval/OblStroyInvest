@@ -1,0 +1,79 @@
+.modal-resume {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.7);
+
+  .career__vacancy__form {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 16px;
+    box-sizing: border-box;
+    z-index: 1;
+  }
+
+  .career__vacancy__form__container {
+
+    background: var(--footerheader);
+
+    .career__vacancy__form__title {
+      p {
+        color: var(--white);
+      }
+    }
+
+    .career__vacancy__form__inputs  {
+
+      .input-label {
+        color: var(--light-text);
+      }
+
+      .input-control {
+
+        color: var(--white);
+
+        &::placeholder {
+          color: var(--white);
+        }
+      }
+    }
+
+    .career__vacancy__form__ps {
+      p {
+        color: var(--grey-text);
+
+        a {
+          color: var(--light-text);
+
+          &:hover {
+            color: var(--primary);
+          }
+        }
+      }
+    }
+
+    .career__vacancy__form__button-file-wrapper {
+      .career__vacancy__form__button-file__trigger {
+
+        border-color: var(--line-light);
+
+        svg {
+          path {
+            stroke: var(--white);
+          }
+        }
+
+        p {
+          color: var(--white);
+        }
+      }
+
+
+    }
+  }
+}
