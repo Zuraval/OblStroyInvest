@@ -94,16 +94,17 @@ block content
       - var hiddenProjects = projects.slice(9)
 
       each project in visibleProjects
-        a(href="#").projects__menu__item 
-          img(src=project.img, alt="Проект")
+        .projects__menu__item 
+          img(src="/assets/images/Frame1.png", alt="Проект1")
           .projects__info
-            p= project.name
-            p= project.address
+            p МНОГОФУНКЦИОНАЛЬНЫЙ ЖИЛОЙ КОМПЛЕКС С АМФИТЕАТРОМ И КОВОРКИНГОМ
+            p г. Москва, Потешная ул., вл. 5
           .projects__details
-            p= project.complex
-            p #{project.area}
+            p EVOPARK Сокольники
+            p Площадь: 41 187 кв.м
+            div 
             div
-              +button('узнать больше', 'primary')
+              +button('подробнее', 'primary')
 
       .projects__hidden-items
         each project in hiddenProjects
@@ -115,6 +116,7 @@ block content
             .projects__details
               p= project.complex
               p #{project.area}
+              div
               div
                 +button('узнать больше', 'primary')
 

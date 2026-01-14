@@ -812,6 +812,12 @@
     margin-bottom: 8rem;
   }
 
+  &__button {
+    margin-top: 5rem;
+    display: flex;
+    justify-content: end;
+  }
+
   .swiper-button-prev,
   .swiper-button-next {
     top: auto;
@@ -1466,6 +1472,14 @@
   .news {
 
     margin-bottom: 8rem;
+
+    &__button {
+      .btn {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+      }
+    }
 
     .news__list.swiper {
       padding-bottom: 8rem;

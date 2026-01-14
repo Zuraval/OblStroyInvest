@@ -1136,7 +1136,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 document.addEventListener('DOMContentLoaded', () => {
   const modal = document.getElementById('resumeModal');
-  const openButtons = document.querySelectorAll('.open-call-modal');
 
   const openModal = () => {
     modal.style.display = 'block';
@@ -1147,13 +1146,6 @@ document.addEventListener('DOMContentLoaded', () => {
     modal.style.display = 'none';
     document.body.classList.remove('modal-open');
   };
-
-  openButtons.forEach(button => {
-    button.addEventListener('click', (e) => {
-      e.preventDefault();
-      openModal();
-    });
-  });
 
   modal.addEventListener('click', (e) => {
     if (e.target === modal) {
