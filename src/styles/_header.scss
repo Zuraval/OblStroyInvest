@@ -121,6 +121,7 @@
               font-size: 1.6rem;
               display: block;
               color: var(--white);
+              white-space: nowrap;
             }
           }
         }
@@ -520,6 +521,13 @@
           .search-suggestions {
             background: var(--white);
             color: var(--text) !important;
+
+            li {
+              color: var(--text);
+              &:hover {
+                color: var(--primary);
+              }
+            }
           }
         }
 
