@@ -335,8 +335,8 @@
       gap: 1.2rem;
       z-index: 11;
 
-      .main-button-prev,
-      .main-button-next {
+      .swiper-portfolio-prev,
+      .swiper-portfolio-next {
         width: 2.4rem;
         height: 2.4rem;
         cursor: pointer;
@@ -345,8 +345,8 @@
         justify-content: center;
       }
 
-      .main-button-prev.swiper-button-disabled,
-      .main-button-next.swiper-button-disabled {
+      .swiper-portfolio-prev.swiper-button-disabled,
+      .swiper-portfolio-next.swiper-button-disabled {
         svg {
           g {
             path {
@@ -356,7 +356,7 @@
         }
       }
     
-      .main-pagination {
+      .swiper-portfolio-pagination {
       
         display: flex;
         align-items: center;
@@ -431,6 +431,66 @@
   &__slider {
 
     margin-bottom: 20rem;
+    position: relative;
+
+    .slider-controls {
+
+      position: absolute;
+      bottom: 0;
+      width: 95vw;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.2rem;
+      z-index: 11;
+
+      .about-slider-prev,
+      .about-slider-next {
+        width: 2.4rem;
+        height: 2.4rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .about-slider-prev.swiper-button-disabled,
+      .about-slider-next.swiper-button-disabled {
+        svg {
+          g {
+            path {
+              stroke: #DFE2E7;
+            }
+          }
+        }
+      }
+    
+      .about-slider-pagination {
+      
+        display: flex;
+        align-items: center;
+        gap: 0.3rem;
+        width: fit-content;
+      
+        .swiper-pagination-bullet {
+        
+          background: #dfe2e7;
+          opacity: 1;
+          width: 0.8rem;
+          height: 0.8rem;
+          margin: 0.3rem;
+        
+          &-active {
+            background: var(--blue);
+          }
+        
+          &-disabled {
+            color: #DFE2E7;
+            opacity: 1;
+          }
+        }
+      }
+    }
 
     &__title {
       font-family: var(--second-family);
@@ -456,51 +516,6 @@
       img {
         width: 41.7rem;
         height: 60rem;
-      }
-    }
-  
-    .swiper-button-prev,
-    .swiper-button-next {
-      top: auto !important;
-      bottom: 0 !important;
-      color: #243984;
-      width: 3.2rem;
-      height: 3.2rem;
-      
-      svg {
-        width: 1.2rem;
-        height: 2rem;
-      }
-    }
-  
-    .swiper-button-prev {
-      left: 43% !important;
-    }
-  
-    .swiper-button-next {
-      right: 43% !important;
-    }
-    
-    .main-pagination {
-    
-      bottom: 0.8rem !important;
-    
-      .swiper-pagination-bullet {
-      
-        background: #dfe2e7;
-        opacity: 1;
-        width: 1.2rem;
-        height: 1.2rem;
-        margin: 0.5rem;
-      
-        &-active {
-          background: var(--blue);
-        }
-      
-        &-disabled {
-          color: #DFE2E7;
-          opacity: 1;
-        }
       }
     }
   }
@@ -764,13 +779,12 @@
             height: 2rem;
           }
         }
-      
+
         .swiper-button-prev {
-          left: 30% !important;
+          left: 25% !important;
         }
-      
         .swiper-button-next {
-          right: 30% !important;
+          right: 25% !important;
         }
 
         .main-pagination {
@@ -781,8 +795,8 @@
           
             background: #dfe2e7;
             opacity: 1;
-            width: 1.2rem;
-            height: 1.2rem;
+            width: 1.6rem;
+            height: 1.6rem;
             margin: 0.5rem;
           
             &-active {
@@ -801,6 +815,24 @@
     &__slider {
 
       margin-bottom: 8rem;
+
+      .slider-controls {
+
+        gap: 3.2rem;
+        
+        .about-slider-prev,
+        .about-slider-next {
+          width: 3.2rem;
+          height: 3.2rem;
+        }
+      
+        .about-slider-pagination {
+          .swiper-pagination-bullet {
+            width: 1.6rem;
+            height: 1.6rem;
+          }
+        }
+      }
 
       &__title {
         font-size: 3.2rem;

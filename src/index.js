@@ -65,6 +65,12 @@ class ProjectStagesSlider {
     this.isAnimating = false;
     this.isMobile = window.innerWidth < 768;
 
+    // Drag state
+    this.startX = 0;
+    this.currentX = 0;
+    this.minDragDistance = 50;
+
+    // Preload images
     this.slides.forEach(slide => {
       const img = new Image();
       img.src = slide.image;
@@ -96,12 +102,55 @@ class ProjectStagesSlider {
   }
 
   bindEvents() {
+    // Кнопки и пагинация
     this.dots.forEach((dot, index) => {
       dot.addEventListener('click', () => this.goToSlide(index));
     });
-
     this.prevBtn.addEventListener('click', () => this.goToPrev());
     this.nextBtn.addEventListener('click', () => this.goToNext());
+
+    // === DRAG HANDLERS (стрелочные функции — нет проблем с this) ===
+    const handleMouseDown = (e) => {
+      if (this.isAnimating) return;
+      this.startX = e.pageX ?? e.touches?.[0]?.pageX ?? 0;
+      this.currentX = this.startX;
+    };
+
+    const handleMouseMove = (e) => {
+      if (this.isAnimating || this.startX === undefined) return;
+      this.currentX = e.pageX ?? e.touches?.[0]?.pageX ?? 0;
+    };
+
+    const handleMouseUp = () => {
+      if (this.isAnimating || this.startX === undefined) return;
+
+      const diff = this.startX - this.currentX;
+      const absDiff = Math.abs(diff);
+
+      if (absDiff >= this.minDragDistance) {
+        if (diff > 0) {
+          this.goToNext();
+        } else {
+          this.goToPrev();
+        }
+      }
+
+      this.startX = undefined;
+      this.currentX = undefined;
+    };
+
+    // Привязываем к ВСЕМУ СЛАЙДЕРУ
+    const sliderArea = this.container;
+
+    // Mouse
+    sliderArea.addEventListener('mousedown', handleMouseDown);
+    window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('mouseup', handleMouseUp);
+
+    // Touch
+    sliderArea.addEventListener('touchstart', handleMouseDown, { passive: true });
+    window.addEventListener('touchmove', handleMouseMove, { passive: false });
+    window.addEventListener('touchend', handleMouseUp);
   }
 
   goToSlide(index) {
@@ -113,18 +162,15 @@ class ProjectStagesSlider {
   }
 
   goToPrev() {
-    if (this.isAnimating) return;
     this.goToSlide((this.currentIndex - 1 + this.totalSlides) % this.totalSlides);
   }
 
   goToNext() {
-    if (this.isAnimating) return;
     this.goToSlide((this.currentIndex + 1) % this.totalSlides);
   }
 
   updateDescription(newLines) {
     if (!Array.isArray(newLines)) newLines = [];
-
     const existingLines = Array.from(this.descEl.children);
     const maxLen = Math.max(existingLines.length, newLines.length);
 
@@ -149,7 +195,6 @@ class ProjectStagesSlider {
 
   updateDescriptionHeight() {
     if (!this.isMobile) return;
-
     this.descWrapper.style.height = 'auto';
     const newHeight = this.descEl.scrollHeight;
     this.descWrapper.style.height = newHeight + 'px';
@@ -159,10 +204,6 @@ class ProjectStagesSlider {
     const current = this.slides[this.currentIndex];
     const prevIndex = (this.currentIndex - 1 + this.totalSlides) % this.totalSlides;
     const nextIndex = (this.currentIndex + 1) % this.totalSlides;
-
-    if (this.isMobile) {
-      this.descWrapper.style.height = this.descEl.scrollHeight + 'px';
-    }
 
     this.titleEl.style.opacity = '0';
     this.descEl.style.opacity = '0';
@@ -178,9 +219,7 @@ class ProjectStagesSlider {
       this.updateDescription(current.description);
 
       if (this.isMobile) {
-        setTimeout(() => {
-          this.updateDescriptionHeight();
-        }, 10);
+        setTimeout(() => this.updateDescriptionHeight(), 10);
       }
 
       this.titleEl.style.opacity = '1';
@@ -224,12 +263,12 @@ document.addEventListener('DOMContentLoaded', function () {
     spaceBetween: 20,
     loop: false,
     pagination: {
-      el: '.main-pagination',
+      el: '.licenses__slider-pagination',
       clickable: true,
     },
     navigation: {
-      nextEl: '.main-button-next',
-      prevEl: '.main-button-prev',
+      nextEl: '.licenses__slider-next',
+      prevEl: '.licenses__slider-prev',
     },
     breakpoints: {
       320: {
@@ -630,12 +669,12 @@ document.addEventListener('DOMContentLoaded', () => {
     slidesPerView: 4.2,
     spaceBetween: 20,
     pagination: {
-      el: '.swiper-pagination',
+      el: '.about-slider-pagination',
       clickable: true,
     },
     navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
+      nextEl: '.about-slider-next',
+      prevEl: '.about-slider-prev',
     },
     breakpoints: {
       320: {
@@ -727,12 +766,12 @@ document.addEventListener('DOMContentLoaded', function () {
     slidesPerView: 1,
     spaceBetween: 0,
     pagination: {
-      el: '.slider-controls .main-pagination',
+      el: '.swiper-portfolio-pagination',
       clickable: true,
     },
     navigation: {
-      nextEl: '.slider-controls .main-button-next',
-      prevEl: '.slider-controls .main-button-prev',
+      nextEl: '.swiper-portfolio-next',
+      prevEl: '.swiper-portfolio-prev',
     }
   });
 });
@@ -745,12 +784,12 @@ document.addEventListener('DOMContentLoaded', function () {
     slidesPerView: 'auto',
     spaceBetween: 20,
     pagination: {
-      el: '.swiper-pagination',
+      el: '.detail-news__image-slider__slider-pagination',
       clickable: true,
     },
     navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
+      nextEl: '.detail-news__image-slider__slider-next',
+      prevEl: '.detail-news__image-slider__slider-prev',
     },
     loop: false,
     grabCursor: true,
