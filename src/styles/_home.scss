@@ -751,6 +751,7 @@
       position: absolute;
       bottom: 0;
       width: 95vw;
+      max-width: 1900px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -834,7 +835,7 @@
 }
 
 .news {
-  margin-bottom: 20rem;
+  margin-bottom: 20rem !important;
 
   &__title {
     font-family: var(--second-family);
@@ -1478,7 +1479,7 @@
 
   .news {
 
-    margin-bottom: 8rem;
+    margin-bottom: 8rem !important;
 
     &__button {
       .btn {

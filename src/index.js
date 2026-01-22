@@ -384,7 +384,6 @@ function initProjectsSlider() {
   const prevButton = document.querySelector('.swiper-button-prev.main-button-prev');
   const paginationEl = document.querySelector('.swiper-pagination.main-pagination');
 
-  // Сброс видимости элементов
   if (nextButton) nextButton.style.display = '';
   if (prevButton) prevButton.style.display = '';
   if (paginationEl) paginationEl.style.display = '';
@@ -423,7 +422,6 @@ function initProjectsSlider() {
       }
     });
   } else {
-    // На десктопе — всё скрываем
     if (nextButton) nextButton.style.display = 'none';
     if (prevButton) prevButton.style.display = 'none';
     if (paginationEl) paginationEl.style.display = 'none';
@@ -434,29 +432,23 @@ function updateControlsVisibility(swiper, nextButton, prevButton, paginationEl) 
   const totalSlides = swiper.slides.length;
   const slidesPerView = swiper.params.slidesPerView;
 
-  // Определяем, нужно ли вообще показывать контролы
   const needsControls = totalSlides > slidesPerView;
 
   if (!needsControls) {
-    // Скрываем всё
     if (nextButton) nextButton.style.display = '';
     if (prevButton) prevButton.style.display = '';
     if (paginationEl) paginationEl.style.display = '';
   } else {
-    // Показываем/скрываем стрелки в зависимости от позиции
     if (nextButton) nextButton.style.display = swiper.isEnd ? '' : '';
     if (prevButton) prevButton.style.display = swiper.isBeginning ? '' : '';
-    // Точки показываем всегда, если контролы нужны
     if (paginationEl) paginationEl.style.display = '';
   }
 }
 
-// Инициализация
 document.addEventListener('DOMContentLoaded', () => {
   initProjectsSlider();
 });
 
-// Отслеживание медиа-запроса
 const projectsMediaQuery = window.matchMedia('(max-width: 768px)');
 if (projectsMediaQuery.addEventListener) {
   projectsMediaQuery.addEventListener('change', initProjectsSlider);
@@ -464,7 +456,6 @@ if (projectsMediaQuery.addEventListener) {
   projectsMediaQuery.addListener(initProjectsSlider);
 }
 
-// Дебаунс на resize
 let projectsResizeTimeout;
 window.addEventListener('resize', () => {
   clearTimeout(projectsResizeTimeout);
@@ -673,20 +664,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
   document.querySelectorAll('.swiper-button-prev, .swiper-button-next').forEach(btn => {
     btn.addEventListener('mousedown', e => e.preventDefault());
-  });
-});
-
-/*----video-poster------*/
-
-const videos = document.querySelectorAll('.specific-project__video__video');
-videos.forEach(video => {
-  video.addEventListener('play', () => {
-    const poster = video.parentNode.querySelector('.video-poster');
-    if (poster) poster.style.display = 'none';
-  });
-  video.addEventListener('pause', () => {
-    const poster = video.parentNode.querySelector('.video-poster');
-    if (poster) poster.style.display = 'block';
   });
 });
 

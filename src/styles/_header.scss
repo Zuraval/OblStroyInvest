@@ -7,6 +7,9 @@
   top: 16px;
   left: 50%;
   z-index: 110;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   width: calc(100% - 32px);
   margin: 0 auto;
@@ -25,6 +28,8 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    width: 100%;
+    max-width: 1900px;
   }
 
   .start-section {

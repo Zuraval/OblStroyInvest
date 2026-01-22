@@ -302,11 +302,6 @@
         width: 100%;
         height: 82rem;
       }
-
-      video:is(:playing, [data-playing]) ~ .video-poster,
-      video[playing] ~ .video-poster {
-        display: none;
-      }
     }
   }
 
@@ -329,6 +324,7 @@
       position: absolute;
       bottom: 0;
       width: 95vw;
+      max-width: 1900px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -394,15 +390,8 @@
       flex-wrap: wrap;
       gap: 2rem;
 
-      &__item {
-
+      .projects__menu__item {
         width: calc(33% - 1rem);
-
-        img {
-          border-radius: 16px;
-          width: 100%;
-          height: 100%;
-        }
       }
     }
 
@@ -438,6 +427,7 @@
       position: absolute;
       bottom: 0;
       width: 95vw;
+      max-width: 1900px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -744,7 +734,7 @@
       }
 
       .detail-news__image-slider {
-        margin-bottom: 16rem;
+        margin-bottom: 4rem;
       }
 
       .detail-news__image-slider__slider {

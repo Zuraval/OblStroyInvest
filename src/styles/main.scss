@@ -178,3 +178,15 @@ input[type="number"] {
     width: 100%;
   }
 }
+
+@media (min-width: 1910px) {
+  html {
+    font-size: 10px
+  }
+
+  .container {
+    max-width: 1910px !important;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

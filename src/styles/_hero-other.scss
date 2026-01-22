@@ -2,7 +2,7 @@
   height: 97.9rem;
   display: flex;
   align-items: center;
-  margin-bottom: 20rem;
+  margin-bottom: 20rem !important;
   --hero-bg-image-url: '../assets/images/hero-img1.png';
 
   &::before {
@@ -106,7 +106,7 @@
 @media (max-width: 768px) {
   .hero-other {
 
-    margin-bottom: 8rem;
+    margin-bottom: 8rem !important;
     flex-direction: column;
     height: 103.2rem;
     justify-content: center;
