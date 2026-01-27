@@ -95,7 +95,7 @@
       position: absolute;
       bottom: 0;
       width: 95vw;
-      max-width: 1900px;
+      max-width: 1330px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -167,14 +167,6 @@
           width: 100%;
           height: 100%;
         }
-      }
-    }
-  }
-
-  &__video {
-    .specific-project__video__video {
-      .video-poster {
-        background-image: url('../assets/images/video3.png');
       }
     }
   }

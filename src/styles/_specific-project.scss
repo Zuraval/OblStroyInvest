@@ -377,11 +377,6 @@
         width: 100%;
         height: 82rem;
       }
-
-      video:is(:playing, [data-playing]) ~ .video-poster,
-      video[playing] ~ .video-poster {
-        display: none;
-      }
     }
   }
 }

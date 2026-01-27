@@ -215,6 +215,13 @@
           width: 43.9rem;
           height: 12.4rem;
 
+          .svg-box {
+            svg {
+              width: 2.4rem;
+              height: 2.3rem;
+            }
+          }
+
           .text-block {
 
             display: flex;
@@ -324,7 +331,7 @@
       position: absolute;
       bottom: 0;
       width: 95vw;
-      max-width: 1900px;
+      max-width: 1330px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -427,7 +434,7 @@
       position: absolute;
       bottom: 0;
       width: 95vw;
-      max-width: 1900px;
+      max-width: 1330px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -663,6 +670,13 @@
             gap: 3.2rem;
             width: 100%;
             height: auto;
+
+            .svg-box {
+              svg {
+                width: 4.8rem;
+                height: 4.6rem;
+              }
+            }
 
             .text-block {
 

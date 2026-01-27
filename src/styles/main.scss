@@ -179,14 +179,15 @@ input[type="number"] {
   }
 }
 
-@media (min-width: 1910px) {
+@media (min-width: 1360px) {
   html {
-    font-size: 10px
+    font-size: 7px
   }
 
   .container {
-    max-width: 1910px !important;
+    max-width: 1360px !important;
     margin-left: auto;
     margin-right: auto;
+    padding: 0px 15px;
   }
 }
