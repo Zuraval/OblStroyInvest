@@ -793,6 +793,10 @@ document.addEventListener('DOMContentLoaded', function () {
     pagination: {
       el: '.swiper-portfolio-pagination',
       clickable: true,
+      renderBullet: function (index, className) {
+        const number = (index + 1).toString().padStart(2, '0');
+        return `<span class="${className}">${number}</span>`;
+      }
     },
     navigation: {
       nextEl: '.swiper-portfolio-next',
@@ -805,13 +809,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
 document.addEventListener('DOMContentLoaded', function () {
   const mainSwiper = new Swiper('.detail-news__image-slider__slider', {
-    modules: [Pagination, Navigation],
-    slidesPerView: 'auto',
-    spaceBetween: 20,
-    pagination: {
-      el: '.detail-news__image-slider__slider-pagination',
-      clickable: true,
-    },
+    modules: [Navigation],
+    slidesPerView: 1,
+    spaceBetween: 0,
     navigation: {
       nextEl: '.detail-news__image-slider__slider-next',
       prevEl: '.detail-news__image-slider__slider-prev',
@@ -829,8 +829,53 @@ document.addEventListener('DOMContentLoaded', function () {
       },
     },
   });
-});
 
+  const paginationEl = document.querySelector('.detail-news__image-slider__slider-pagination');
+
+  function updatePagination() {
+    if (!paginationEl || !mainSwiper) return;
+
+    const slidesCount = mainSwiper.slides.length;
+    const activeIndex = mainSwiper.activeIndex;
+    let html = '';
+
+    if (slidesCount <= 3) {
+      for (let i = 0; i < slidesCount; i++) {
+        const number = (i + 1).toString().padStart(2, '0');
+        const isActive = i === activeIndex ? 'swiper-pagination-bullet-active' : '';
+        html += `<span class="swiper-pagination-bullet ${isActive}" data-index="${i}">${number}</span>`;
+      }
+    } else {
+      for (let i = 0; i < 3; i++) {
+        const number = (i + 1).toString().padStart(2, '0');
+        const isActive = i === activeIndex ? 'swiper-pagination-bullet-active' : '';
+        html += `<span class="swiper-pagination-bullet ${isActive}" data-index="${i}">${number}</span>`;
+      }
+
+      html += `<span class="swiper-pagination-bullet-disabled">...</span>`;
+
+      const lastNumber = slidesCount.toString().padStart(2, '0');
+      const isLastActive = activeIndex === slidesCount - 1 ? 'swiper-pagination-bullet-active' : '';
+      html += `<span class="swiper-pagination-bullet ${isLastActive}" data-index="${slidesCount - 1}">${lastNumber}</span>`;
+    }
+
+    paginationEl.innerHTML = html;
+
+    paginationEl.querySelectorAll('.swiper-pagination-bullet[data-index]').forEach(bullet => {
+      bullet.addEventListener('click', (e) => {
+        const index = parseInt(e.currentTarget.getAttribute('data-index'));
+        mainSwiper.slideTo(index);
+      });
+    });
+  }
+
+  mainSwiper.on('init', updatePagination);
+  mainSwiper.on('slideChange', updatePagination);
+
+  if (mainSwiper.slides.length > 0) {
+    updatePagination();
+  }
+});
 
 /*----detail-news-another-news------*/
 
