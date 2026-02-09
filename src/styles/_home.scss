@@ -797,8 +797,8 @@
         
           background: #dfe2e7;
           opacity: 1;
-          width: 1.2rem;
-          height: 1.2rem;
+          width: 0.8rem;
+          height: 0.8rem;
           margin: 0.3rem;
         
           &-active {
@@ -1561,6 +1561,12 @@
   }
 
   .modal-overlay {
-    display: none;
+    .zoom-next {
+      right: 0 !important;
+    }
+
+    .zoom-prev {
+      left: 0 !important;
+    }
   }
 }
